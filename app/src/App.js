@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import Login from "./views/login/Login";
+import MainTests from "./views/mainTests/MainTests";
 import PageWrapper from "./containers/pageWrapper/PageWrapper";
 import { logout } from "./redux/actions/auth";
 import { whoAmI } from "./redux/actions/users";
@@ -21,19 +22,19 @@ class App extends React.Component {
         <Route
           exact
           path="/"
-          render={props => (
-            <PageWrapper {...props} title="Главная" component={Login} Auth/>
+          render={(props) => (
+            <PageWrapper {...props} title="Главная" component={Login} Auth />
           )}
         />
         <Route
           path="/login"
-          render={props => (
+          render={(props) => (
             <PageWrapper {...props} title="Вход" component={Login} notAuth />
           )}
         />
         <Route
           path="/register"
-          render={props => (
+          render={(props) => (
             <PageWrapper
               {...props}
               title="Регистрация"
@@ -44,14 +45,14 @@ class App extends React.Component {
         />
         <Route
           path="/dashboard"
-          render={props => (
-            <PageWrapper {...props} component={Login} Auth />
+          render={(props) => (
+            <PageWrapper {...props} component={MainTests} notAuth />
           )}
         />
         <Route
           path="*"
           exact
-          render={props => (
+          render={(props) => (
             <PageWrapper {...props} title="Упс!" component={Login} />
           )}
         />
@@ -63,10 +64,7 @@ class App extends React.Component {
 const mapStateToProps = ({ auth }) => ({ auth });
 const mapDispatchToProps = {
   logout,
-  whoAmI
+  whoAmI,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
