@@ -15,7 +15,7 @@ ReactDOM.render(
       <Router history={history}>
         <App />
       </Router>
-    </Provider>,
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
