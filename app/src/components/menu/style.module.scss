@@ -1,0 +1,48 @@
+$bcSideBarStatic: #9ccc65;
+$widthSideBarStatic: 350px;
+$ptSideBarStatic: 200px;
+
+.container {
+  position: absolute;
+  width: 350px;
+  height: 100%;
+  background-color: $bcSideBarStatic;
+  z-index: 1;
+}
+
+.items {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.topItems {
+  display: flex;
+  flex-direction: column;
+  padding-top: 74px;
+  padding-left: 35px;
+  // margin: 0 35px;
+  // margin-left: 0px;
+}
+
+.pcImage {
+  position: absolute;
+  top: $ptSideBarStatic;
+  z-index: 10;
+}
+
+.pc {
+  width: 300px;
+  height: 565px;
+}
+
+.menuItem {
+  color: white;
+  font-size: 24px;
+}
+
+.exit {
+  padding-bottom: 33px;
+  padding-left: 35px;
+}
