@@ -1,9 +1,9 @@
-// import style from "./style.module.scss";
+import React from "react";
 import TestItem from "../../../components/testChooseItem/TestChooseItem";
 
 function TestSelection() {
   return (
-    <div>
+    <React.Fragment>
       <TestItem
         abbreviation="SUS"
         decryption="System Usability Scale"
@@ -19,7 +19,7 @@ function TestSelection() {
         decryption="Post-Study System Usability Questionnaire"
         description="Описание"
       />
-    </div>
+    </React.Fragment>
   );
 }
 
