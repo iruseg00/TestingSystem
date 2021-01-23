@@ -1,6 +1,6 @@
 $bcSideBarStatic: #9ccc65;
 $widthSideBarStatic: 350px;
-$ptSideBarStatic: 200px;
+$ptSideBarStatic: 300px;
 
 .container {
   position: absolute;
@@ -20,16 +20,13 @@ $ptSideBarStatic: 200px;
 .topItems {
   display: flex;
   flex-direction: column;
-  padding-top: 74px;
+  padding-top: 44px;
   padding-left: 35px;
-  // margin: 0 35px;
-  // margin-left: 0px;
 }
 
 .pcImage {
   position: absolute;
   top: $ptSideBarStatic;
-  z-index: 10;
 }
 
 .pc {
@@ -39,7 +36,23 @@ $ptSideBarStatic: 200px;
 
 .menuItem {
   color: white;
+  margin-top: 30px;
   font-size: 24px;
+}
+
+.ellipse {
+  display: none;
+}
+
+.menuItem:hover {
+  text-decoration: underline;
+
+  .ellipse {
+    display: inline-block;
+    position: relative;
+    margin-left: -20px;
+    padding-right: 12px;
+  }
 }
 
 .exit {
