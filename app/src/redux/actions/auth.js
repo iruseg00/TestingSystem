@@ -24,7 +24,7 @@ export function login(data) {
       })
       .catch(err => {
         let message;
-        if (err.response.data === "Password is incorrect")
+        if (err.response?.data === "Password is incorrect")
           message = "Неверный пароль";
         else message = "Что-то пошло не так";
         dispatch({ type: AUTH_LOGIN_FAILED, payload: message });

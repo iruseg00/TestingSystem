@@ -1,4 +1,4 @@
-export default isAuth = (req, res, next) => {
+const isAuth = (req, res, next) => {
   if (req.user === undefined)
     res.status(401).json({
       status: 'error',
@@ -16,3 +16,5 @@ export default isAuth = (req, res, next) => {
     });
   else next();
 };
+
+export default isAuth;

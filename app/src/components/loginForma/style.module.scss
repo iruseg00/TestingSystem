@@ -19,6 +19,11 @@ $sizeTextButtonAndLabels: 24px;
     justify-content: space-between;
 }
 
+.wrapper_input label::before
+{
+    content: '' !important;
+}
+
 .wrapper_input label
 {
     width: 170px;
