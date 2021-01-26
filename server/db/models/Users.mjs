@@ -11,7 +11,7 @@ let Users = sequelizeConnect.define(
             primaryKey: true,
             defaultValue: UUIDV4,
         },
-        surName: {
+        surname: {
             type: STRING,
             allowNull: false,
         },

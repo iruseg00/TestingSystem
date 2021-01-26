@@ -6,7 +6,7 @@ import jwtService from '../services/jwtService.mjs';
 
 router.post('/login', (req, res) => {
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    UserService.find(req.body.login)
+    UserService.find(req.body.email)
         .then((user) => {
             if (!user) throw new Error('User not found');
             if (!user.validPassword(req.body.password))

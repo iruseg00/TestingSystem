@@ -27,7 +27,7 @@ class UserService
                 email: body.email
             },
             defaults: {
-                surName: body.surName,
+                surname: body.surname,
                 name: body.name,
                 middleName: body.middleName,
                 sex: body.sex,
