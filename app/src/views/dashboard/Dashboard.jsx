@@ -5,6 +5,11 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import TestSelectionLayout from "./testSelection/TestSelection";
+
+import SUSTestSetupLayout from "./susTestSetup/SUSTestSetup";
+import PSSUQTestSetupLayout from "./pssuqTestSetup/PSSUQTestSetup";
+import MDTTestSetupLayout from "./mdtTestSetup/MDTTestSetup";
+
 import SUSTestLayout from "./susTest/SUSTest";
 import PSSUQTestLayout from "./pssuqTest/PSSUQTest";
 import MDTTestLayout from "./mdtTest/MDTTest";
@@ -26,8 +31,37 @@ function MainTests() {
           )}
         />
         <Route
-          exec
           path="/dashboard/sus"
+          render={(props) => (
+            <PageWrapper
+              {...props}
+              title="SUS Test Setup"
+              component={SUSTestSetupLayout}
+            />
+          )}
+        />
+        <Route
+          path="/dashboard/pssuq"
+          render={(props) => (
+            <PageWrapper
+              {...props}
+              title="PSSUQ Test Setup"
+              component={PSSUQTestSetupLayout}
+            />
+          )}
+        />
+        <Route
+          path="/dashboard/mdt"
+          render={(props) => (
+            <PageWrapper
+              {...props}
+              title="MDT Test Setup"
+              component={MDTTestSetupLayout}
+            />
+          )}
+        />
+        <Route
+          path="/dashboard/susTest"
           render={(props) => (
             <PageWrapper
               {...props}
@@ -37,8 +71,7 @@ function MainTests() {
           )}
         />
         <Route
-          exec
-          path="/dashboard/pssuq"
+          path="/dashboard/pssuqTest"
           render={(props) => (
             <PageWrapper
               {...props}
@@ -48,8 +81,7 @@ function MainTests() {
           )}
         />
         <Route
-          exec
-          path="/dashboard/mdt"
+          path="/dashboard/mdtTest"
           render={(props) => (
             <PageWrapper
               {...props}
