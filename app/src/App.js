@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
-import Login from "./views/login/Login";
-import Register from "./views/register/Register";
+import Login from "./views/Login/Login";
+import Register from "./views/Register/Register";
+import Main from "./views/Main/Main";
 import PageWrapper from "./containers/pageWrapper/PageWrapper";
 import { logout } from "./redux/actions/auth";
 import { whoAmI } from "./redux/actions/users";
@@ -23,7 +24,7 @@ class App extends React.Component {
           exact
           path="/"
           render={props => (
-            <PageWrapper {...props} title="Главная" component={Login} Auth/>
+            <PageWrapper {...props} title="Главная" component={Main} Auth/>
           )}
         />
         <Route

@@ -23,7 +23,6 @@ export default function registrationReducer(state = initialState, action) {
         newState.loadingRegister = true;
         return newState;
       case REGISTRATION_SUCCESS:
-          // dispatch login
         newState.message = action.payload;
         newState.loadingRegister = false;
         return newState;
@@ -33,7 +32,7 @@ export default function registrationReducer(state = initialState, action) {
         newState.loadingRegister = false;
         return newState;
       case REGISTRATION_GET_ID_REQUEST:
-        newState.loading = true;
+        newState.loadingId = true;
         return newState;
       case REGISTRATION_GET_ID_SUCCESS:
         newState.loadingId = false;

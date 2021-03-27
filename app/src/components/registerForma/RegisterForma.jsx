@@ -1,10 +1,7 @@
 import { useState } from 'react';
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 import { Form, Input, Button, Radio } from 'antd';
-import { withRouter } from "react-router";
-import AuthService from "../../services/AuthService";
-// import { login } from "../../redux/actions/auth";
-// import { whoAmI } from "../../redux/actions/users";
+import { register } from "../../redux/actions/registration";
 
 import style from "./style.module.scss";
 
@@ -21,7 +18,7 @@ function RegisterForma(props)
     const onFinish = (values)=>
     {
         values.sex = RadioValue;
-        AuthService.register(values).then(()=> props.history.push('/login'));
+        props.register(values);
     };
     const onFinishFailed = ({ errorFields }) => 
     {
@@ -172,6 +169,7 @@ function RegisterForma(props)
                     type="primary" 
                     htmlType="submit" 
                     className={style.submit}
+                    loading={props.registration.loading}
                     >
                       Готово
                     </Button>
@@ -181,15 +179,12 @@ function RegisterForma(props)
     );
 }
 
-// const mapStateToProps = ({ auth }) => ({ auth });
-// const mapDispatchToProps = {
-//   login,
-//   whoAmI
-// };
+const mapStateToProps = ({ registration }) => ({ registration });
+const mapDispatchToProps = {
+  register,
+};
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(RegisterForma);
-
-export default withRouter(RegisterForma);
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(RegisterForma);
