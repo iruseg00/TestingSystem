@@ -1,4 +1,3 @@
-import history from "../../helper/history";
 import AuthService from "../../services/AuthService";
 import { whoAmI } from "./users";
 import {
@@ -19,7 +18,6 @@ export function login(data) {
         localStorage.setItem("accessToken", data.data.accessToken);
         localStorage.setItem("refreshToken", data.data.refreshToken);
         localStorage.setItem("expires_in", data.data.expires_in);
-        history.push("/");
         dispatch(whoAmI());
       })
       .catch(err => {
@@ -42,7 +40,6 @@ export function logout() {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         localStorage.removeItem("expires_in");
-        history.push("/login");
         return Promise.resolve();
       })
       .catch(err => {
@@ -50,7 +47,6 @@ export function logout() {
         localStorage.removeItem("refreshToken");
         localStorage.removeItem("expires_in");
         dispatch({ type: AUTH_LOGOUT_FAILED, payload: "Что-то пошло не так" });
-        history.push("/login");
         return Promise.reject("Что-то пошло не так");
       });
   };

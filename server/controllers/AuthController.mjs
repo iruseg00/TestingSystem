@@ -4,9 +4,10 @@ const router = express.Router();
 import UserService from '../services/UserService.mjs';
 import jwtService from '../services/jwtService.mjs';
 
-router.post('/login', (req, res) => {
+function login(req ,res)
+{
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    UserService.find(req.body.login)
+    UserService.find(req.body.email)
         .then((user) => {
             if (!user) throw new Error('User not found');
             if (!user.validPassword(req.body.password))
@@ -27,7 +28,9 @@ router.post('/login', (req, res) => {
             res.status(200).json(data[1]);
         })
         .catch((err) => res.status(400).json(err.message));
-});
+}
+
+router.post('/login', (req, res) => login(req , res));
 
 router.post('/refresh', (req, res) => {
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
@@ -70,7 +73,7 @@ router.post('/refresh', (req, res) => {
 router.post('/register', (req, res) => {
     UserService.create(req.body)
         .then((data) => {
-            if (data[1]) res.sendStatus(201);
+            if (data[1]) login(req ,res);
             else res.sendStatus(400);
         })
         .catch((err) => res.status(400).json(err));

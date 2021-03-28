@@ -15,7 +15,6 @@ function LoginForma(props)
     const onFinish = (values)=>
     {
         props.login(values);
-        console.log(values);
     };
     const onFinishFailed = ({ errorFields }) => 
     {
