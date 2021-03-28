@@ -1,4 +1,3 @@
-import history from "../../helper/history";
 import AuthService from "../../services/AuthService";
 import { whoAmI } from "./users";
 import {
@@ -19,12 +18,11 @@ export function login(data) {
         localStorage.setItem("accessToken", data.data.accessToken);
         localStorage.setItem("refreshToken", data.data.refreshToken);
         localStorage.setItem("expires_in", data.data.expires_in);
-        history.push("/");
         dispatch(whoAmI());
       })
       .catch(err => {
         let message;
-        if (err.response.data === "Password is incorrect")
+        if (err.response?.data === "Password is incorrect")
           message = "Неверный пароль";
         else message = "Что-то пошло не так";
         dispatch({ type: AUTH_LOGIN_FAILED, payload: message });
@@ -42,7 +40,6 @@ export function logout() {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         localStorage.removeItem("expires_in");
-        history.push("/login");
         return Promise.resolve();
       })
       .catch(err => {
@@ -50,7 +47,6 @@ export function logout() {
         localStorage.removeItem("refreshToken");
         localStorage.removeItem("expires_in");
         dispatch({ type: AUTH_LOGOUT_FAILED, payload: "Что-то пошло не так" });
-        history.push("/login");
         return Promise.reject("Что-то пошло не так");
       });
   };

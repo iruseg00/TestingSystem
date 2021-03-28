@@ -1,0 +1,75 @@
+$bcInputs: #F5F5F5;
+$radiusButtonRegister: 10px;
+$bcButtonRegister: #8CA2D3;
+$sizeTextButtonAndLabels: 18px;
+
+.form
+{
+    width: 640px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.form_info
+{
+    display: flex;
+    flex-direction: column;
+    width: 425px;
+}
+
+.wrapper_input
+{
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper_input label::before
+{
+    content: '' !important;
+}
+
+.wrapper_input label
+{
+    width: 120px;
+    font-size: $sizeTextButtonAndLabels;
+    padding-top: 14px;
+}
+
+.wrapper_input input
+{
+    background-color: $bcInputs;
+}
+
+.input 
+{
+    width: 300px;
+    height: 45px;
+    background-color: $bcInputs;
+}
+
+.radio
+{
+    padding-left: 120px;
+    height: 45px;
+}
+
+.submit
+{
+    background-color: $bcButtonRegister;
+    border-radius: $radiusButtonRegister;
+    width: 120px;
+    height: 50px;
+    font-size: $sizeTextButtonAndLabels;
+    border: none;
+}
+
+.photo
+{
+    align-self: center;
+    // padding-right: 40px;
+    width: 150px;
+    height: 200px;
+    // border-radius: 50px;
+}

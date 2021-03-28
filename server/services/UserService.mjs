@@ -27,12 +27,13 @@ class UserService
                 email: body.email
             },
             defaults: {
-                surName: body.surName,
+                surname: body.surname,
                 name: body.name,
                 middleName: body.middleName,
                 sex: body.sex,
                 email: body.email,
                 password: body.password,
+                photo: body.photo
             }
         });
     }
@@ -44,12 +45,12 @@ class UserService
         });
     }
 
-    // setImageBase64(body, id) 
-    // {
-    //     return Users.update({ imageBase64: body.imageUrl }, {
-    //         where: { id },
-    //     });
-    // }
+    setImageBase64(body, id) 
+    {
+        return Users.update({ photo: body.photo }, {
+            where: { id },
+        });
+    }
 
 
     delete(id) 
