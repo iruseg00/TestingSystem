@@ -4,20 +4,24 @@ import { Form, Input, Button, Radio } from 'antd';
 import { register } from "../../redux/actions/registration";
 
 import style from "./style.module.scss";
+import DragnDropImage from '../dragnDropImage/DragnDropImage';
 
 function RegisterForma(props)
 {
     const [ValidateStatusSurname, setValidateStatusSurname] = useState('validating');
     const [ValidateStatusName, setValidateStatusName] = useState('validating');
     const [ValidateStatusMiddleName, setValidateStatusMiddleName] = useState('validating');
-    const [RadioValue , setRadioValue] = useState('М');
     const [ValidateStatusEmail, setValidateStatusEmail] = useState('validating');
     const [ValidateStatusPass, setValidateStatusPass] = useState('validating');
+    const [RadioValue , setRadioValue] = useState('М');
     
     const [form] = Form.useForm();
+    let userPhoto = null;
     const onFinish = (values)=>
     {
         values.sex = RadioValue;
+        values.photo = userPhoto;
+        console.log(values)
         props.register(values);
     };
     const onFinishFailed = ({ errorFields }) => 
@@ -29,10 +33,7 @@ function RegisterForma(props)
         if(ErrFields.includes('email')) setValidateStatusEmail('error');
         if(ErrFields.includes('password')) setValidateStatusPass('error');   
     };
-    const radioChange = e => 
-    {
-        setRadioValue(e.target.value);
-    };
+    const radioChange = e => setRadioValue(e.target.value);
     const changedField = (e)=>
     {
         switch(e.target.id)
@@ -55,6 +56,7 @@ function RegisterForma(props)
             default: break;                                
         }
     };
+    const onChangeAvatar = (image) => userPhoto = image || null;
     return (
         <Form form={form}
         className={style.form}
@@ -122,6 +124,7 @@ function RegisterForma(props)
                 </Form.Item>
                 <Radio.Group 
                 className={style.radio}
+                label="Пол"
                 options={['М', 'Ж']} 
                 onChange={radioChange} 
                 value={RadioValue} 
@@ -175,6 +178,12 @@ function RegisterForma(props)
                     </Button>
                 </Form.Item>
             </div>
+            <Form.Item
+            className={style.photo}
+            name="photo"
+            >
+                <DragnDropImage onChange={onChangeAvatar} />
+            </Form.Item>
         </Form>
     );
 }

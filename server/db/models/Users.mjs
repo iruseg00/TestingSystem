@@ -46,9 +46,9 @@ let Users = sequelizeConnect.define(
             allowNull: false,
         },
         photo: {
-            type: STRING,
-            allowNull: true,
-        },
+            type: TEXT,
+            allowNull: true
+          }
     },
     {
         timestamps: true,

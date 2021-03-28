@@ -5,7 +5,7 @@ $sizeTextButtonAndLabels: 18px;
 
 .form
 {
-    width: 740px;
+    width: 640px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -63,4 +63,13 @@ $sizeTextButtonAndLabels: 18px;
     height: 50px;
     font-size: $sizeTextButtonAndLabels;
     border: none;
+}
+
+.photo
+{
+    align-self: center;
+    // padding-right: 40px;
+    width: 150px;
+    height: 200px;
+    // border-radius: 50px;
 }
