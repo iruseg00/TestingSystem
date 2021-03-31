@@ -1,0 +1,39 @@
+@import "../../../variables/Mixins.scss";
+$bcInputs: #f5f5f5;
+$radiusButtonLogin: 10px;
+$bcButtonLogin: #8ca2d3;
+$sizeTextButtonAndLabels: 24px;
+
+.testDescription {
+  @include titleText;
+  padding-top: 20px;
+  padding-left: 35px;
+  font-size: 36px;
+  padding-bottom: 50px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  padding-left: 35px;
+  font-size: 18px;
+  width: 500px;
+}
+
+.submit {
+  margin-left: 35px;
+  margin-top: 20px;
+  background-color: $bcButtonLogin;
+  border-radius: $radiusButtonLogin;
+  width: 260px;
+  height: 53px;
+  font-size: $sizeTextButtonAndLabels;
+  border: none;
+}
+
+.test {
+  display: flex;
+  flex-direction: row;
+}
