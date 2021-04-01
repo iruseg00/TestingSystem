@@ -20,42 +20,50 @@ class App extends React.Component {
 
 	render() {
 		return (
-      <Switch>
-        <Route
-          exact
-          path="/"
-          render={(props) => (
-            <PageWrapper {...props} title="Главная" component={Main} Auth />
-          )}
-        />
-        <Route
-          path="/login"
-          render={(props) => (
-            <PageWrapper {...props} title="Вход" component={Login} notAuth />
-          )}
-        />
-        <Route
-          path="/register"
-          render={(props) => (
-            <PageWrapper
-              {...props}
-              title="Регистрация"
-              component={Register}
-              notAuth
-            />
-          )}
-        />
-        <Route
-          path="/dashboard"
-          render={(props) => <PageWrapper {...props} component={MainTests} />}
-        />
-        <Route
-          path="*"
-          exact
-          component={Page_404}
-        />
-      </Switch>
-    );
+			<Switch>
+				<Route
+					exact
+					path='/'
+					render={(props) => (
+						<PageWrapper
+							{...props}
+							title='Главная'
+							component={Main}
+							Auth
+						/>
+					)}
+				/>
+				<Route
+					path='/login'
+					render={(props) => (
+						<PageWrapper
+							{...props}
+							title='Вход'
+							component={Login}
+							notAuth
+						/>
+					)}
+				/>
+				<Route
+					path='/register'
+					render={(props) => (
+						<PageWrapper
+							{...props}
+							title='Регистрация'
+							component={Register}
+							notAuth
+						/>
+					)}
+				/>
+				<Route
+					path='/dashboard'
+					render={(props) => (
+						<PageWrapper {...props} component={MainTests} />
+					)}
+				/>
+				<Route path='*' exact component={Page_404} />
+			</Switch>
+		);
 	}
 }
 
