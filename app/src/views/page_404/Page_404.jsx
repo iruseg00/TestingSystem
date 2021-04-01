@@ -1,4 +1,6 @@
+import { Button } from 'antd';
 import s from './style.module.scss';
+import { Link } from 'react-router-dom';
 
 const Page_404 = () => {
 	return (
@@ -7,6 +9,11 @@ const Page_404 = () => {
 				Ну... как бы это... ты пытаешься сослаться на несуществующий путь
 				(ошибка 404)
 			</div>
+			<Link to='/dashboard'>
+				<Button className={s.redirect_button} type='primary'>
+					На главную
+				</Button>
+			</Link>
 		</div>
 	);
 };
