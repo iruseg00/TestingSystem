@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-pascal-case */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
@@ -21,57 +20,42 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<Switch>
-				<Route
-					exact
-					path='/'
-					render={(props) => (
-						<PageWrapper
-							{...props}
-							title='Главная'
-							component={Main}
-							Auth
-						/>
-					)}
-				/>
-				<Route
-					path='/login'
-					render={(props) => (
-						<PageWrapper
-							{...props}
-							title='Вход'
-							component={Login}
-							notAuth
-						/>
-					)}
-				/>
-				<Route
-					path='/register'
-					render={(props) => (
-						<PageWrapper
-							{...props}
-							title='Регистрация'
-							component={Register}
-							notAuth
-						/>
-					)}
-				/>
-				<Route
-					path='/dashboard'
-					render={(props) => (
-						<PageWrapper {...props} component={MainTests} />
-					)}
-				/>
-				<Route
-					path='*'
-					exact
-					render={(props) => (
-						// <PageWrapper {...props} title='Упс!' component={Login} />
-						<Page_404 />
-					)}
-				/>
-			</Switch>
-		);
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <PageWrapper {...props} title="Главная" component={Main} Auth />
+          )}
+        />
+        <Route
+          path="/login"
+          render={(props) => (
+            <PageWrapper {...props} title="Вход" component={Login} notAuth />
+          )}
+        />
+        <Route
+          path="/register"
+          render={(props) => (
+            <PageWrapper
+              {...props}
+              title="Регистрация"
+              component={Register}
+              notAuth
+            />
+          )}
+        />
+        <Route
+          path="/dashboard"
+          render={(props) => <PageWrapper {...props} component={MainTests} />}
+        />
+        <Route
+          path="*"
+          exact
+          component={Page_404}
+        />
+      </Switch>
+    );
 	}
 }
 
