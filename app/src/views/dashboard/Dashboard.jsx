@@ -18,17 +18,12 @@ function MainTests() {
 	return (
 		<div>
 			<Header />
+			<TestSelectionLayout />
 			<Switch>
 				<Route
 					exact
 					path='/dashboard/test-choosing'
-					render={(props) => (
-						<PageWrapper
-							{...props}
-							title='Выбор теста'
-							component={TestSelectionLayout}
-						/>
-					)}
+					component={TestSelectionLayout}
 				/>
 				<Route
 					path='/dashboard/sus'
