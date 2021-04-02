@@ -21,11 +21,6 @@ function MainTests() {
 			<TestSelectionLayout />
 			<Switch>
 				<Route
-					exact
-					path='/dashboard/test-choosing'
-					component={TestSelectionLayout}
-				/>
-				<Route
 					path='/dashboard/sus'
 					render={(props) => (
 						<PageWrapper

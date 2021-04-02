@@ -14,10 +14,7 @@ class Menu extends React.Component {
 				</div>
 				<div className={style.items}>
 					<div className={style.topItems}>
-						<Link
-							className={style.menuItem}
-							to='/dashboard/test-choosing'
-						>
+						<Link className={style.menuItem} to='/dashboard'>
 							<img
 								className={style.ellipse}
 								src={ellipse}
