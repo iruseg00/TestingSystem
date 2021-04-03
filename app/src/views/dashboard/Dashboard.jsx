@@ -1,6 +1,4 @@
-// import style from "./style.module.scss";
 import Header from '../../components/header/Header';
-import PageWrapper from '../../containers/pageWrapper/PageWrapper';
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -20,49 +18,13 @@ function MainTests() {
 		<div>
 			<Header />
 			<Switch>
-				<Route
-					path='/dashboard'
-					exact
-					render={(props) => (
-						<PageWrapper {...props} title='SUS Test Setup' component={TestSelectionLayout} />
-					)}
-				/>
-				<Route
-					path='/dashboard/sus'
-					render={(props) => (
-						<PageWrapper {...props} title='SUS Test Setup' component={SUSTestSetupLayout} />
-					)}
-				/>
-				<Route
-					path='/dashboard/pssuq'
-					render={(props) => (
-						<PageWrapper {...props} title='PSSUQ Test Setup' component={PSSUQTestSetupLayout} />
-					)}
-				/>
-				<Route
-					path='/dashboard/mdt'
-					render={(props) => (
-						<PageWrapper {...props} title='MDT Test Setup' component={MDTTestSetupLayout} />
-					)}
-				/>
-				<Route
-					path='/dashboard/susTest'
-					render={(props) => (
-						<PageWrapper {...props} title='SUS Test' component={SUSTestLayout} />
-					)}
-				/>
-				<Route
-					path='/dashboard/pssuqTest'
-					render={(props) => (
-						<PageWrapper {...props} title='PSSUQ Test' component={PSSUQTestLayout} />
-					)}
-				/>
-				<Route
-					path='/dashboard/mdtTest'
-					render={(props) => (
-						<PageWrapper {...props} title='MDT Test' component={MDTTestLayout} />
-					)}
-				/>
+				<Route path='/dashboard' exact component={TestSelectionLayout} />
+				<Route path='/dashboard/sus' component={SUSTestSetupLayout} />
+				<Route path='/dashboard/pssuq' component={PSSUQTestSetupLayout} />
+				<Route path='/dashboard/mdt' component={MDTTestSetupLayout} />
+				<Route path='/dashboard/susTest' component={SUSTestLayout} />
+				<Route path='/dashboard/pssuqTest' component={PSSUQTestLayout} />
+				<Route path='/dashboard/mdtTest' component={MDTTestLayout} />
 				<Route path='*' exact component={Page_404} />
 			</Switch>
 		</div>
