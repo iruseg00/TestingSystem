@@ -8,17 +8,10 @@ services:
          POSTGRES_PASSWORD: trytofindme
       ports:
          - 5432:5432
-      networks:
-         - dbpostgres
 
    adminer:
       image: adminer
       restart: always
       ports:
          - 8020:8080
-      networks:
-         - dbpostgres
 
-networks:
-   dbpostgres:
-      driver: nat

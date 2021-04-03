@@ -5,7 +5,16 @@ import UserService from '../services/UserService.mjs';
 
 router.get('/me', (req, res) => {
   UserService.get(req.user.id)
-    .then((data) => res.status(200).json(data))
+    .then((data) => {
+      delete data.dataValues.id;
+      delete data.dataValues.role;
+      delete data.dataValues.tokens;
+      delete data.dataValues.password;
+      delete data.dataValues.createdAt;
+      delete data.dataValues.updatedAt;
+      console.log(data)
+      return res.status(200).json(data)
+    })
     .catch((err) => console.error(err));
 });
 
