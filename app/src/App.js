@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Register from './views/register/Register';
-import Main from './views/main/Main';
 import Login from './views/login/Login';
 import MainTests from './views/dashboard/Dashboard';
 import PageWrapper from './containers/pageWrapper/PageWrapper';
@@ -23,15 +22,8 @@ class App extends React.Component {
 			<Switch>
 				<Route
 					exact
-					path='/'
-					render={(props) => (
-						<PageWrapper
-							{...props}
-							title='Главная'
-							component={Main}
-							Auth
-						/>
-					)}
+					path="/"
+					render={() => <Redirect from="/" to="/dashboard" />}
 				/>
 				<Route
 					path='/login'
@@ -58,7 +50,7 @@ class App extends React.Component {
 				<Route
 					path='/dashboard'
 					render={(props) => (
-						<PageWrapper {...props} component={MainTests} />
+						<PageWrapper {...props} component={MainTests} Auth />
 					)}
 				/>
 				<Route path='*' exact component={Page_404} />

@@ -1,6 +1,4 @@
-// import style from "./style.module.scss";
 import Header from '../../components/header/Header';
-import PageWrapper from '../../containers/pageWrapper/PageWrapper';
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -23,73 +21,31 @@ function MainTests() {
         <Route
           path="/dashboard"
           exact
-          render={(props) => (
-            <PageWrapper
-              {...props}
-              title="SUS Test Setup"
-              component={TestSelectionLayout}
-            />
-          )}
+          component={TestSelectionLayout}
         />
         <Route
           path="/dashboard/sus"
-          render={(props) => (
-            <PageWrapper
-              {...props}
-              title="SUS Test Setup"
-              component={SUSTestSetupLayout}
-            />
-          )}
+          component={SUSTestSetupLayout}
         />
         <Route
           path="/dashboard/pssuq"
-          render={(props) => (
-            <PageWrapper
-              {...props}
-              title="PSSUQ Test Setup"
-              component={PSSUQTestSetupLayout}
-            />
-          )}
+          component={PSSUQTestSetupLayout}
         />
         <Route
           path="/dashboard/mdt"
-          render={(props) => (
-            <PageWrapper
-              {...props}
-              title="MDT Test Setup"
-              component={MDTTestSetupLayout}
-            />
-          )}
+          component={MDTTestSetupLayout}
         />
         <Route
           path="/dashboard/susTest"
-          render={(props) => (
-            <PageWrapper
-              {...props}
-              title="SUS Test"
-              component={SUSTestLayout}
-            />
-          )}
+          component={SUSTestLayout}
         />
         <Route
           path="/dashboard/pssuqTest"
-          render={(props) => (
-            <PageWrapper
-              {...props}
-              title="PSSUQ Test"
-              component={PSSUQTestLayout}
-            />
-          )}
+          component={PSSUQTestLayout}
         />
         <Route
           path="/dashboard/mdtTest"
-          render={(props) => (
-            <PageWrapper
-              {...props}
-              title="MDT Test"
-              component={MDTTestLayout}
-            />
-          )}
+          component={MDTTestLayout}
         />
         <Route path="*" exact component={Page_404} />
       </Switch>
