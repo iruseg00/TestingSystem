@@ -11,7 +11,7 @@ $baseColorBlue: #8ca2d3;
 }
 
 .links_container {
-	margin-top: 70px;
+	padding-top: 53px;
 }
 
 .ant-drawer-content {
@@ -29,8 +29,8 @@ $baseColorBlue: #8ca2d3;
 }
 
 .bar_img_container {
-	margin-left: 35px;
-	margin-right: 49px;
+	padding-left: 35px;
+	padding-right: 49px;
 }
 
 .bar_img_container {
@@ -43,7 +43,7 @@ $baseColorBlue: #8ca2d3;
 }
 
 .avatar_container {
-	margin-right: 34px;
+	padding-right: 34px;
 }
 
 .side_bar_item {
@@ -56,7 +56,7 @@ $baseColorBlue: #8ca2d3;
 
 .side_bar_item::before {
 	position: absolute;
-	left: 10px;
+	left: 30px;
 	top: 12px;
 	display: block;
 	content: '';

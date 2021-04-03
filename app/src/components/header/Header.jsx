@@ -44,7 +44,7 @@ const Header = (props) => {
 					<div className={style.container_to_PC}>
 						<img src={PC} alt='PC' />
 					</div>
-					<Link to='/dashboard/login'>
+					<Link to='/login'>
 						<div className={style.side_bar_item}>Выйти из аккаунта</div>
 					</Link>
 				</div>
