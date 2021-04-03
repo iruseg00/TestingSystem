@@ -20,42 +20,21 @@ class App extends React.Component {
 	render() {
 		return (
 			<Switch>
-				<Route
-					exact
-					path="/"
-					render={() => <Redirect from="/" to="/dashboard" />}
-				/>
+				<Route exact path='/' render={() => <Redirect from='/' to='/dashboard' />} />
 				<Route
 					path='/login'
-					render={(props) => (
-						<PageWrapper
-							{...props}
-							title='Вход'
-							component={Login}
-							notAuth
-						/>
-					)}
+					render={(props) => <PageWrapper {...props} title='Вход' component={Login} notAuth />}
 				/>
 				<Route
 					path='/register'
 					render={(props) => (
-						<PageWrapper
-							{...props}
-							title='Регистрация'
-							component={Register}
-							notAuth
-						/>
+						<PageWrapper {...props} title='Регистрация' component={Register} notAuth />
 					)}
 				/>
 				<Route
 					path='/dashboard'
 					render={(props) => (
-						<PageWrapper 
-							{...props} 
-							title='Тесты' 
-							component={MainTests} 
-							Auth 
-						/>
+						<PageWrapper {...props} title='Тесты' component={MainTests} noAuth />
 					)}
 				/>
 				<Route path='*' exact component={Page_404} />
