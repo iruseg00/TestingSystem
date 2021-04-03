@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import sequelizeConnect from '../config/connect.mjs';
 import bcrypt from 'bcrypt';
-const { UUID, UUIDV4, STRING, TEXT, JSON } = Sequelize;
+const { UUID, UUIDV4, STRING, TEXT, JSON, INTEGER } = Sequelize;
 
 let Users = sequelizeConnect.define(
     'Users',
@@ -10,6 +10,12 @@ let Users = sequelizeConnect.define(
             type: UUID,
             primaryKey: true,
             defaultValue: UUIDV4,
+        },
+        userID: {
+            type: INTEGER,
+            autoIncrement: true,
+            defaultValue: 0,
+            allowNull: false,
         },
         surname: {
             type: STRING,
@@ -48,7 +54,7 @@ let Users = sequelizeConnect.define(
         photo: {
             type: TEXT,
             allowNull: true
-          }
+        }
     },
     {
         timestamps: true,
