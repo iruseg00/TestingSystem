@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 import sequelizeConnect from '../config/connect.mjs';
-const { UUID, UUIDV4, STRING, TEXT, JSON, INTEGER } = Sequelize;
+const { UUID, UUIDV4, TEXT, INTEGER } = Sequelize;
 
 const SusTable = sequelizeConnect.define(
     'SusTable',
@@ -19,7 +19,6 @@ const SusTable = sequelizeConnect.define(
             type: TEXT,
             allowNull: false,
         },
-
     },
     {
         timestamps: true,
