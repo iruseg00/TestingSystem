@@ -45,7 +45,7 @@ const Header = (props) => {
 					<div className={style.container_to_PC}>
 						<img src={PC} alt='PC' />
 					</div>
-					<Link onClick={() => dispatch(logout)} to='/login'>
+					<Link onClick={() => dispatch(logout())} to='/login'>
 						<div className={style.side_bar_item + ' ' + style.exit_link}>Выйти из аккаунта</div>
 					</Link>
 				</div>
