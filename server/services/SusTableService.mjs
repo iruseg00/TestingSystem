@@ -28,7 +28,7 @@ class SusTableService
 
     delete(questionID) 
     {
-        return Users.destroy({
+        return SusTable.destroy({
             where: { questionID }
         });
     }
