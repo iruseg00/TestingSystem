@@ -20,6 +20,7 @@ router.post('/create_answer', (req, res) => {
   console.log('request:', req.body);
   // TO DO VALIDATING
   // TO DO EXEC RESULTS
+  req.body.results = {"first": 90, "next": 100, "type": "A1"}
   req.body.user = req.user.id;
   SusTestService.create(req.body)
     .then((data) => res.status(201).json(data.results))
