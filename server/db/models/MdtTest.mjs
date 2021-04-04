@@ -2,8 +2,8 @@ import Sequelize from 'sequelize';
 import sequelizeConnect from '../config/connect.mjs';
 const { UUID, UUIDV4, TEXT, JSON } = Sequelize;
 
-const SusTest = sequelizeConnect.define(
-    'SusTest',
+const MdtTest = sequelizeConnect.define(
+    'MdtTest',
     {
         id: {
             type: UUID,
@@ -37,6 +37,6 @@ const SusTest = sequelizeConnect.define(
     }
 );
 
-SusTest.sync({ force: false });
+MdtTest.sync({ force: false });
 
-export default SusTest;
+export default MdtTest;

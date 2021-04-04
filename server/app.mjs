@@ -7,6 +7,7 @@ import isAuth from './middlewares/isAuth.mjs';
 import Auth from './controllers/AuthController.mjs';
 import UserController from './controllers/UserController.mjs';
 import SusController from './controllers/SusController.mjs';
+import MdtController from './controllers/MdtController.mjs';
 const app = express();
 
 app.use(bodyParser.json({ limit: '10mb' }));
@@ -20,5 +21,6 @@ app.get('/', (req, res) => {
 app.use('/api/auth', Auth);
 app.use('/api/users', isAuth, UserController);
 app.use('/api/sus', isAuth, SusController);
+app.use('/api/mdt', isAuth, MdtController);
 
 export default app;
