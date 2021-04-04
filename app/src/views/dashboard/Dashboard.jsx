@@ -15,42 +15,20 @@ import Page_404 from '../page_404/Page_404';
 
 function MainTests() {
 	return (
-    <div>
-      <Header />
-      <Switch>
-        <Route
-          path="/dashboard"
-          exact
-          component={TestSelectionLayout}
-        />
-        <Route
-          path="/dashboard/sus"
-          component={SUSTestSetupLayout}
-        />
-        <Route
-          path="/dashboard/pssuq"
-          component={PSSUQTestSetupLayout}
-        />
-        <Route
-          path="/dashboard/mdt"
-          component={MDTTestSetupLayout}
-        />
-        <Route
-          path="/dashboard/susTest"
-          component={SUSTestLayout}
-        />
-        <Route
-          path="/dashboard/pssuqTest"
-          component={PSSUQTestLayout}
-        />
-        <Route
-          path="/dashboard/mdtTest"
-          component={MDTTestLayout}
-        />
-        <Route path="*" exact component={Page_404} />
-      </Switch>
-    </div>
-  );
+		<div>
+			<Header />
+			<Switch>
+				<Route path='/dashboard' exact component={TestSelectionLayout} />
+				<Route path='/dashboard/sus' component={SUSTestSetupLayout} />
+				<Route path='/dashboard/pssuq' component={PSSUQTestSetupLayout} />
+				<Route path='/dashboard/mdt' component={MDTTestSetupLayout} />
+				<Route path='/dashboard/susTest' component={SUSTestLayout} />
+				<Route path='/dashboard/pssuqTest' component={PSSUQTestLayout} />
+				<Route path='/dashboard/mdtTest' component={MDTTestLayout} />
+				<Route path='*' exact component={Page_404} />
+			</Switch>
+		</div>
+	);
 }
 
 export default MainTests;
