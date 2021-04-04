@@ -6,6 +6,7 @@ import ExecJWT from './middlewares/ExecJWT.mjs';
 import isAuth from './middlewares/isAuth.mjs';
 import Auth from './controllers/AuthController.mjs';
 import UserController from './controllers/UserController.mjs';
+import SusController from './controllers/SusController.mjs';
 const app = express();
 
 app.use(bodyParser.json({ limit: '10mb' }));
@@ -18,5 +19,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', Auth);
 app.use('/api/users', isAuth, UserController);
+app.use('/api/sus', isAuth, SusController);
 
 export default app;
