@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import authReducer from "./auth";
 import usersReducer from "./users";
 import registrationReducer from "./registration";
-import { AUTH_LOGOUT_SUCCESS } from "../actionsTypes/auth";
+import { AUTH_LOGOUT_REQUEST } from "../actionsTypes/auth";
 
 const appReducer = combineReducers({
   auth: authReducer,
@@ -11,6 +11,6 @@ const appReducer = combineReducers({
 })
 
 export const rootReducer = (state, action) => {
-  action.type === AUTH_LOGOUT_SUCCESS && (state = undefined);
+  action.type === AUTH_LOGOUT_REQUEST && (state = undefined);
   return appReducer(state, action);
 }

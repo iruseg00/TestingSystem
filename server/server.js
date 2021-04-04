@@ -1,6 +1,6 @@
 import sequelize from './db/config/connect.mjs';
 import app from './app.mjs';
-
+import InitSusTable from './db/init/init.mjs';
 const PORT = 33133;
 
 let server = app.listen(PORT, (err) => {
@@ -13,6 +13,7 @@ sequelize
     .authenticate()
     .then(() => {
         console.log('Connection has been established successfully');
+        InitSusTable();
     })
     .catch((err) => {
         console.error('Unable to connect to the database:', err);
