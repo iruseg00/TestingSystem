@@ -1,7 +1,7 @@
 import { Form, Input, Button } from 'antd';
 import style from './style.module.scss';
 
-function TestSetupForm() {
+function TestSetupForm(props) {
 	return (
 		<Form
 			className={style.form}
@@ -20,7 +20,7 @@ function TestSetupForm() {
 					},
 				]}
 			>
-				<Input size='large' className={style.input} />
+				<Input size='large' className={style.input + ' ' + style.input_disabled} disabled />
 			</Form.Item>
 			<Form.Item
 				className={style.wrapper_input}
@@ -42,7 +42,12 @@ function TestSetupForm() {
 				Сканировать имеющийся тест
 			</a>
 			<Form.Item>
-				<Button type='primary' htmlType='submit' className={style.submit}>
+				<Button
+					onClick={props.func_next}
+					type='primary'
+					htmlType='submit'
+					className={style.submit}
+				>
 					Начать тест
 				</Button>
 			</Form.Item>
