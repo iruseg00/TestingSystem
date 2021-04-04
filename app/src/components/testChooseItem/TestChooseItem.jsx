@@ -8,7 +8,10 @@ class TestChooseItem extends React.Component {
 			<div className={style.main}>
 				<div className={style.container}>
 					<div className={style.left}>
-						<Link className={style.abbreviation} to={`/dashboard/${this.props.abbreviation}`}>
+						<Link
+							className={style.abbreviation}
+							to={`/dashboard/${this.props.abbreviation.toLowerCase()}`}
+						>
 							{this.props.abbreviation}
 						</Link>
 
