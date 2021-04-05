@@ -1,7 +1,9 @@
 import { Form, Input, Button } from 'antd';
 import style from './style.module.scss';
+import { useSelector } from 'react-redux';
 
 function TestSetupForm(props) {
+	const USER_ID = useSelector((state) => state.users.profile.userID);
 	return (
 		<Form
 			className={style.form}
@@ -20,7 +22,12 @@ function TestSetupForm(props) {
 					},
 				]}
 			>
-				<Input size='large' className={style.input + ' ' + style.input_disabled} disabled />
+				<Input
+					placeholder={USER_ID}
+					size='large'
+					className={style.input + ' ' + style.input_disabled}
+					disabled
+				/>
 			</Form.Item>
 			<Form.Item
 				className={style.wrapper_input}

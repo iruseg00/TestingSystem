@@ -40,7 +40,10 @@ $sizeTextButtonAndLabels: 24px;
 }
 
 .input_disabled {
-	background-color: rgb(209, 209, 209) !important;
+	background-color: rgb(226, 226, 226) !important;
+	font-weight: 600;
+	font-size: 20px;
+	opacity: 1;
 }
 
 .submit {

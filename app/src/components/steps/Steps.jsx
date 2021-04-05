@@ -3,6 +3,7 @@ import React from 'react';
 import style from './style.module.scss';
 import { Steps } from 'antd';
 import Step_1 from '../../views/dashboard/susTestSetup/step_1/Step_1';
+import Step_2 from '../../views/dashboard/susTestSetup/step_2/Step_2';
 
 const Stepps = (props) => {
 	const [current, setCurrent] = React.useState(0);
@@ -26,7 +27,13 @@ const Stepps = (props) => {
 		},
 		{
 			title: 'Тест',
-			content: 'Second-content',
+			content: (
+				<Step_2
+					img={props.step_one_props.img}
+					title={props.step_one_props.title_of_test}
+					func_next={next}
+				/>
+			),
 		},
 		{
 			title: 'Результат',
