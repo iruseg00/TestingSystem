@@ -8,7 +8,10 @@ function TestSetupForm(props) {
 		<Form
 			className={style.form}
 			name='testSetup'
-			// onFinish={onFinish}
+			onFinish={() => {
+				props.func_next();
+				props.getTest();
+			}}
 			// onFinishFailed={onFinishFailed}
 		>
 			<Form.Item
@@ -49,12 +52,7 @@ function TestSetupForm(props) {
 				Сканировать имеющийся тест
 			</a>
 			<Form.Item>
-				<Button
-					onClick={props.func_next}
-					type='primary'
-					htmlType='submit'
-					className={style.submit}
-				>
+				<Button type='primary' htmlType='submit' className={style.submit}>
 					Начать тест
 				</Button>
 			</Form.Item>

@@ -7,14 +7,13 @@ import Step_2 from '../../views/dashboard/susTestSetup/step_2/Step_2';
 
 const Stepps = (props) => {
 	const [current, setCurrent] = React.useState(0);
-
 	const { Step } = Steps;
 
 	const next = () => {
 		setCurrent(current + 1);
 	};
-
 	const steps = [
+		// STEP_1
 		{
 			title: 'Начало',
 			content: (
@@ -25,16 +24,12 @@ const Stepps = (props) => {
 				/>
 			),
 		},
+		// STEP_2
 		{
 			title: 'Тест',
-			content: (
-				<Step_2
-					img={props.step_one_props.img}
-					title={props.step_one_props.title_of_test}
-					func_next={next}
-				/>
-			),
+			content: <Step_2 title={props.step_one_props.title_of_test} func_next={next} />,
 		},
+		// STEP_3
 		{
 			title: 'Результат',
 			content: 'Last-content',

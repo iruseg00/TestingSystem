@@ -1,0 +1,3 @@
+export const SUS_TEST_REQUEST = 'SUS_TEST_REQUEST';
+export const SUS_TEST_SUCCESS = 'SUS_TEST_SUCCESS';
+export const SUS_TEST_FAILED = 'SUS_TEST_FAILED';
