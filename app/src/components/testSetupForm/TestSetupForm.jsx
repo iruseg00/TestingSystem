@@ -9,6 +9,8 @@ function TestSetupForm(props) {
 			className={style.form}
 			name='testSetup'
 			onFinish={() => {
+				props.GetDataFromInputSystem();
+				props.GetDataFromInputNote();
 				props.func_next();
 				props.getTest();
 			}}

@@ -6,18 +6,39 @@ import { Button } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
 import { postSusAnswers } from './../../../../services/sus_test';
+import { GetDataFromInputSystem } from '../step_1/Step_1';
+import { GetDataFromInputNote } from '../step_1/Step_1';
 
 const Step_2 = (props) => {
 	const ARRAY_OF_QEUSTIONS_REQUEST = useSelector((state) => state.susTest.susTests);
 	const array_of_questions = ARRAY_OF_QEUSTIONS_REQUEST?.map((element) => (
-		<FormItem name={element.questionID} key={element.questionID}>
-			<Test_question question_text={element.question} />
-		</FormItem>
+		<Test_question
+			name={element.questionID}
+			key={element.questionID}
+			question_text={element.question}
+		/>
 	));
 
 	const PostAnswers = (values) => {
 		console.log(values);
-		// return postSusAnswers(values.input);
+		let ARRAY_OF_ANSWERS = [];
+		for (let item in values) {
+			ARRAY_OF_ANSWERS[item - 1] = values[item];
+		}
+		console.log(ARRAY_OF_ANSWERS);
+		let ARRAY_OF_ANSWERS_TO_POST = ARRAY_OF_ANSWERS.map((element, index) => {
+			return {
+				id: index + 1,
+				answers: element,
+				// testingSystem: GetDataFromInputSystem(),
+				// description: GetDataFromInputNote(),
+				testingSystem: 'System',
+				description: 'Discription',
+			};
+		});
+		console.log(ARRAY_OF_ANSWERS_TO_POST);
+		postSusAnswers(ARRAY_OF_ANSWERS_TO_POST);
+		props.func_next();
 	};
 
 	return (
@@ -26,12 +47,7 @@ const Step_2 = (props) => {
 				<div className={style.title}>{props.title}</div>
 				<div className={style.content_container}>{array_of_questions}</div>
 				<FormItem name='button'>
-					<Button
-						onClick={props.func_next}
-						type='primary'
-						htmlType='submit'
-						className={style.submit}
-					>
+					<Button type='primary' htmlType='submit' className={style.submit}>
 						Подтвердить
 					</Button>
 				</FormItem>

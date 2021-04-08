@@ -38,7 +38,7 @@ const Stepps = (props) => {
 
 	return (
 		<span className={style.container_to_steps}>
-			<Steps current={current}>
+			<Steps className={style.all_steps} current={current}>
 				{steps.map((item) => (
 					<Step key={item.title} title={item.title} />
 				))}
