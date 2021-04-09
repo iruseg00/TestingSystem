@@ -6,19 +6,19 @@ import UserService from '../services/UserService.mjs';
 router.get('/me', (req, res) => {
   UserService.get(req.user.id)
     .then((data) => res.status(200).json(data))
-    .catch((err) => console.error(err));
+    .catch((err) => res.status(500).send(err));
 });
 
 router.get('/:id', (req, res) => {
   UserService.get(req.params.id)
     .then((data) => res.status(200).json(data))
-    .catch((err) => console.error(err));
+    .catch((err) => res.status(400).send(err));
 });
 
 router.post('/', (req, res) => {
   UserService.create(req.body)
     .then((user) => res.status(201).json(user))
-    .catch((err) => console.error(err));
+    .catch((err) => res.status(400).send(err));
 });
 
 router.put('/:id', (req, res) => {

@@ -6,7 +6,6 @@ import Test_question from '../../../../components/test_question/Test_question';
 import { Button } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
-import { postSusAnswers } from './../../../../services/sus_test';
 import { getResults } from './../../../../redux/actions/susTest';
 
 const Step_2 = (props) => {

@@ -15,12 +15,12 @@ const SusTest = sequelizeConnect.define(
 			allowNull: false,
 		},
 		answers: {
-			type: Sequelize.JSON,
+			type: JSON,
 			defaultValue: [],
 			allowNull: false,
 		},
 		results: {
-			type: Sequelize.JSON,
+			type: JSON,
 			allowNull: false,
 		},
 		testingSystem: {

@@ -14,7 +14,7 @@ export function whoAmI() {
                 return Promise.resolve();
             })
             .catch(err => {
-                dispatch({ type: WHO_AM_I_FAILED, payload: err.response.data });
+                dispatch({ type: WHO_AM_I_FAILED, payload: err.response?.data });
                 return Promise.reject(err.response);
             });
     };
