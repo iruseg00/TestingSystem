@@ -7,24 +7,24 @@ import MdtTestService from "../services/MdtTestService.mjs";
 router.get("/all_questions", (req, res) => {
   MdtTableService.getAll({ attributes: ["adjectiveID", "adjective"] })
     .then((data) => res.status(200).json(data))
-    .catch((err) => console.error(err));
+    .catch((err) => res.status(500).send());
 });
 
 router.get("/all_answers", (req, res) => {
   MdtTestService.getAll()
     .then((data) => res.status(200).json(data))
-    .catch((err) => console.error(err));
+    .catch((err) => res.status(500).send());
 });
 
 router.post("/create_answer", async (req, res) => {
   try {
-    let results = await MdtTableService.getAll({
+    const results = await MdtTableService.getAll({
       where: {
         adjectiveID: [...req.body.answers],
       },
       attributes: ["adjective", "mark"]
     });
-    req.body.answers = [ ...results.map(item => item.adjective) ]
+    req.body.answers = [ ...results.map(item => item.adjective) ];
     let plus, minus;
     let marks = results.map(item => item.mark);
     plus = marks.filter(item => item == true).length;
@@ -35,8 +35,7 @@ router.post("/create_answer", async (req, res) => {
     res.status(201).json(data.results);
   } 
   catch (error) {
-    console.log(error);
-    res.status(400).message('Invalid data!');
+    res.status(400).send('Invalid data!');
   } 
 });
 
