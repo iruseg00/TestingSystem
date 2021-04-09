@@ -4,9 +4,11 @@ import style from './style.module.scss';
 import { Steps } from 'antd';
 import Step_1 from '../../views/dashboard/susTestSetup/step_1/Step_1';
 import Step_2 from '../../views/dashboard/susTestSetup/step_2/Step_2';
+import Step_3 from '../../views/dashboard/susTestSetup/step_3/Step_3';
 
 const Stepps = (props) => {
 	const [current, setCurrent] = React.useState(0);
+	const [data, setData] = React.useState({});
 	const { Step } = Steps;
 
 	const next = () => {
@@ -21,18 +23,21 @@ const Stepps = (props) => {
 					img={props.step_one_props.img}
 					title={props.step_one_props.title_of_test}
 					func_next={next}
+					setData={(rest) => setData({ ...data, ...rest })}
 				/>
 			),
 		},
 		// STEP_2
 		{
 			title: 'Тест',
-			content: <Step_2 title={props.step_one_props.title_of_test} func_next={next} />,
+			content: (
+				<Step_2 title={props.step_one_props.title_of_test} func_next={next} getData={data} />
+			),
 		},
 		// STEP_3
 		{
 			title: 'Результат',
-			content: 'Last-content',
+			content: <Step_3 />,
 		},
 	];
 

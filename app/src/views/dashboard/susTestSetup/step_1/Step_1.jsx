@@ -3,14 +3,6 @@ import style from './style.module.scss';
 import TestSetupForm from '../../../../components/testSetupForm/TestSetupForm';
 import { getSusTest } from '../../../../redux/actions/susTest';
 
-export const GetDataFromInputSystem = (values) => {
-	return console.log(values);
-};
-
-export const GetDataFromInputNote = (values) => {
-	return console.log(values);
-};
-
 const Step_1 = (props) => {
 	const dispatch = useDispatch();
 
@@ -23,8 +15,7 @@ const Step_1 = (props) => {
 				<TestSetupForm
 					func_next={props.func_next}
 					getTest={() => dispatch(getSusTest())}
-					GetDataFromInputSystem={GetDataFromInputSystem}
-					GetDataFromInputNote={GetDataFromInputNote}
+					setData={props.setData}
 				/>
 			</div>
 		</div>

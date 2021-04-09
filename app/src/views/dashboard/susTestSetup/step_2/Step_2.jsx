@@ -1,15 +1,16 @@
 /* eslint-disable react/jsx-pascal-case */
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import style from './style.module.scss';
 import Test_question from '../../../../components/test_question/Test_question';
 import { Button } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
 import { postSusAnswers } from './../../../../services/sus_test';
-import { GetDataFromInputSystem } from '../step_1/Step_1';
-import { GetDataFromInputNote } from '../step_1/Step_1';
+import { getResults } from './../../../../redux/actions/susTest';
 
 const Step_2 = (props) => {
+	const dispatch = useDispatch();
 	const ARRAY_OF_QEUSTIONS_REQUEST = useSelector((state) => state.susTest.susTests);
 	const array_of_questions = ARRAY_OF_QEUSTIONS_REQUEST?.map((element) => (
 		<Test_question
@@ -30,14 +31,16 @@ const Step_2 = (props) => {
 			return {
 				id: index + 1,
 				answers: element,
-				// testingSystem: GetDataFromInputSystem(),
-				// description: GetDataFromInputNote(),
-				testingSystem: 'System',
-				description: 'Discription',
 			};
 		});
 		console.log(ARRAY_OF_ANSWERS_TO_POST);
-		postSusAnswers(ARRAY_OF_ANSWERS_TO_POST);
+		let answer_to_post = {
+			answers: ARRAY_OF_ANSWERS_TO_POST,
+			testingSystem: props.getData.testingSystem,
+			description: props.getData.description,
+		};
+		console.log(answer_to_post);
+		dispatch(getResults(answer_to_post));
 		props.func_next();
 	};
 
