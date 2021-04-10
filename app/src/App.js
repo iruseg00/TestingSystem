@@ -34,7 +34,7 @@ class App extends React.Component {
 				<Route
 					path='/dashboard'
 					render={(props) => (
-						<PageWrapper {...props} title='Тесты' component={MainTests} noAuth />
+						<PageWrapper {...props} title='Тесты' component={MainTests} Auth />
 					)}
 				/>
 				<Route path='*' exact component={Page_404} />
