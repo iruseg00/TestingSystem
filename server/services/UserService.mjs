@@ -6,6 +6,7 @@ class UserService {
   get(id) {
     return Users.findOne({
       attributes: [
+        "id",
         "userID",
         "surname",
         "name",
@@ -13,6 +14,7 @@ class UserService {
         "sex",
         "email",
         "photo",
+        "tokens",
       ],
       where: { id },
     });
