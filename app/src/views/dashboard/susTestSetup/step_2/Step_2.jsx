@@ -29,7 +29,7 @@ const Step_2 = (props) => {
 		let ARRAY_OF_ANSWERS_TO_POST = ARRAY_OF_ANSWERS.map((element, index) => {
 			return {
 				id: index + 1,
-				answers: element,
+				answer: element,
 			};
 		});
 		console.log(ARRAY_OF_ANSWERS_TO_POST);
