@@ -6,7 +6,6 @@ import Stepps from './../../../components/steps/Steps';
 function SUSTest() {
 	return (
 		<Stepps
-			// step_one={TestSetup}
 			step_one_props={{
 				title_of_test: 'System Usability Scale',
 				img: boxes,

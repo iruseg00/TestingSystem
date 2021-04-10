@@ -1,45 +1,44 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import style from './style.module.scss';
 import { useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import Form from 'antd/lib/form/Form';
+import FormItem from 'antd/lib/form/FormItem';
 
 function TestSetupForm(props) {
 	const USER_ID = useSelector((state) => state.users.profile.userID);
-
-	const { register, handleSubmit, getValues } = useForm();
-
-	const onSubmit = () => {
-		let valueSystem = getValues('testingSystem');
-		let valueDescription = getValues('description');
-		props.setData({ testingSystem: valueSystem, description: valueDescription });
+	const onFinish = (values) => {
+		console.log(values);
+		props.setData({ testingSystem: values.testingSystem, description: values.description });
 		props.getTest();
 		props.func_next();
 	};
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} className={style.form} name='testSetup'>
-			<input
-				placeholder={USER_ID}
-				size='large'
-				className={style.input + ' ' + style.input_disabled}
-				disabled
-			/>
-
-			<input
-				name='testingSystem'
-				{...register('testingSystem')}
-				placeholder='testingSystem'
-				size='large'
-				className={style.input}
-			/>
-
-			<input
-				name='description'
-				{...register('description')}
-				placeholder='description'
-				size='large'
-				className={style.input}
-			/>
+		<Form onFinish={onFinish} className={style.form} name='testSetup'>
+			<FormItem name='id'>
+				<Input
+					placeholder={USER_ID}
+					size='large'
+					className={style.input + ' ' + style.input_disabled}
+					disabled
+				/>
+			</FormItem>
+			<FormItem name='testingSystem'>
+				<Input
+					name='testingSystem'
+					placeholder='testingSystem'
+					size='large'
+					className={style.input}
+				/>
+			</FormItem>
+			<FormItem name='description'>
+				<Input
+					name='description'
+					placeholder='description'
+					size='large'
+					className={style.input}
+				/>
+			</FormItem>
 
 			<a className={style.scanningText} href={'/test-scanning'}>
 				Сканировать имеющийся тест
@@ -48,7 +47,7 @@ function TestSetupForm(props) {
 			<Button type='primary' htmlType='submit' className={style.submit}>
 				Начать тест
 			</Button>
-		</form>
+		</Form>
 	);
 }
 

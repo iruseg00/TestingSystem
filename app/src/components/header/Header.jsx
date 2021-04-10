@@ -6,7 +6,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { logout } from '../../redux/actions/auth';
 import style from './style.module.scss';
 import barsImage from '../../assets/images/bars-solid_2.svg';
-import PC from './../../assets/images/ii2.jpg';
+import PC from './../../assets/images/vit.png';
 
 const Header = (props) => {
 	const [visible, setVisible] = useState(false);

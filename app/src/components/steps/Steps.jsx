@@ -37,7 +37,7 @@ const Stepps = (props) => {
 		// STEP_3
 		{
 			title: 'Результат',
-			content: <Step_3 />,
+			content: <Step_3 img={props.step_one_props.img} />,
 		},
 	];
 
