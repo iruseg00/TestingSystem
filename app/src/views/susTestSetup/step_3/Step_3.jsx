@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import style from './style.module.scss';
 import { Button, Progress } from 'antd';
+import { Link } from 'react-router-dom';
 
 const Step_3 = (props) => {
 	const results = useSelector((state) => state.susTest.results);
@@ -45,9 +46,11 @@ const Step_3 = (props) => {
 				</div>
 			</div>
 			<span className={style.pdf}>Скачать PDF</span>
-			<Button type='primary' htmlType='submit' className={style.submit}>
-				Подтвердить
-			</Button>
+			<Link to='/dashboard'>
+				<Button type='primary' htmlType='submit' className={style.submit}>
+					Подтвердить
+				</Button>
+			</Link>
 		</div>
 	);
 };

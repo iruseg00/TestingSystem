@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import { Button, Input } from 'antd';
 import style from './style.module.scss';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
+import { getSusTest } from '../../redux/actions/susTest';
 
 function TestSetupForm(props) {
 	const USER_ID = useSelector((state) => state.users.profile.userID);
+	const dispatch = useDispatch();
 	const onFinish = (values) => {
 		props.setData({ testingSystem: values.testingSystem, description: values.description });
-		props.getTest();
+		dispatch(getSusTest());
 		props.func_next();
 	};
 	return (

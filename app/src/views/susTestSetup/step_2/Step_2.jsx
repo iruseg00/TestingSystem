@@ -1,7 +1,6 @@
-/* eslint-disable react/jsx-pascal-case */
 import { useSelector, useDispatch } from 'react-redux';
 import style from './style.module.scss';
-import Test_question from '../../../components/test_question/Test_question';
+import TestQuestion from '../../../components/test_question/Test_question';
 import { Button } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
@@ -11,7 +10,7 @@ const Step_2 = (props) => {
 	const dispatch = useDispatch();
 	const questions = useSelector((state) => state.susTest.questions);
 	const arrayOfQuestions = questions?.map((element) => (
-		<Test_question
+		<TestQuestion
 			name={element.questionID}
 			key={element.questionID}
 			question_text={element.question}
