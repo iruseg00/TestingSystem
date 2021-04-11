@@ -1,16 +1,18 @@
-import style from './style.module.scss';
-import TestSetup from '../../../components/testSetupForm/TestSetupForm';
 import boxes from '../../assets/images/cubes-solid_2.svg';
+import Stepps from '../../components/steps/Steps';
+import StepOneComponenet from './step_1/Step_1';
+import StepTwoComponenet from './step_2/Step_2';
+import StepThreeComponenet from './step_3/Step_3';
 
 function PSSUQTest() {
 	return (
-		<div className={style.container}>
-			<img className={style.boxes} src={boxes} alt='boxes' />
-			<div className={style.testSetups}>
-				<div className={style.testName}>Post-Study System Usability Questionnaire</div>
-				<TestSetup />
-			</div>
-		</div>
+		<Stepps
+			stepOne={StepOneComponenet}
+			stepTwo={StepTwoComponenet}
+			stepThree={StepThreeComponenet}
+			img={boxes}
+			title_of_test='Post-Study System Usability Questionnaire'
+		/>
 	);
 }
 

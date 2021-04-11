@@ -1,4 +1,4 @@
-import { getSusQuestions, postSusAnswers } from './../../services/sus_test';
+import { getSusQuestions, postSusAnswers } from '../../services/susTest';
 import {
 	SUS_TEST_REQUEST,
 	SUS_TEST_SUCCESS,

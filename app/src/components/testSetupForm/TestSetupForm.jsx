@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Input } from 'antd';
 import style from './style.module.scss';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
-import { getSusTest } from '../../redux/actions/susTest';
 
 function TestSetupForm(props) {
 	const USER_ID = useSelector((state) => state.users.profile.userID);
@@ -16,7 +14,7 @@ function TestSetupForm(props) {
 			testingSystem: values.testingSystem,
 			description: values.description,
 		});
-		dispatch(getSusTest());
+		dispatch(props.getTest());
 		props.func_next();
 	};
 	return (

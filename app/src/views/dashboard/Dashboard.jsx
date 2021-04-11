@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import TestSelectionLayout from './testSelection/TestSelection';
 
+import PSSUQTestSetupLayout from '../pssuqTestSetup/PSSUQTestSetup';
 import SUSTestSetupLayout from '../susTestSetup/SUSTestSetup';
 import MDTTestSetupLayout from '../mdtTestSetup/MDTTestSetup';
 
@@ -16,6 +17,7 @@ function MainTests() {
 			<Switch>
 				<Route path='/dashboard' exact component={TestSelectionLayout} />
 				<Route path='/dashboard/sus' component={SUSTestSetupLayout} />
+				<Route path='/dashboard/pssuq' component={PSSUQTestSetupLayout} />
 				<Route path='/dashboard/mdt' component={MDTTestSetupLayout} />
 				<Route path='*' exact component={Page_404} />
 			</Switch>
