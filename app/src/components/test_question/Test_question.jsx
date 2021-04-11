@@ -15,11 +15,11 @@ const Test_question = (props) => {
 			<div className={style.question_text}>{props.question_text}</div>
 			<FormItem name={props.name}>
 				<Radio.Group className={style.radio_container} onChange={onChange} value={value}>
-					<Radio value={1}>1</Radio>
-					<Radio value={2}>2</Radio>
-					<Radio value={3}>3</Radio>
-					<Radio value={4}>4</Radio>
-					<Radio value={5}>5</Radio>
+					<Radio className={style.radio} value={1}></Radio>
+					<Radio className={style.radio} value={2}></Radio>
+					<Radio className={style.radio} value={3}></Radio>
+					<Radio className={style.radio} value={4}></Radio>
+					<Radio className={style.radio} value={5}></Radio>
 				</Radio.Group>
 			</FormItem>
 		</div>

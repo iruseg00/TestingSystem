@@ -1,4 +1,4 @@
-@import './../../../../variables/Mixins.scss';
+@import '../../../variables/Mixins.scss';
 $bcInputs: #f5f5f5;
 $radiusButtonLogin: 10px;
 $bcButtonLogin: #8ca2d3;
@@ -19,4 +19,23 @@ $sizeTextButtonAndLabels: 24px;
 	font-size: $sizeTextButtonAndLabels;
 	border: none;
 	margin-bottom: 30px;
+}
+
+.numbers {
+	display: grid;
+	width: 100%;
+	height: 100%;
+	grid-template-columns: 3fr 1fr;
+	line-height: 3;
+}
+
+.numbersToGrid {
+	grid-column: 2/3;
+	display: flex;
+	flex-direction: row;
+}
+
+.number {
+	margin-right: 41px;
+	@include blueTextWithUnderline;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Input } from 'antd';
 import style from './style.module.scss';
 import { useSelector } from 'react-redux';
@@ -8,7 +9,6 @@ import FormItem from 'antd/lib/form/FormItem';
 function TestSetupForm(props) {
 	const USER_ID = useSelector((state) => state.users.profile.userID);
 	const onFinish = (values) => {
-		console.log(values);
 		props.setData({ testingSystem: values.testingSystem, description: values.description });
 		props.getTest();
 		props.func_next();
@@ -39,11 +39,9 @@ function TestSetupForm(props) {
 					className={style.input}
 				/>
 			</FormItem>
-
-			<a className={style.scanningText} href={'/test-scanning'}>
+			<Link className={style.scanningText} to='/test-scanning'>
 				Сканировать имеющийся тест
-			</a>
-
+			</Link>
 			<Button type='primary' htmlType='submit' className={style.submit}>
 				Начать тест
 			</Button>

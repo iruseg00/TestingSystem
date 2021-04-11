@@ -3,8 +3,7 @@ import style from './style.module.scss';
 import { Button, Progress } from 'antd';
 
 const Step_3 = (props) => {
-	const RESULTS = useSelector((state) => state.susTest.results);
-	console.log(RESULTS);
+	const results = useSelector((state) => state.susTest.results);
 	return (
 		<div className={style.container}>
 			<div className={style.title}>SusTest</div>
@@ -19,7 +18,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={`${RESULTS.value}`}
+							percent={results.value}
 						/>
 						<p className={style.desc}>Общая оценка</p>
 					</div>
@@ -29,7 +28,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={`${RESULTS.percentile}`}
+							percent={results.percentile}
 						/>
 						<p className={style.desc}>Процентиль</p>
 					</div>
@@ -39,7 +38,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							trailColor='#559AC8'
-							format={() => `${RESULTS.type}`}
+							format={() => results.type}
 						/>
 						<p className={style.desc}>Оценка</p>
 					</div>

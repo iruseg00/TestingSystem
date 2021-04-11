@@ -7,7 +7,7 @@ import {
 
 const initialState = {
 	loading: false,
-	susTests: [],
+	questions: [],
 	results: {},
 	message: '',
 };
@@ -20,7 +20,7 @@ export default function usersReducer(state = initialState, action) {
 			return newState;
 		case SUS_TEST_SUCCESS:
 			newState.loading = false;
-			newState.susTests = action.payload;
+			newState.questions = action.payload;
 			return newState;
 		case SUS_TEST_FAILED:
 			newState.loading = false;
