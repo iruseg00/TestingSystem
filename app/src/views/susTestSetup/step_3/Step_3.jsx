@@ -46,11 +46,13 @@ const Step_3 = (props) => {
 				</div>
 			</div>
 			<span className={style.pdf}>Скачать PDF</span>
-			<Link to='/dashboard'>
+			<div className={style.containerToButton}>
 				<Button type='primary' htmlType='submit' className={style.submit}>
-					Подтвердить
+					<Link className={style.linkButton} to='/dashboard'>
+						Подтвердить
+					</Link>
 				</Button>
-			</Link>
+			</div>
 		</div>
 	);
 };

@@ -21,46 +21,46 @@ function TestSetupForm(props) {
 	};
 	return (
 		<Form onFinish={onFinish} className={style.form} name='testSetup'>
-			<FormItem name='id'>
-				<Input
-					placeholder={USER_ID}
-					size='large'
-					className={style.input + ' ' + style.input_disabled}
-					disabled
-				/>
-			</FormItem>
-			<FormItem
-				rules={[
-					{
-						required: true,
-						message: 'Сначала заполните это поле!',
-					},
-				]}
-				name='testingSystem'
-			>
-				<Input
+			<div className={style.fields}>
+				<span className={style.descText}>Присвоенный ID:</span>
+				<FormItem name='id'>
+					<Input
+						placeholder={USER_ID}
+						size='large'
+						className={style.input + ' ' + style.input_disabled}
+						disabled
+					/>
+				</FormItem>
+			</div>
+			<div className={style.fields}>
+				<span className={style.descText}>Тестируемая система:</span>
+				<FormItem
+					rules={[
+						{
+							required: true,
+							message: 'Сначала заполните это поле!',
+						},
+					]}
 					name='testingSystem'
-					placeholder='Тестируемая система'
-					size='large'
-					className={style.input}
-				/>
-			</FormItem>
-			<FormItem
-				rules={[
-					{
-						required: true,
-						message: 'Сначала заполните это поле!',
-					},
-				]}
-				name='description'
-			>
-				<Input
+				>
+					<Input name='testingSystem' size='large' className={style.input} />
+				</FormItem>
+			</div>
+			<div className={style.fields}>
+				<span className={style.descText}>Примечание:</span>
+				<FormItem
+					rules={[
+						{
+							required: true,
+							message: 'Сначала заполните это поле!',
+						},
+					]}
 					name='description'
-					placeholder='Описание'
-					size='large'
-					className={style.input}
-				/>
-			</FormItem>
+				>
+					<Input name='description' size='large' className={style.input} />
+				</FormItem>
+			</div>
+
 			<Link className={style.scanningText} to='/test-scanning'>
 				Сканировать имеющийся тест
 			</Link>

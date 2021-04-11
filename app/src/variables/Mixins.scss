@@ -21,3 +21,8 @@ $baseColorBlue: #8ca2d3;
 	color: white;
 	line-height: 140.62%;
 }
+
+@mixin blackStandartText {
+	font-size: 24px;
+	color: black;
+}
