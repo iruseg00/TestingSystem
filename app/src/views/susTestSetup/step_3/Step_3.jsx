@@ -7,7 +7,7 @@ const Step_3 = (props) => {
 	const results = useSelector((state) => state.susTest.results);
 	return (
 		<div className={style.container}>
-			<div className={style.title}>SusTest</div>
+			<div className={style.title}>System Usability Scale</div>
 			<div className={style.img_and_progress}>
 				<div className={style.image_container}>
 					<img className={style.image} src={props.img} alt='img' />
