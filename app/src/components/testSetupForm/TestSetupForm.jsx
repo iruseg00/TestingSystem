@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
 import style from './style.module.scss';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -11,10 +11,20 @@ import { getSusTest } from '../../redux/actions/susTest';
 function TestSetupForm(props) {
 	const USER_ID = useSelector((state) => state.users.profile.userID);
 	const dispatch = useDispatch();
+	const error = () => {
+		message.error('Все поля обязательны к заполнению!');
+	};
 	const onFinish = (values) => {
-		props.setData({ testingSystem: values.testingSystem, description: values.description });
-		dispatch(getSusTest());
-		props.func_next();
+		if ((values.testingSystem && values.description) !== undefined) {
+			props.setData({
+				testingSystem: values.testingSystem,
+				description: values.description,
+			});
+			dispatch(getSusTest());
+			props.func_next();
+		} else {
+			error();
+		}
 	};
 	return (
 		<Form onFinish={onFinish} className={style.form} name='testSetup'>
