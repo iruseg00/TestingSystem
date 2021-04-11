@@ -1,22 +1,22 @@
-import SusTest from "../db/models/SusTest.mjs";
+import PssuqTest from '../db/models/PssuqTest.mjs';
 
-class SusTestService {
-  getAll(id) {
-    return SusTest.findAll({
-      attributes: ["user", "results", "testingSystem", "description"],
-      where: { id },
-    });
-  }
+class PssuqTestService {
+	getAll(id) {
+		return PssuqTest.findAll({
+			attributes: ['user', 'results', 'testingSystem', 'description'],
+			where: { id },
+		});
+	}
 
-  create(body) {
-    return SusTest.create({
-      user: body.user,
-      answers: body.answers,
-      results: body.results,
-      testingSystem: body.testingSystem,
-      description: body.description,
-    });
-  }
+	create(body) {
+		return PssuqTest.create({
+			user: body.user,
+			answers: body.answers,
+			results: body.results,
+			testingSystem: body.testingSystem,
+			description: body.description,
+		});
+	}
 }
 
-export default new SusTestService();
+export default new PssuqTestService();

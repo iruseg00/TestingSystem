@@ -31,7 +31,7 @@ const Step_3 = (props) => {
 							strokeColor='#559AC8'
 							percent={results.qualityUI}
 						/>
-						<p className={style.desc}>Процентиль</p>
+						<p className={style.desc}>Качество интерфейса</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -41,7 +41,7 @@ const Step_3 = (props) => {
 							strokeColor='#559AC8'
 							percent={results.qualityInfoSupport}
 						/>
-						<p className={style.desc}>Процентиль</p>
+						<p className={style.desc}>Качество информационной поддержки</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -51,7 +51,7 @@ const Step_3 = (props) => {
 							trailColor='#559AC8'
 							format={() => results.type}
 						/>
-						<p className={style.desc}>Оценка</p>
+						<p className={style.desc}>Полезность системы</p>
 					</div>
 				</div>
 			</div>
