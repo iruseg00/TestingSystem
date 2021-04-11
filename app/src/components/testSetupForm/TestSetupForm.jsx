@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Input, message } from 'antd';
+import { Button, Input } from 'antd';
 import style from './style.module.scss';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -11,20 +11,13 @@ import { getSusTest } from '../../redux/actions/susTest';
 function TestSetupForm(props) {
 	const USER_ID = useSelector((state) => state.users.profile.userID);
 	const dispatch = useDispatch();
-	const error = () => {
-		message.error('Все поля обязательны к заполнению!');
-	};
 	const onFinish = (values) => {
-		if ((values.testingSystem && values.description) !== undefined) {
-			props.setData({
-				testingSystem: values.testingSystem,
-				description: values.description,
-			});
-			dispatch(getSusTest());
-			props.func_next();
-		} else {
-			error();
-		}
+		props.setData({
+			testingSystem: values.testingSystem,
+			description: values.description,
+		});
+		dispatch(getSusTest());
+		props.func_next();
 	};
 	return (
 		<Form onFinish={onFinish} className={style.form} name='testSetup'>
@@ -36,18 +29,34 @@ function TestSetupForm(props) {
 					disabled
 				/>
 			</FormItem>
-			<FormItem name='testingSystem'>
+			<FormItem
+				rules={[
+					{
+						required: true,
+						message: 'Сначала заполните это поле!',
+					},
+				]}
+				name='testingSystem'
+			>
 				<Input
 					name='testingSystem'
-					placeholder='testingSystem'
+					placeholder='Тестируемая система'
 					size='large'
 					className={style.input}
 				/>
 			</FormItem>
-			<FormItem name='description'>
+			<FormItem
+				rules={[
+					{
+						required: true,
+						message: 'Сначала заполните это поле!',
+					},
+				]}
+				name='description'
+			>
 				<Input
 					name='description'
-					placeholder='description'
+					placeholder='Описание'
 					size='large'
 					className={style.input}
 				/>

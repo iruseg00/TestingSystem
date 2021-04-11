@@ -13,7 +13,15 @@ const Test_question = (props) => {
 	return (
 		<div className={style.container}>
 			<div className={style.question_text}>{props.question_text}</div>
-			<FormItem name={props.name}>
+			<FormItem
+				rules={[
+					{
+						required: true,
+						message: 'Сначала заполните это поле!',
+					},
+				]}
+				name={props.name}
+			>
 				<Radio.Group className={style.radio_container} onChange={onChange} value={value}>
 					<Radio className={style.radio} value={1}></Radio>
 					<Radio className={style.radio} value={2}></Radio>
