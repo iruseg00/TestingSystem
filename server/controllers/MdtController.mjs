@@ -3,6 +3,7 @@ const router = express.Router();
 
 import MdtTableService from "../services/MdtTableService.mjs";
 import MdtTestService from "../services/MdtTestService.mjs";
+import { MdtTest } from "../services/ComputationService.mjs";
 
 router.get("/all_questions", (req, res) => {
   MdtTableService.getAll({ attributes: ["adjectiveID", "adjective"] })
@@ -11,7 +12,7 @@ router.get("/all_questions", (req, res) => {
 });
 
 router.get("/all_answers", (req, res) => {
-  MdtTestService.getAll()
+  MdtTestService.getAll(req.user.id)
     .then((data) => res.status(200).json(data))
     .catch((err) => res.status(500).send());
 });
@@ -25,10 +26,7 @@ router.post("/create_answer", async (req, res) => {
       attributes: ["adjective", "mark"]
     });
     req.body.answers = [ ...results.map(item => item.adjective) ];
-    let plus, minus;
-    let marks = results.map(item => item.mark);
-    plus = marks.filter(item => item == true).length;
-    minus = marks.filter(item => item == false).length;
+    const {plus, minus} = await MdtTest(req.body.results);
     req.body.results = { plus, minus };
     req.body.user = req.user.id;
     let data = await MdtTestService.create(req.body);

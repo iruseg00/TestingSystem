@@ -2,9 +2,12 @@ import SusTest from "../db/models/SusTest.mjs";
 
 class SusTestService 
 {
-    getAll()
+    getAll(id)
     {
-        return SusTest.findAll({attributes: ['user', 'results', 'testingSystem', 'description']});
+        return SusTest.findAll({
+          attributes: ["user", "results", "testingSystem", "description"],
+          where: { id },
+        });
     }
 
     create(body) 

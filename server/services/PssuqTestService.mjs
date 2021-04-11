@@ -1,15 +1,15 @@
-import MdtTest from "../db/models/MdtTest.mjs";
+import SusTest from "../db/models/SusTest.mjs";
 
-class MdtTestService {
+class SusTestService {
   getAll(id) {
-    return MdtTest.findAll({
+    return SusTest.findAll({
       attributes: ["user", "results", "testingSystem", "description"],
       where: { id },
     });
   }
 
   create(body) {
-    return MdtTest.create({
+    return SusTest.create({
       user: body.user,
       answers: body.answers,
       results: body.results,
@@ -19,4 +19,4 @@ class MdtTestService {
   }
 }
 
-export default new MdtTestService();
+export default new SusTestService();
