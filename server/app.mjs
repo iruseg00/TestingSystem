@@ -8,6 +8,7 @@ import Auth from './controllers/AuthController.mjs';
 import UserController from './controllers/UserController.mjs';
 import SusController from './controllers/SusController.mjs';
 import MdtController from './controllers/MdtController.mjs';
+import PssuqController from "./controllers/PssuqController.mjs";
 const app = express();
 
 app.use(bodyParser.json({ limit: '10mb' }));
@@ -22,5 +23,6 @@ app.use('/api/auth', Auth);
 app.use('/api/users', isAuth, UserController);
 app.use('/api/sus', isAuth, SusController);
 app.use('/api/mdt', isAuth, MdtController);
+app.use("/api/pssuq", isAuth, PssuqController);
 
 export default app;

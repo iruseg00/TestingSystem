@@ -3,6 +3,7 @@ const router = express.Router();
 
 import SusTableService from '../services/SusTableService.mjs';
 import SusTestService from '../services/SusTestService.mjs';
+import { SusTest } from '../services/ComputationService.mjs';
 
 router.get('/all_questions', (req, res) => {
 	SusTableService.getAll()
@@ -11,19 +12,15 @@ router.get('/all_questions', (req, res) => {
 });
 
 router.get('/all_answers', (req, res) => {
-	SusTestService.getAll()
+	SusTestService.getAll(req.user.id)
 		.then((data) => res.status(200).json(data))
 		.catch((err) => res.status(500).send(err));
 });
 
 router.post('/create_answer', async (req, res) => {
 	try {
-		const value = (
-			(req.body.answers.reduce((summa, item) => summa + item.answer, 0) /
-				req.body.answers.length) *
-			20
-		).toFixed(0);
-		const type = value >= 90 ? 'A1' : value >= 60 ? 'A2' : value >= 40 ? 'A3' : 'A4';
+		console.log('-----------------');
+		const { value, type } = await SusTest(req.body.answers);
 		req.body.results = { value, percentile: 94, type };
 		req.body.user = req.user.id;
 		const data = await SusTestService.create(req.body);
