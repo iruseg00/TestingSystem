@@ -13,17 +13,17 @@ const Step_3 = (props) => {
 					<img className={style.image} src={props.img} alt='img' />
 				</div>
 				<div className={style.progress}>
-					<div className={style.container_to_progress_component}>
+					<div className={style.container_to_progress_component + ' ' + style.mark}>
 						<Progress
 							className={style.progress_component}
 							type='circle'
-							strokeWidth='12'
+							strokeWidth='16'
 							strokeColor='#559AC8'
 							percent={results.value}
 						/>
 						<p className={style.desc}>Общая оценка</p>
 					</div>
-					<div className={style.container_to_progress_component}>
+					<div className={style.container_to_progress_component + ' ' + style.qualityUI}>
 						<Progress
 							className={style.progress_component}
 							type='circle'
@@ -33,7 +33,9 @@ const Step_3 = (props) => {
 						/>
 						<p className={style.desc}>Качество интерфейса</p>
 					</div>
-					<div className={style.container_to_progress_component}>
+					<div
+						className={style.container_to_progress_component + ' ' + style.qualityInfoSupport}
+					>
 						<Progress
 							className={style.progress_component}
 							type='circle'
@@ -43,7 +45,7 @@ const Step_3 = (props) => {
 						/>
 						<p className={style.desc}>Качество информационной поддержки</p>
 					</div>
-					<div className={style.container_to_progress_component}>
+					<div className={style.container_to_progress_component + ' ' + style.type}>
 						<Progress
 							className={style.progress_component}
 							type='circle'
