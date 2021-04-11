@@ -15,8 +15,8 @@ app.use(bodyParser.json({ limit: '10mb' }));
 app.use(cors());
 app.use(ExecJWT);
 app.get('/', (req, res) => {
-  console.log(req.user);
-  res.send(req.user);
+	console.log(req.user);
+	res.send(req.user);
 });
 
 app.use('/api/auth', Auth);
