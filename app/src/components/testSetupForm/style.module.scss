@@ -14,6 +14,7 @@ $sizeTextButtonAndLabels: 24px;
 
 .descText {
 	@include blackStandartText;
+	padding-top: 7px;
 }
 
 .fields {

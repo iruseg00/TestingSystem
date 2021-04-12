@@ -23,6 +23,7 @@ $baseColorBlue: #8ca2d3;
 
 .number {
 	@include blueTextWithUnderline;
+	padding-right: 6px;
 }
 
 .text {
