@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import style from './style.module.scss';
-import TestQuestion from '../../../components/test_question/Test_question';
+import TestPssuqQuestions from '../../../components/testPssuqQuestion/TestPssuqQuestion';
 import { Button, message } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
@@ -10,7 +10,7 @@ const Step_2 = (props) => {
 	const dispatch = useDispatch();
 	const questions = useSelector((state) => state.pssuqTest.questions);
 	const arrayOfQuestions = questions?.map((element) => (
-		<TestQuestion
+		<TestPssuqQuestions
 			name={element.questionID}
 			key={element.questionID}
 			question_text={element.question}
@@ -47,15 +47,6 @@ const Step_2 = (props) => {
 		<Form name='Form' onFinish={PostAnswers}>
 			<div className={style.container}>
 				<div className={style.title}>{props.title_of_test}</div>
-				<div className={style.numbers}>
-					<div className={style.numbersToGrid}>
-						<span className={style.number}>1</span>
-						<span className={style.number}>2</span>
-						<span className={style.number}>3</span>
-						<span className={style.number}>4</span>
-						<span className={style.number}>5</span>
-					</div>
-				</div>
 				<div className={style.content_container}>{arrayOfQuestions}</div>
 				<FormItem name='button'>
 					<Button type='primary' htmlType='submit' className={style.submit}>

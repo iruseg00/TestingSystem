@@ -20,22 +20,3 @@ $sizeTextButtonAndLabels: 24px;
 	border: none;
 	margin-bottom: 30px;
 }
-
-.numbers {
-	display: grid;
-	width: 100%;
-	height: 100%;
-	grid-template-columns: 3fr 1fr;
-	line-height: 3;
-}
-
-.numbersToGrid {
-	grid-column: 2/3;
-	display: flex;
-	flex-direction: row;
-}
-
-.number {
-	margin-right: 41px;
-	@include blueTextWithUnderline;
-}
