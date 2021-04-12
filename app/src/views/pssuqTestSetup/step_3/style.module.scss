@@ -29,9 +29,6 @@ $sizeTextButtonAndLabels: 24px;
 }
 
 .progress {
-	// display: flex;
-	// justify-content: space-around;
-	// align-items: center;
 	width: 570px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -82,6 +79,10 @@ $sizeTextButtonAndLabels: 24px;
 	width: 170px;
 	margin-left: 40.5%;
 	display: inline-block;
+}
+
+.containerToButton {
+	height: 100px;
 }
 
 .submit {

@@ -40,9 +40,7 @@ const Stepps = (props) => {
 					<Step key={item.title} title={item.title} />
 				))}
 			</Steps>
-			<div className={style.steps_conent_my + ' steps-content'}>
-				{steps[current].content}
-			</div>
+			<div className={style.steps_conent_my}>{steps[current].content}</div>
 		</span>
 	);
 };
