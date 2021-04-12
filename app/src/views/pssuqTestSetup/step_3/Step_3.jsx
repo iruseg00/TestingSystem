@@ -7,7 +7,7 @@ const Step_3 = (props) => {
 	const results = useSelector((state) => state.pssuqTest.results);
 	return (
 		<div className={style.container}>
-			<div className={style.title}>Post-Study System Usability Questionnaire</div>
+			<div className={style.title}>Результат теста (PSSUQ)</div>
 			<div className={style.img_and_progress}>
 				<div className={style.image_container}>
 					<img className={style.image} src={props.img} alt='img' />

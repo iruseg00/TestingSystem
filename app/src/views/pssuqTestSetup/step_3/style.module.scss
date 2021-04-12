@@ -15,6 +15,7 @@ $sizeTextButtonAndLabels: 24px;
 	@include titleText;
 	text-align: center;
 	padding: 102px 0px 0px;
+	white-space: nowrap;
 }
 
 .img_and_progress {
