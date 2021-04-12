@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import style from './style.module.scss';
 import TestPssuqQuestions from '../../../components/testPssuqQuestion/TestPssuqQuestion';
-import { Button, message } from 'antd';
+import { Button } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
 import { getResults } from '../../../redux/actions/pssuqTest';
@@ -16,31 +16,24 @@ const Step_2 = (props) => {
 			question_text={element.question}
 		/>
 	));
-	const error = () => {
-		message.error('Все утверждения должны быть оценены!');
-	};
 	const PostAnswers = (values) => {
-		if (Object.values(values) !== undefined) {
-			let arrayOfAnswers = [];
-			for (let item in values) {
-				arrayOfAnswers[item - 1] = values[item];
-			}
-			let arrayOfAnswersToPost = arrayOfAnswers.map((element, index) => {
-				return {
-					id: index + 1,
-					answer: element,
-				};
-			});
-			let answer_to_post = {
-				answers: arrayOfAnswersToPost,
-				testingSystem: props.getData.testingSystem,
-				description: props.getData.description,
-			};
-			dispatch(getResults(answer_to_post));
-			props.func_next();
-		} else {
-			error();
+		let arrayOfAnswers = [];
+		for (let item in values) {
+			arrayOfAnswers[item - 1] = values[item];
 		}
+		let arrayOfAnswersToPost = arrayOfAnswers.map((element, index) => {
+			return {
+				id: index + 1,
+				answer: element,
+			};
+		});
+		let answer_to_post = {
+			answers: arrayOfAnswersToPost,
+			testingSystem: props.getData.testingSystem,
+			description: props.getData.description,
+		};
+		dispatch(getResults(answer_to_post));
+		props.func_next();
 	};
 
 	return (
