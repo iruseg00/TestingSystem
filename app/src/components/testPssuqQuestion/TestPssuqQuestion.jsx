@@ -23,9 +23,11 @@ const Test_question = (props) => {
 				name={props.name}
 			>
 				<Radio.Group className={style.radio_container} onChange={onChange} value={value}>
-					<Radio className={style.radio} value={1}>
-						1
-					</Radio>
+					<div className={style.containerToFirstLast}>
+						<Radio className={style.radio + ' ' + style.firstAndLast} value={1}></Radio>
+						<span className={style.number}>1</span>
+						<span className={style.text}>неудовлетворительно</span>
+					</div>
 					<Radio className={style.radio} value={2}></Radio>
 					<Radio className={style.radio} value={3}></Radio>
 					<Radio className={style.radio} value={4}></Radio>
@@ -34,9 +36,11 @@ const Test_question = (props) => {
 					<Radio className={style.radio} value={7}></Radio>
 					<Radio className={style.radio} value={8}></Radio>
 					<Radio className={style.radio} value={9}></Radio>
-					<Radio className={style.radio} value={10}>
-						10
-					</Radio>
+					<div className={style.containerToFirstLast}>
+						<Radio className={style.radio + ' ' + style.firstAndLast} value={10}></Radio>
+						<span className={style.number}>10</span>
+						<span className={style.text}>отлично</span>
+					</div>
 				</Radio.Group>
 			</FormItem>
 		</div>
