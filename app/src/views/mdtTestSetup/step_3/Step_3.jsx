@@ -31,7 +31,7 @@ const Step_3 = (props) => {
 							strokeColor='#559AC8'
 							percent={results.minus}
 						/>
-						<p className={style.desc}>Количество положиительных прилагательных</p>
+						<p className={style.desc}>Количество отрицательных прилагательных</p>
 					</div>
 				</div>
 			</div>

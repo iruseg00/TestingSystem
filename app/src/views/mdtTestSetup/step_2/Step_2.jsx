@@ -17,18 +17,17 @@ const Step_2 = (props) => {
 		/>
 	));
 	const PostAnswers = (values) => {
-		console.log(values);
 		let arrayOfAnswers = [];
 		for (let item in values) {
 			arrayOfAnswers[item - 1] = values[item];
 		}
-		console.log(arrayOfAnswers);
-		let arrayOfAnswersToPost = arrayOfAnswers.map((element, index) => {
-			return {
-				id: index + 1,
-				answer: element,
-			};
-		});
+		// let arrayOfAnswersToPost = arrayOfAnswers.map((element, index) => {
+		// 	return {
+		// 		id: index + 1,
+		// 		// answer: element,
+		// 	};
+		// });
+		let arrayOfAnswersToPost = [1, 2, 3, 4, 5];
 		let answer_to_post = {
 			answers: arrayOfAnswersToPost,
 			testingSystem: props.getData.testingSystem,

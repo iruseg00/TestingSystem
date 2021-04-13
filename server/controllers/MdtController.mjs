@@ -26,6 +26,7 @@ router.post('/create_answer', async (req, res) => {
 			attributes: ['adjective', 'mark'],
 		});
 		req.body.answers = [...results.map((item) => item.adjective)];
+		console.log(req.body.answers);
 		const { plus, minus } = await MdtTest(req.body.results);
 		req.body.results = { plus, minus };
 		req.body.user = req.user.id;
