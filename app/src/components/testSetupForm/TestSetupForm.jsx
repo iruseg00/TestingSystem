@@ -58,7 +58,6 @@ function TestSetupForm(props) {
 					<Input name='description' size='large' className={style.input} />
 				</FormItem>
 			</div>
-
 			<Link className={style.scanningText} to='/test-scanning'>
 				Сканировать имеющийся тест
 			</Link>

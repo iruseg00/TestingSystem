@@ -4,6 +4,7 @@ import usersReducer from './users';
 import registrationReducer from './registration';
 import susTestReducer from './susTest';
 import pssuqTestReducer from './pssuqTest';
+import mdtTestReducer from './mdtTest';
 import { AUTH_LOGOUT_REQUEST } from '../actionsTypes/auth';
 
 const appReducer = combineReducers({
@@ -12,6 +13,7 @@ const appReducer = combineReducers({
 	registration: registrationReducer,
 	susTest: susTestReducer,
 	pssuqTest: pssuqTestReducer,
+	mdtTest: mdtTestReducer,
 });
 
 export const rootReducer = (state, action) => {
