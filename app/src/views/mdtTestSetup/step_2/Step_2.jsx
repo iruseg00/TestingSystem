@@ -41,7 +41,10 @@ const Step_2 = (props) => {
 	return (
 		<Form name='Form' onFinish={PostAnswers}>
 			<div className={style.container}>
-				<div className={style.title}>{props.title_of_test}</div>
+				<div className={style.title}>
+					Выберите 5 прилагательных, которые, по Вашему мнению, характеризуют интерфейс
+					программы{' '}
+				</div>
 				<div className={style.content_container}>{arrayOfQuestions}</div>
 				<FormItem name='button'>
 					<Button type='primary' htmlType='submit' className={style.submit}>

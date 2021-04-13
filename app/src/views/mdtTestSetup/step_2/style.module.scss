@@ -7,7 +7,8 @@ $sizeTextButtonAndLabels: 24px;
 .title {
 	@include titleText;
 	padding: 40px 0;
-	text-align: center;
+	text-align: left;
+	font-size: 30px;
 }
 
 .submit {
