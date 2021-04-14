@@ -14,6 +14,14 @@ $baseColorBlue: #8ca2d3;
 	margin-left: 62px;
 }
 
+.radio_container > div > label > span > span {
+	border-color: black;
+}
+
+.radio_container > label > span > span {
+	border-color: black;
+}
+
 .containerToFirstLast {
 	display: flex;
 	flex-direction: column;
