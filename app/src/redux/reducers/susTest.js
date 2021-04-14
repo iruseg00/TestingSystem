@@ -3,6 +3,7 @@ import {
 	SUS_TEST_SUCCESS,
 	SUS_TEST_FAILED,
 	SUS_TEST_GET_RESULTS,
+	SUS_TEST_GET_ALL_ANSWERS,
 } from '../actionsTypes/susTest';
 
 const initialState = {
@@ -26,7 +27,7 @@ export default function usersReducer(state = initialState, action) {
 			newState.loading = false;
 			newState.message = action.payload;
 			return newState;
-		case SUS_TEST_GET_RESULTS:
+		case SUS_TEST_GET_RESULTS || SUS_TEST_GET_ALL_ANSWERS:
 			newState.loading = false;
 			newState.results = action.payload;
 			return newState;
