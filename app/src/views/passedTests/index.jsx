@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom';
 const PassedTests = () => {
 	return (
 		<div className={style.general}>
+			<div className={style.generalTitle}>
+				<span>Пройденные тесты</span>
+			</div>
 			<div className={style.container}>
 				<PassedTest image={boxes} title={'SUS'} />
 				<PassedTest image={boxes} title={'PSSUQ'} />

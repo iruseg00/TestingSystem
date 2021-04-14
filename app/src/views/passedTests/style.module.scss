@@ -1,7 +1,16 @@
+@import '../../variables/Mixins.scss';
+
 $bcInputs: #f5f5f5;
 $radiusButtonLogin: 10px;
 $bcButtonLogin: #8ca2d3;
 $sizeTextButtonAndLabels: 24px;
+
+.generalTitle {
+	@include titleText;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+}
 
 .container {
 	display: grid;
