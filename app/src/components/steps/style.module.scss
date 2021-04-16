@@ -1,5 +1,9 @@
 @import './../../variables/Mixins.scss';
 
+::after {
+	background-color: black !important;
+}
+
 .container_to_steps {
 	padding-top: 80px;
 	width: 1200px;
