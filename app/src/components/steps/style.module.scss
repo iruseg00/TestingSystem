@@ -1,9 +1,5 @@
 @import './../../variables/Mixins.scss';
 
-::after {
-	background-color: black !important;
-}
-
 .container_to_steps {
 	padding-top: 80px;
 	width: 1200px;
@@ -12,6 +8,10 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+}
+
+.container_to_steps > div > div > div > div > div::after {
+	background-color: black !important;
 }
 
 .container_to_TestSetup {
