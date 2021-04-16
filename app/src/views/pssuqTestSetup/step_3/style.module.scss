@@ -83,12 +83,12 @@ $sizeTextButtonAndLabels: 24px;
 }
 
 .containerToButton {
-	height: 100px;
+	height: auto;
 }
 
 .submit {
 	left: 40%;
-	margin-top: 50px;
+	margin-top: 15px;
 	background-color: $bcButtonLogin;
 	border-radius: $radiusButtonLogin;
 	width: 200px;
