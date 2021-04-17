@@ -4,6 +4,7 @@ $baseColorBlue: #8ca2d3;
 
 .container {
 	display: flex;
+	margin: 0;
 	justify-content: space-between;
 	align-items: center;
 	height: 118px;
@@ -53,6 +54,7 @@ $baseColorBlue: #8ca2d3;
 
 .title {
 	@include titleText;
+	color: #529ac6;
 }
 
 .side_bar_item {
