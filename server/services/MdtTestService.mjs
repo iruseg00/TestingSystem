@@ -3,8 +3,8 @@ import MdtTest from "../db/models/MdtTest.mjs";
 class MdtTestService {
   getAll(id) {
     return MdtTest.findAll({
-      attributes: ["user", "results", "testingSystem", "description"],
-      where: { id },
+      attributes: ["results", "testingSystem", "description"],
+      where: { user: id },
     });
   }
 

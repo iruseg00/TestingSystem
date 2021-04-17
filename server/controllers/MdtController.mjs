@@ -13,7 +13,10 @@ router.get("/all_questions", (req, res) => {
 
 router.get("/all_answers", (req, res) => {
   MdtTestService.getAll(req.user.id)
-    .then((data) => res.status(200).json(data))
+    .then((data) => {
+      console.log(data);
+      return res.status(200).json(data);
+    })
     .catch((err) => res.status(500).send());
 });
 
