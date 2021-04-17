@@ -3,8 +3,8 @@ import SusTest from "../db/models/SusTest.mjs";
 class SusTestService {
   getAll(id) {
     return SusTest.findAll({
-      attributes: ["user", "results", "testingSystem", "description"],
-      where: { id },
+      attributes: ["results", "testingSystem", "description"],
+      where: { user: id },
     });
   }
 
