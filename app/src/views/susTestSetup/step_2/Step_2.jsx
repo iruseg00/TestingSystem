@@ -6,7 +6,7 @@ import { Button, message } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
 import { getResults } from '../../../redux/actions/susTest';
-import Modal from '../../../components/modal/ModalWindow';
+import ModalWindow from '../../../components/modal/ModalWindow';
 
 const Step_2 = (props) => {
 	const [visible, setVisible] = useState(false);
@@ -70,9 +70,9 @@ const Step_2 = (props) => {
 					</Button>
 				</FormItem>
 			</div>
-			<Modal action={action} visible={visible} setVisible={setVisible}>
+			<ModalWindow action={action} visible={visible} setVisible={setVisible}>
 				Вы уверены, что все данные введены верно?
-			</Modal>
+			</ModalWindow>
 		</Form>
 	);
 };
