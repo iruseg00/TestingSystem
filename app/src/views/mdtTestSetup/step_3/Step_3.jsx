@@ -19,7 +19,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={results.plus}
+							format={() => results.plus}
 						/>
 						<p className={style.desc}>Количество положиительных прилагательных</p>
 					</div>
@@ -29,7 +29,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={results.minus}
+							format={() => results.minus}
 						/>
 						<p className={style.desc}>Количество отрицательных прилагательных</p>
 					</div>

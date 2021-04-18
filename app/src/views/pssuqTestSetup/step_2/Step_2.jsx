@@ -21,27 +21,28 @@ const Step_2 = (props) => {
 		/>
 	));
 	const PostAnswers = (values) => {
-		// const send = () => () => {
-		let arrayOfAnswers = [];
-		for (let item in values) {
-			arrayOfAnswers[item - 1] = values[item];
-		}
-		let arrayOfAnswersToPost = arrayOfAnswers.map((element, index) => {
-			return {
-				id: index + 1,
-				answer: element,
+		const send = () => () => {
+			let arrayOfAnswers = [];
+			for (let item in values) {
+				arrayOfAnswers[item - 1] = values[item];
+			}
+			let arrayOfAnswersToPost = arrayOfAnswers.map((element, index) => {
+				return {
+					id: index + 1,
+					answer: element,
+				};
+			});
+			let answer_to_post = {
+				answers: arrayOfAnswersToPost,
+				testingSystem: props.getData.testingSystem,
+				description: props.getData.description,
 			};
-		});
-		let answer_to_post = {
-			answers: arrayOfAnswersToPost,
-			testingSystem: props.getData.testingSystem,
-			description: props.getData.description,
+			console.log(answer_to_post);
+			dispatch(getResults(answer_to_post));
+			props.func_next();
 		};
-		dispatch(getResults(answer_to_post));
-		props.func_next();
-		// };
-		// setAction(send);
-		// setVisible(true);
+		setAction(send);
+		setVisible(true);
 	};
 
 	return (
@@ -55,9 +56,9 @@ const Step_2 = (props) => {
 					</Button>
 				</FormItem>
 			</div>
-			{/* <ModalWindow action={action} visible={visible} setVisible={setVisible}>
+			<ModalWindow action={action} visible={visible} setVisible={setVisible}>
 				Вы уверены, что все данные введены верно?
-			</ModalWindow> */}
+			</ModalWindow>
 		</Form>
 	);
 };

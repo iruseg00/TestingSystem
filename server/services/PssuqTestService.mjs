@@ -1,6 +1,6 @@
 import PssuqTest from '../db/models/PssuqTest.mjs';
 
-class SusTestService {
+class PssuqTestService {
 	getAll(id) {
 		return SusTest.findAll({
 			attributes: ['results', 'testingSystem', 'description'],
