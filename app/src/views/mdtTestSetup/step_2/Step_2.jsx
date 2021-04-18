@@ -22,17 +22,17 @@ const Step_2 = (props) => {
 	));
 	const PostAnswers = (values) => {
 		const send = () => () => {
-			let arrayOfAnswers = [];
+			const arrayOfAnswersToPost = [];
+			// let arrayOfAnswers = [];
 			for (let item in values) {
-				arrayOfAnswers[item - 1] = values[item];
+				// arrayOfAnswers[item - 1] = values[item];
+				if (values[item] !== 0) {
+					arrayOfAnswersToPost.push(item.toString());
+				} else if (values[item] === 'button') {
+					continue;
+				}
 			}
-			// let arrayOfAnswersToPost = arrayOfAnswers.map((element, index) => {
-			// 	return {
-			// 		id: index + 1,
-			// 		// answer: element,
-			// 	};
-			// });
-			let arrayOfAnswersToPost = [1, 2, 3, 4, 5];
+			arrayOfAnswersToPost.pop();
 			let answer_to_post = {
 				answers: arrayOfAnswersToPost,
 				testingSystem: props.getData.testingSystem,
