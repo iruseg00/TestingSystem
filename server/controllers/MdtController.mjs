@@ -14,7 +14,6 @@ router.get('/all_questions', (req, res) => {
 router.get('/all_answers', (req, res) => {
 	MdtTestService.getAll(req.user.id)
 		.then((data) => {
-			console.log(data);
 			return res.status(200).json(data);
 		})
 		.catch((err) => res.status(500).send());
@@ -29,7 +28,6 @@ router.post('/create_answer', async (req, res) => {
 			attributes: ['adjective', 'mark'],
 		});
 		req.body.answers = [...results.map((item) => item.adjective)];
-		console.log(req.body);
 		const { plus, minus } = await MdtTest(results);
 		req.body.results = { plus, minus };
 		req.body.user = req.user.id;
