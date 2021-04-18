@@ -15,10 +15,11 @@ $sizeTextButtonAndLabels: 24px;
 .container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-gap: 20px;
-	width: 100%;
+	grid-gap: 40px;
+	width: 1400px;
+	margin: 0 auto;
 	justify-items: center;
-	margin-top: 63px;
+	margin-top: 22px;
 }
 
 .containerToButton {
