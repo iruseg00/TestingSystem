@@ -11,6 +11,7 @@ class UserService {
 				'surname',
 				'name',
 				'middleName',
+				'role',
 				'sex',
 				'email',
 				'photo',

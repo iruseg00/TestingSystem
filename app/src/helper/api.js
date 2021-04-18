@@ -16,7 +16,7 @@ const api = async (url, method = "GET", data) => {
       });
   }
 
-  var config = {
+  let config = {
     headers: { Authorization: "Bearer " + localStorage.getItem("accessToken") }
   };
 

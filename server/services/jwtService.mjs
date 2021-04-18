@@ -11,7 +11,7 @@ class JWTService {
                 role: data.role,
             },
             secret,
-            { expiresIn: '30m' }
+            { expiresIn: '15m' }
         );
         let refreshToken = sign({ id: data.id }, secret, { expiresIn: '3d' });
         return {
