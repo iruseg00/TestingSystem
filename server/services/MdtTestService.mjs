@@ -1,11 +1,23 @@
 import MdtTest from '../db/models/MdtTest.mjs';
 
 class MdtTestService {
-	getAll(id) {
-		return MdtTest.findAll({
-			attributes: ['results', 'testingSystem', 'description'],
-			where: { user: id },
-		});
+	async getAll(id) {
+		try {
+			let testingSystems = await MdtTest.findAll({
+				attributes: ['testingSystem'],
+				where: { user: id },
+			});
+			testingSystems = [... new Set(testingSystems.map(item => item.testingSystem))];
+			const sortedResults = testingSystems.map((system)=> {
+				return MdtTest.findAndCountAll({
+					attributes: ['results', 'testingSystem', 'description'],
+					where: { user: id, testingSystem: system },
+				});
+			})
+			return Promise.all(sortedResults);
+		} catch (error) {
+			return error;
+		}
 	}
 
 	create(body) {
