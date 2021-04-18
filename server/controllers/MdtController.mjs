@@ -13,7 +13,10 @@ router.get('/all_questions', (req, res) => {
 
 router.get('/all_answers', (req, res) => {
 	MdtTestService.getAll(req.user.id)
-		.then((data) => res.status(200).json(data))
+		.then((data) => {
+			console.log(data);
+			return res.status(200).json(data);
+		})
 		.catch((err) => res.status(500).send());
 });
 
@@ -21,13 +24,13 @@ router.post('/create_answer', async (req, res) => {
 	try {
 		const results = await MdtTableService.getAll({
 			where: {
-				adjectiveID: [...req.body.answers],
+				adjectiveID: req.body.answers,
 			},
 			attributes: ['adjective', 'mark'],
 		});
 		req.body.answers = [...results.map((item) => item.adjective)];
-		console.log(req.body.answers);
-		const { plus, minus } = await MdtTest(req.body.results);
+		console.log(req.body);
+		const { plus, minus } = await MdtTest(results);
 		req.body.results = { plus, minus };
 		req.body.user = req.user.id;
 		let data = await MdtTestService.create(req.body);

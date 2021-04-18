@@ -1,10 +1,10 @@
 import PssuqTest from '../db/models/PssuqTest.mjs';
 
-class PssuqTestService {
+class SusTestService {
 	getAll(id) {
-		return PssuqTest.findAll({
-			attributes: ['user', 'results', 'testingSystem', 'description'],
-			where: { id },
+		return SusTest.findAll({
+			attributes: ['results', 'testingSystem', 'description'],
+			where: { user: id },
 		});
 	}
 
