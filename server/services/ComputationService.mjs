@@ -26,5 +26,8 @@ export const MdtTest = async (results) => {
 	let marks = results.map((item) => item.mark);
 	plus = marks.filter((item) => item == true).length;
 	minus = marks.filter((item) => item == false).length;
+	const length = plus + minus;
+	minus &&= minus * 100 / length;
+	plus &&= plus * 100 / length;
 	return { plus, minus };
 };
