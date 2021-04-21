@@ -3,6 +3,8 @@ $bcInputs: #f5f5f5;
 $radiusButtonLogin: 10px;
 $bcButtonLogin: #8ca2d3;
 $sizeTextButtonAndLabels: 24px;
+$radiusButtonRegister: 10px;
+$bcButtonRegister: #8ca2d3;
 
 .form {
 	width: 760px;
@@ -14,6 +16,7 @@ $sizeTextButtonAndLabels: 24px;
 
 .descText {
 	@include blackStandartText;
+	padding-top: 7px;
 }
 
 .fields {
@@ -50,4 +53,38 @@ $sizeTextButtonAndLabels: 24px;
 	height: 53px;
 	font-size: $sizeTextButtonAndLabels;
 	border: none;
+}
+
+.modalWindow > div {
+	background-color: rgb(128, 128, 128);
+}
+
+.containerToModalButtons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.submit_modal {
+	border: 1px solid black !important;
+	border-radius: $radiusButtonRegister;
+	width: 100px;
+	height: 45px;
+	font-size: $sizeTextButtonAndLabels;
+	border: none;
+}
+
+.cancel_modal {
+	background-color: $bcButtonRegister;
+	border-radius: $radiusButtonRegister;
+	width: 100px;
+	height: 45px;
+	font-size: $sizeTextButtonAndLabels;
+	border: none;
+}
+
+.modalText {
+	text-align: center;
+	font-size: 21px;
 }

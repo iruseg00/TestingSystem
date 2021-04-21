@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Form, Input, Button, Radio } from 'antd';
 import { register } from '../../redux/actions/registration';
@@ -53,6 +53,7 @@ function RegisterForma(props) {
 		}
 	};
 	const onChangeAvatar = (image) => (userPhoto = image || null);
+
 	return (
 		<Form
 			form={form}
@@ -144,13 +145,9 @@ function RegisterForma(props) {
 				>
 					<Input.Password size='large' className={style.input} onChange={changedField} />
 				</Form.Item>
+				{/* КНОПКА РЕГИСТРАЦИИ */}
 				<Form.Item>
-					<Button
-						type='primary'
-						htmlType='submit'
-						className={style.submit}
-						loading={props.registration.loading}
-					>
+					<Button type='primary' htmlType='submit' className={style.submit}>
 						Готово
 					</Button>
 				</Form.Item>

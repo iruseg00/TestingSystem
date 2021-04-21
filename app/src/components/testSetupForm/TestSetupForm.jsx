@@ -2,23 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Input } from 'antd';
 import style from './style.module.scss';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
-import { getSusTest } from '../../redux/actions/susTest';
+import ModalWindow from '../modal/ModalWindow';
 
 function TestSetupForm(props) {
 	const USER_ID = useSelector((state) => state.users.profile.userID);
+	const [visible, setVisible] = React.useState(false);
+	const [action, setAction] = React.useState();
 	const dispatch = useDispatch();
 	const onFinish = (values) => {
-		props.setData({
-			testingSystem: values.testingSystem,
-			description: values.description,
-		});
-		dispatch(getSusTest());
-		props.func_next();
+		const send = () => () => {
+			props.setData({
+				testingSystem: values.testingSystem,
+				description: values.description,
+			});
+			dispatch(props.getTest());
+			props.func_next();
+		};
+		setAction(send);
+		setVisible(true);
 	};
+
 	return (
 		<Form onFinish={onFinish} className={style.form} name='testSetup'>
 			<div className={style.fields}>
@@ -60,13 +66,15 @@ function TestSetupForm(props) {
 					<Input name='description' size='large' className={style.input} />
 				</FormItem>
 			</div>
-
 			<Link className={style.scanningText} to='/test-scanning'>
 				Сканировать имеющийся тест
 			</Link>
 			<Button type='primary' htmlType='submit' className={style.submit}>
 				Начать тест
 			</Button>
+			<ModalWindow action={action} visible={visible} setVisible={setVisible}>
+				Вы уверены, что все данные введены верно?
+			</ModalWindow>
 		</Form>
 	);
 }
