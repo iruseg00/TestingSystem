@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import style from './style.module.scss';
 import TestPssuqQuestions from '../../../components/testPssuqQuestion/TestPssuqQuestion';
-import { Button } from 'antd';
+import { Button, Spin } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
 import { getResults } from '../../../redux/actions/pssuqTest';
@@ -11,6 +11,7 @@ import ModalWindow from '../../../components/modal/ModalWindow';
 const Step_2 = (props) => {
 	const [visible, setVisible] = React.useState(false);
 	const [action, setAction] = React.useState();
+	const loading = useSelector((state) => state.pssuqTest.loading);
 	const dispatch = useDispatch();
 	const questions = useSelector((state) => state.pssuqTest.questions);
 	const arrayOfQuestions = questions?.map((element) => (
@@ -49,7 +50,9 @@ const Step_2 = (props) => {
 		<Form name='Form' onFinish={PostAnswers}>
 			<div className={style.container}>
 				<div className={style.title}>{props.title_of_test}</div>
-				<div className={style.content_container}>{arrayOfQuestions}</div>
+				<div className={style.content_container}>
+					{loading ? <Spin className={style.spin} size='large' /> : arrayOfQuestions}
+				</div>
 				<FormItem name='button'>
 					<Button type='primary' htmlType='submit' className={style.submit}>
 						Подтвердить

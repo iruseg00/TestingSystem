@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import style from './style.module.scss';
 import TestQuestion from '../../../components/test_question/Test_question';
-import { Button, message } from 'antd';
+import { Button, message, Spin } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
 import { getResults } from '../../../redux/actions/susTest';
@@ -12,6 +12,7 @@ const Step_2 = (props) => {
 	const [visible, setVisible] = useState(false);
 	const [action, setAction] = useState();
 	const dispatch = useDispatch();
+	const loading = useSelector((state) => state.susTest.loading);
 	const questions = useSelector((state) => state.susTest.questions);
 	const arrayOfQuestions = questions?.map((element) => (
 		<TestQuestion
@@ -63,7 +64,9 @@ const Step_2 = (props) => {
 						<span className={style.number}>5</span>
 					</div>
 				</div>
-				<div className={style.content_container}>{arrayOfQuestions}</div>
+				<div className={style.content_container}>
+					{loading ? <Spin className={style.spin} size='large' /> : arrayOfQuestions}
+				</div>
 				<FormItem name='button'>
 					<Button type='primary' htmlType='submit' className={style.submit}>
 						Подтвердить
