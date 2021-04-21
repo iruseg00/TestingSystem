@@ -2,8 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import style from './style.module.scss';
 import TestMdtQuestions from '../../../components/testMdtQuestion/TestMdtQuestion';
-import { Button } from 'antd';
-import Form from 'antd/lib/form/Form';
+import { Button, message, Form, Spin } from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
 import { getResults } from '../../../redux/actions/mdtTest';
 import ModalWindow from '../../../components/modal/ModalWindow';
@@ -11,8 +10,10 @@ import ModalWindow from '../../../components/modal/ModalWindow';
 const Step_2 = (props) => {
 	const [visible, setVisible] = React.useState(false);
 	const [action, setAction] = React.useState();
+	const [form] = Form.useForm();
 	const dispatch = useDispatch();
 	const questions = useSelector((state) => state.mdtTest.questions);
+	const loading = useSelector((state) => state.mdtTest.loading);
 	const arrayOfQuestions = questions?.map((element) => (
 		<TestMdtQuestions
 			name={element.adjectiveID}
@@ -20,39 +21,56 @@ const Step_2 = (props) => {
 			question_text={element.adjective}
 		/>
 	));
+	const error = () => {
+		message.error('Должно быть выбрано не более 5 прилагательных!');
+	};
+	const error2 = () => {
+		message.error('Должно быть выбрано 5 прилагательных!');
+	};
+	const onReset = () => {
+		form.resetFields();
+	};
 	const PostAnswers = (values) => {
 		const send = () => () => {
-			let arrayOfAnswers = [];
+			const arrayOfAnswersToPost = [];
 			for (let item in values) {
-				arrayOfAnswers[item - 1] = values[item];
+				if (values[item] !== 0) {
+					arrayOfAnswersToPost.push(item.toString());
+				} else if (values[item] === 'button') {
+					continue;
+				}
 			}
-			// let arrayOfAnswersToPost = arrayOfAnswers.map((element, index) => {
-			// 	return {
-			// 		id: index + 1,
-			// 		// answer: element,
-			// 	};
-			// });
-			let arrayOfAnswersToPost = [1, 2, 3, 4, 5];
-			let answer_to_post = {
-				answers: arrayOfAnswersToPost,
-				testingSystem: props.getData.testingSystem,
-				description: props.getData.description,
-			};
-			dispatch(getResults(answer_to_post));
-			props.func_next();
+			arrayOfAnswersToPost.pop();
+			if (arrayOfAnswersToPost.length === 5) {
+				let answer_to_post = {
+					answers: arrayOfAnswersToPost,
+					testingSystem: props.getData.testingSystem,
+					description: props.getData.description,
+				};
+				dispatch(getResults(answer_to_post));
+				props.func_next();
+			} else if (arrayOfAnswersToPost.length < 5) {
+				error2();
+			} else {
+				onReset();
+				error();
+			}
+			console.log(arrayOfAnswersToPost);
 		};
 		setAction(send);
 		setVisible(true);
 	};
 
 	return (
-		<Form name='Form' onFinish={PostAnswers}>
+		<Form form={form} name='Formm' onFinish={PostAnswers}>
 			<div className={style.container}>
 				<div className={style.title}>
-					Выберите 5 прилагательных, которые, по Вашему мнению, характеризуют интерфейс
+					Выберите до 5 прилагательных, которые, по Вашему мнению, характеризуют интерфейс
 					программы{' '}
 				</div>
-				<div className={style.content_container}>{arrayOfQuestions}</div>
+				<div className={style.content_container}>
+					{loading ? <Spin className={style.spin} size='large' /> : arrayOfQuestions}
+				</div>
 				<FormItem name='button'>
 					<Button type='primary' htmlType='submit' className={style.submit}>
 						Подтвердить

@@ -41,7 +41,7 @@ export function getResults(data) {
 	};
 }
 
-export function getAllAnswers(data) {
+export function getAllAnswers() {
 	return async function (dispatch) {
 		dispatch({ type: SUS_TEST_REQUEST });
 		const response = await allAnswersRequest();
