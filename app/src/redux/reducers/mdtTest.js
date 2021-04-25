@@ -3,12 +3,14 @@ import {
 	MDT_TEST_SUCCESS,
 	MDT_TEST_FAILED,
 	MDT_TEST_GET_RESULTS,
+	MDT_TEST_GET_ALL_ANSWERS,
 } from '../actionsTypes/mdtTest';
 
 const initialState = {
 	loading: false,
 	questions: [],
 	results: {},
+	allAnswers: [],
 	message: '',
 };
 
@@ -29,6 +31,10 @@ export default function usersReducer(state = initialState, action) {
 		case MDT_TEST_GET_RESULTS:
 			newState.loading = false;
 			newState.results = action.payload;
+			return newState;
+		case MDT_TEST_GET_ALL_ANSWERS:
+			newState.loading = false;
+			newState.allAnswers = action.payload;
 			return newState;
 		default:
 			return state;

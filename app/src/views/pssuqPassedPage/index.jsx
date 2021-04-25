@@ -4,8 +4,8 @@ import PassedTestOverview from '../../components/passedTestOverview/PassedTestOv
 import image from '../../assets/images/cubes-solid_1.svg';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
 
-const SusPassedPage = () => {
-	const answers = useSelector((state) => state.susTest.allAnswers);
+const PssuqPassedPage = () => {
+	const answers = useSelector((state) => state.pssuqTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (
 			<PassedTestResult
@@ -16,10 +16,14 @@ const SusPassedPage = () => {
 		));
 	return (
 		<div className={style.container}>
-			<PassedTestOverview image={image} title='SUS' subTitle='System Usability Scale' />
+			<PassedTestOverview
+				image={image}
+				title='PSSUQ'
+				subTitle='Post-Study System Usability Questionnaire'
+			/>
 			<div className={style.containerToResults}>{getContent()}</div>
 		</div>
 	);
 };
 
-export default SusPassedPage;
+export default PssuqPassedPage;

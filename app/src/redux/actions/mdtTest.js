@@ -1,9 +1,14 @@
-import { getMdtQuestions, postMdtAnswers } from '../../services/mdtTest';
+import {
+	getMdtQuestions,
+	postMdtAnswers,
+	allAnswersRequest,
+} from '../../services/mdtTest';
 import {
 	MDT_TEST_REQUEST,
 	MDT_TEST_SUCCESS,
 	MDT_TEST_FAILED,
 	MDT_TEST_GET_RESULTS,
+	MDT_TEST_GET_ALL_ANSWERS,
 } from '../actionsTypes/mdtTest';
 import { message } from 'antd';
 
@@ -29,6 +34,21 @@ export function getResults(data) {
 		try {
 			results ?? new Error('Failed request.');
 			dispatch({ type: MDT_TEST_GET_RESULTS, payload: results });
+		} catch (err) {
+			dispatch({ type: MDT_TEST_FAILED, payload: err });
+			message.error(err);
+		}
+	};
+}
+
+export function getAllMdtAnswers() {
+	return async function (dispatch) {
+		dispatch({ type: MDT_TEST_REQUEST });
+		const response = await allAnswersRequest();
+		const answers = response?.data;
+		try {
+			answers ?? new Error('Failed request.');
+			dispatch({ type: MDT_TEST_GET_ALL_ANSWERS, payload: answers });
 		} catch (err) {
 			dispatch({ type: MDT_TEST_FAILED, payload: err });
 			message.error(err);

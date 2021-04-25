@@ -10,6 +10,8 @@ import MDTTestSetupLayout from '../mdtTestSetup/MDTTestSetup';
 
 import PassedTests from '../passedTests/index';
 import SusPassedPage from '../susPassedPage/Index';
+import PssuqPassedPage from '../pssuqPassedPage/index';
+import MdtPassedPage from '../mdtPassedPage/index';
 
 import Page_404 from '../page_404/Page_404';
 
@@ -24,6 +26,8 @@ function MainTests() {
 				<Route path='/dashboard/mdt' component={MDTTestSetupLayout} />
 				<Route path='/dashboard/passed_tests' exact component={PassedTests}></Route>
 				<Route path='/dashboard/passed_tests/sus' exact component={SusPassedPage}></Route>
+				<Route path='/dashboard/passed_tests/pssuq' exact component={PssuqPassedPage}></Route>
+				<Route path='/dashboard/passed_tests/mdt' exact component={MdtPassedPage}></Route>
 				<Route path='*' exact component={Page_404} />
 			</Switch>
 		</div>
