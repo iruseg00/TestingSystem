@@ -1,3 +1,4 @@
+import React from 'react';
 import PassedTest from '../../components/passedTest/PassedTest';
 import style from './style.module.scss';
 import boxes from '../../assets/images/Vector.svg';

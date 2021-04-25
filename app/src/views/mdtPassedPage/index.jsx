@@ -19,7 +19,7 @@ const MdtPassedPage = () => {
 			<PassedTestOverview
 				image={image}
 				title='MDT'
-				subTitle='Post-Study System Usability Questionnaire'
+				subTitle='Microsoft Desirability Toolkit'
 			/>
 			<div className={style.containerToResults}>{getContent()}</div>
 		</div>

@@ -38,7 +38,7 @@ const Header = () => {
 						<Link className={style.side_bar_item} to='/dashboard/profile'>
 							Личный кабинет
 						</Link>
-						<Link className={style.side_bar_item} to='/dashboard/passed_tests'>
+						<Link className={style.side_bar_item} to='/passed_tests'>
 							Пройденные тесты
 						</Link>
 					</div>
