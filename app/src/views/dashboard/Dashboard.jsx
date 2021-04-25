@@ -8,7 +8,8 @@ import PSSUQTestSetupLayout from '../pssuqTestSetup/PSSUQTestSetup';
 import SUSTestSetupLayout from '../susTestSetup/SUSTestSetup';
 import MDTTestSetupLayout from '../mdtTestSetup/MDTTestSetup';
 
-import PassedTests from '../passedTests';
+import PassedTests from '../passedTests/index';
+import SusPassedPage from '../susPassedPage/Index';
 
 import Page_404 from '../page_404/Page_404';
 
@@ -21,7 +22,8 @@ function MainTests() {
 				<Route path='/dashboard/sus' component={SUSTestSetupLayout} />
 				<Route path='/dashboard/pssuq' component={PSSUQTestSetupLayout} />
 				<Route path='/dashboard/mdt' component={MDTTestSetupLayout} />
-				<Route path='/dashboard/passed_tests' component={PassedTests}></Route>
+				<Route path='/dashboard/passed_tests' exact component={PassedTests}></Route>
+				<Route path='/dashboard/passed_tests/sus' exact component={SusPassedPage}></Route>
 				<Route path='*' exact component={Page_404} />
 			</Switch>
 		</div>

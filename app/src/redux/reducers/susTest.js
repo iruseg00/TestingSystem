@@ -10,6 +10,7 @@ const initialState = {
 	loading: false,
 	questions: [],
 	results: {},
+	allAnswers: [],
 	message: '',
 };
 
@@ -27,9 +28,13 @@ export default function usersReducer(state = initialState, action) {
 			newState.loading = false;
 			newState.message = action.payload;
 			return newState;
-		case SUS_TEST_GET_RESULTS || SUS_TEST_GET_ALL_ANSWERS:
+		case SUS_TEST_GET_RESULTS:
 			newState.loading = false;
 			newState.results = action.payload;
+			return newState;
+		case SUS_TEST_GET_ALL_ANSWERS:
+			newState.loading = false;
+			newState.allAnswers = action.payload;
 			return newState;
 		default:
 			return state;

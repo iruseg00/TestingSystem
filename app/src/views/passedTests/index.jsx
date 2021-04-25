@@ -1,6 +1,7 @@
 import PassedTest from '../../components/passedTest/PassedTest';
 import style from './style.module.scss';
 import boxes from '../../assets/images/Vector.svg';
+import { getAllAnswers } from '../../redux/actions/susTest';
 
 const PassedTests = () => {
 	return (
@@ -9,16 +10,10 @@ const PassedTests = () => {
 				<span>Пройденные тесты</span>
 			</div>
 			<div className={style.container}>
-				<PassedTest image={boxes} title={'SUS'} />
+				<PassedTest image={boxes} title={'SUS'} action={getAllAnswers} />
 				<PassedTest image={boxes} title={'PSSUQ'} />
 				<PassedTest image={boxes} title={'MDT'} />
-				<PassedTest image={boxes} title={'SUS'} />
-				<PassedTest image={boxes} title={'SUS'} />
-				<PassedTest image={boxes} title={'PSSUQ'} />
-				<PassedTest image={boxes} title={'MDT'} />
-				<PassedTest image={boxes} title={'SUS'} />
 			</div>
-			<div className={style.containerToButton}></div>
 		</div>
 	);
 };
