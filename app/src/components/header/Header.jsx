@@ -32,13 +32,13 @@ const Header = () => {
 			>
 				<div className={style.links_container}>
 					<div className={style.flex_1}>
-						<Link className={style.side_bar_item} to='/dashboard'>
+						<Link className={style.side_bar_item} to='/dashboard' onClick={onClose}>
 							Выбор теста
 						</Link>
-						<Link className={style.side_bar_item} to='/dashboard/profile'>
+						<Link className={style.side_bar_item} to='/dashboard/profile' onClick={onClose}>
 							Личный кабинет
 						</Link>
-						<Link className={style.side_bar_item} to='/passed_tests'>
+						<Link className={style.side_bar_item} to='/passed_tests' onClick={onClose}>
 							Пройденные тесты
 						</Link>
 					</div>
