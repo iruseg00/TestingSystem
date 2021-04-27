@@ -5,6 +5,7 @@ const PassedTestResult = (props) => {
 		return props.setState({
 			description: props.description,
 			date: props.date,
+			testingSystem: props.testingSystem,
 		});
 	};
 	return (
