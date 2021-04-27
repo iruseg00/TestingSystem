@@ -5,7 +5,7 @@ import PassedTestOverview from '../../components/passedTestOverview/PassedTestOv
 import image from '../../assets/images/cubes-solid_1.svg';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
 
-const MdtPassedPage = () => {
+const MdtPassedPage = (props) => {
 	const answers = useSelector((state) => state.mdtTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (
@@ -14,6 +14,9 @@ const MdtPassedPage = () => {
 					key={index}
 					testingSystem={item.rows[0].testingSystem}
 					count={item.count}
+					description={item.rows[0].description}
+					date='22.03.2021 20:18'
+					setState={props.setState}
 				/>
 			</Link>
 		));

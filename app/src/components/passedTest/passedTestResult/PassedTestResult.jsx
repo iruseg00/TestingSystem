@@ -1,14 +1,17 @@
 import style from './style.module.scss';
-// import { Link } from 'react-router-dom';
 
-const PassedTestResult = ({ count, testingSystem }) => {
+const PassedTestResult = (props) => {
+	const editState = () => {
+		return props.setState({
+			description: props.description,
+			date: props.date,
+		});
+	};
 	return (
-		// <Link to={`/dashboard/passed_tests/${props.title.toLowerCase()}`}>
-		<div className={style.container}>
-			<span className={style.testingSystem}>{testingSystem}</span>
-			<span className={style.count}>Количество: {count}</span>
+		<div onClick={editState} className={style.container}>
+			<span className={style.testingSystem}>{props.testingSystem}</span>
+			<span className={style.count}>Количество: {props.count}</span>
 		</div>
-		// </Link>
 	);
 };
 
