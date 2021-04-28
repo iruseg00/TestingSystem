@@ -9,7 +9,7 @@ const MdtPassedPage = (props) => {
 	const answers = useSelector((state) => state.mdtTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (
-			<Link to={`/passed_tests/mdt/${item.rows[0].testingSystem}`}>
+			<Link to={`/dashboard/passed_tests/mdt/${item.rows[0].testingSystem}`}>
 				<PassedTestResult
 					key={index}
 					testingSystem={item.rows[0].testingSystem}

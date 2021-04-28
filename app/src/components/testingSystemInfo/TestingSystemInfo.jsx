@@ -1,22 +1,15 @@
-import style from './style.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getTestingSystemResults } from '../../redux/actions/susTest';
+import { useSelector } from 'react-redux';
 import TestingSystemResult from '../testingSystemResult/TestingSystemResult';
+import style from './style.module.scss';
 
-const TestingSystemInfo = (props) => {
-	let { testingsystem } = useParams();
-	const dispatch = useDispatch();
-	dispatch(getTestingSystemResults({ testingSystem: testingsystem }));
-	const pathOfTest = props.statePath;
-	console.log(pathOfTest);
+const TestingSystemInfo = ({ statePath, date }) => {
 	const testingSystemResults = useSelector(
-		(state) => state[pathOfTest].testingSystemTests
+		(state) => state[statePath].testingSystemTests
 	);
-	let date = props.state.date && new Date(props.state.date).toISOString().substring(0, 10);
-	let getTesingSystemComponents = () =>
+	const DATE = date && new Date(date).toISOString().substring(0, 10);
+	const getTesingSystemComponents = () =>
 		testingSystemResults.map((element) => (
-			<TestingSystemResult key={element.ID} description={element.description} date={date} />
+			<TestingSystemResult key={element.ID} description={element.description} date={DATE} />
 		));
 
 	return <div className={style.container}>{getTesingSystemComponents()}</div>;

@@ -1,8 +1,8 @@
-const TestingSystemResult = (props) => {
+const TestingSystemResult = ({ date, description }) => {
 	return (
 		<div>
-			<div>{props.description}</div>
-			<div>{props.date}</div>
+			<div>{description}</div>
+			<div>{date}</div>
 		</div>
 	);
 };

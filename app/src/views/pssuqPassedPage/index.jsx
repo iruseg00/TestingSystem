@@ -9,7 +9,7 @@ const PssuqPassedPage = (props) => {
 	const answers = useSelector((state) => state.pssuqTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (
-			<Link to={`/passed_tests/pssuq/${item.rows[0].testingSystem}`}>
+			<Link to={`/dashboard/passed_tests/pssuq/${item.rows[0].testingSystem}`}>
 				<PassedTestResult
 					key={index}
 					testingSystem={item.rows[0].testingSystem}

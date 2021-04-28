@@ -6,7 +6,7 @@ const PassedTest = (props) => {
 	const dispatch = useDispatch();
 	return (
 		<Link
-			to={`/passed_tests/${props.title.toLowerCase()}`}
+			to={`/dashboard/passed_tests/${props.title.toLowerCase()}`}
 			onClick={() => dispatch(props.action())}
 		>
 			<div className={style.container}>

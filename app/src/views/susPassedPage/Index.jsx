@@ -1,23 +1,23 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from './style.module.scss';
 import PassedTestOverview from '../../components/passedTestOverview/PassedTestOverview';
 import image from '../../assets/images/cubes-solid_1.svg';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
+import { getTestingSystemResults } from '../../redux/actions/susTest';
 
-const SusPassedPage = (props) => {
-	console.log(props);
+const SusPassedPage = ({ setDate }) => {
+	const dispatch = useDispatch();
 	const answers = useSelector((state) => state.susTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (
-			<Link to={`/passed_tests/sus/${item.rows[0].testingSystem}`}>
+			<Link to={`/dashboard/passed_tests/sus/${item.rows[0].testingSystem}`} onClick={()=> dispatch(getTestingSystemResults({ testingSystem: item.rows[0].testingSystem }))} >
 				<PassedTestResult
 					key={index}
 					testingSystem={item.rows[0].testingSystem}
 					count={item.count}
-					description={item.rows[0].description}
 					date={item.rows[0].createdAt}
-					setState={props.setState}
+					setDate={setDate}
 				/>
 			</Link>
 		));
