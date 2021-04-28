@@ -10,7 +10,7 @@ class SusTestService {
 			testingSystems = [... new Set(testingSystems.map(item => item.testingSystem))];
 			const sortedResults = testingSystems.map((system)=> {
 				return SusTest.findAndCountAll({
-					attributes: ['results', 'testingSystem', 'description'],
+					attributes: ['results', 'testingSystem', 'description', 'createdAt', 'ID'],
 					where: { user: id, testingSystem: system },
 				});
 			})
