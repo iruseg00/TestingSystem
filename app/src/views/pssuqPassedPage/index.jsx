@@ -9,13 +9,13 @@ const PssuqPassedPage = (props) => {
 	const answers = useSelector((state) => state.pssuqTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (
-			<Link to={`/passed_tests/pssuq/${item.rows[0].testingSystem.toLowerCase()}`}>
+			<Link to={`/passed_tests/pssuq/${item.rows[0].testingSystem}`}>
 				<PassedTestResult
 					key={index}
 					testingSystem={item.rows[0].testingSystem}
 					count={item.count}
 					description={item.rows[0].description}
-					date='22.03.2021 20:18'
+					date={item.rows[0].createdAt}
 					setState={props.setState}
 				/>
 			</Link>
