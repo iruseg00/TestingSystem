@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import style from './style.module.scss';
-import TestPssuqQuestions from '../../../components/testPssuqQuestion/TestPssuqQuestion';
 import { Button, Spin } from 'antd';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
+import TestPssuqQuestions from '../../../components/testPssuqQuestion/TestPssuqQuestion';
 import { getResults } from '../../../redux/actions/pssuqTest';
 import ModalWindow from '../../../components/modal/ModalWindow';
+import style from './style.module.scss';
 
 const Step_2 = (props) => {
 	const [visible, setVisible] = React.useState(false);

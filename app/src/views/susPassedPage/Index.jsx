@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import style from './style.module.scss';
 import PassedTestOverview from '../../components/passedTestOverview/PassedTestOverview';
-import image from '../../assets/images/cubes-solid_1.svg';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
 import { getTestingSystemResults } from '../../redux/actions/susTest';
+import image from '../../assets/images/cubes-solid_1.svg';
+import style from './style.module.scss';
 
 const SusPassedPage = ({ setDate }) => {
 	const dispatch = useDispatch();

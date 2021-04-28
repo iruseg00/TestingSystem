@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import style from './style.module.scss';
 import PassedTestOverview from '../../components/passedTestOverview/PassedTestOverview';
-import image from '../../assets/images/cubes-solid_1.svg';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
+import image from '../../assets/images/cubes-solid_1.svg';
+import style from './style.module.scss';
 
 const PssuqPassedPage = (props) => {
 	const answers = useSelector((state) => state.pssuqTest.allAnswers);

@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import style from './style.module.scss';
 import PassedTestOverview from '../../components/passedTestOverview/PassedTestOverview';
-import image from '../../assets/images/cubes-solid_1.svg';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
+import image from '../../assets/images/cubes-solid_1.svg';
+import style from './style.module.scss';
 
 const MdtPassedPage = (props) => {
 	const answers = useSelector((state) => state.mdtTest.allAnswers);
@@ -14,7 +14,6 @@ const MdtPassedPage = (props) => {
 					key={index}
 					testingSystem={item.rows[0].testingSystem}
 					count={item.count}
-					description={item.rows[0].description}
 					date={item.rows[0].createdAt}
 					setState={props.setState}
 				/>

@@ -1,6 +1,6 @@
-import style from './style.module.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import style from './style.module.scss';
 
 const PassedTest = (props) => {
 	const dispatch = useDispatch();

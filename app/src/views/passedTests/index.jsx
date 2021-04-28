@@ -9,9 +9,7 @@ import { getAllMdtAnswers } from '../../redux/actions/mdtTest';
 const PassedTests = () => {
 	return (
 		<div className={style.general}>
-			<div className={style.generalTitle}>
-				<span>Пройденные тесты</span>
-			</div>
+			<div className={style.generalTitle}>Пройденные тесты</div>
 			<div className={style.container}>
 				<PassedTest image={boxes} title={'SUS'} action={getAllSusAnswers} />
 				<PassedTest image={boxes} title={'PSSUQ'} action={getAllPssuqAnswers} />

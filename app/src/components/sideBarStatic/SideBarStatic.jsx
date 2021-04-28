@@ -1,5 +1,5 @@
-import style from "./style.module.scss";
 import pc from "../../assets/images/pc.svg";
+import style from "./style.module.scss";
 
 function SideBarStatic()
 {
