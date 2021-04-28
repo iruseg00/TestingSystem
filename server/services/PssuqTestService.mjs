@@ -10,7 +10,7 @@ class PssuqTestService {
 			testingSystems = [... new Set(testingSystems.map(item => item.testingSystem))];
 			const sortedResults = testingSystems.map((system)=> {
 				return PssuqTest.findAndCountAll({
-					attributes: ['results', 'testingSystem', 'description'],
+					attributes: ['results', 'testingSystem', 'description', 'createdAt', 'ID'],
 					where: { user: id, testingSystem: system },
 				});
 			})
