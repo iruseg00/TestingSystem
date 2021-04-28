@@ -20,6 +20,14 @@ class PssuqTestService {
 		}
 	}
 
+	getAllByTestingSystem(testingSystem)
+	{
+		return PssuqTest.findAll({
+			attributes: ['results', 'testingSystem', 'description', 'createdAt', 'ID'],
+			where: { testingSystem },
+		});
+	}
+
 	create(body) {
 		return PssuqTest.create({
 			user: body.user,

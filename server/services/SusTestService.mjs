@@ -20,6 +20,14 @@ class SusTestService {
 		}
 	}
 
+	getAllByTestingSystem(testingSystem)
+	{
+		return SusTest.findAll({
+			attributes: ['results', 'testingSystem', 'description', 'createdAt', 'ID'],
+			where: { testingSystem },
+		});
+	}
+
 	create(body) {
 		return SusTest.create({
 			user: body.user,
