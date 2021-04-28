@@ -16,7 +16,17 @@ router.get('/all_answers', (req, res) => {
 		.then((data) => {
 			return res.status(200).json(data);
 		})
-		.catch((err) => res.status(500).send());
+		.catch((err) => res.status(500).send(err));
+});
+
+router.post('/testing_system', async (req, res) => {
+	try {
+		const data = await MdtTestService.getAllByTestingSystem(req.body.testingSystem);
+		return res.status(200).json(data);
+	}
+	catch (error) {
+		res.status(400).send('Invalid data!');
+	}
 });
 
 router.post('/create_answer', async (req, res) => {
