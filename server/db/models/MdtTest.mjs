@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 import sequelizeConnect from '../config/connect.mjs';
-const { UUID, UUIDV4, TEXT, JSON } = Sequelize;
+const { UUID, UUIDV4, TEXT, JSON, INTEGER } = Sequelize;
 
 const MdtTest = sequelizeConnect.define(
     'MdtTest',
@@ -9,6 +9,11 @@ const MdtTest = sequelizeConnect.define(
             type: UUID,
             primaryKey: true,
             defaultValue: UUIDV4,
+        },
+        ID: {
+            type: INTEGER,
+            autoIncrement: true,
+            allowNull: false,
         },
         user: {
             type: UUID,
