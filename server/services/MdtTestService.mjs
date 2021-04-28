@@ -20,6 +20,14 @@ class MdtTestService {
 		}
 	}
 
+	getAllByTestingSystem(testingSystem)
+	{
+		return MdtTest.findAll({
+			attributes: ['results', 'testingSystem', 'description', 'createdAt', 'ID'],
+			where: { testingSystem },
+		});
+	}
+
 	create(body) {
 		return MdtTest.create({
 			user: body.user,
