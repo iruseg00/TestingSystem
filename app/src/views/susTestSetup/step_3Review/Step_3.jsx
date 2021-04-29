@@ -6,7 +6,7 @@ import style from './style.module.scss';
 
 const Step_3 = (props) => {
 	const dispatch = useDispatch();
-	const { testingSystem , id } = useParams();
+	const { testingSystem, id } = useParams();
 	useEffect(() => dispatch(props.action({ testingSystem })), []);
 	const testingSystemResponse = useSelector((state) => state.susTest.testingSystemTests);
 	const resultToStep = testingSystemResponse.find((item) => item.ID == id)?.results;

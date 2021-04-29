@@ -6,21 +6,10 @@ import { Link, useParams } from 'react-router-dom';
 
 const Step_3 = (props) => {
 	const dispatch = useDispatch();
-	const match = useParams();
-	useEffect(() => dispatch(props.action({ testingSystem: match.testingSystem })), []);
+	const { id, testingSystem } = useParams();
+	useEffect(() => dispatch(props.action({ testingSystem })), []);
 	const testingSystemResponse = useSelector((state) => state.pssuqTest.testingSystemTests);
-	const { id } = useParams();
-	for (let i = 0; i < testingSystemResponse.length; i++) {
-		if (testingSystemResponse[i].ID == id) {
-			var resultToStep = {
-				value: testingSystemResponse[i].results.value,
-				qualityUI: testingSystemResponse[i].results.qualityUI,
-				qualityInfoSupport: testingSystemResponse[i].results.qualityInfoSupport,
-				type: testingSystemResponse[i].results.type,
-			};
-			break;
-		}
-	}
+	const resultToStep = testingSystemResponse.find((item) => item.ID == id)?.results;
 	return (
 		<div className={style.container}>
 			<div className={style.title}>Результат теста (PSSUQ)</div>
@@ -35,7 +24,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='16'
 							strokeColor='#559AC8'
-							percent={resultToStep.value}
+							percent={resultToStep?.value}
 						/>
 						<p className={style.desc}>Общая оценка</p>
 					</div>
@@ -45,7 +34,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={resultToStep.qualityUI}
+							percent={resultToStep?.qualityUI}
 						/>
 						<p className={style.desc}>Качество интерфейса</p>
 					</div>
@@ -57,7 +46,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={resultToStep.qualityInfoSupport}
+							percent={resultToStep?.qualityInfoSupport}
 						/>
 						<p className={style.desc}>Качество информационной поддержки</p>
 					</div>
@@ -67,7 +56,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							trailColor='#559AC8'
-							format={() => resultToStep.type}
+							format={() => resultToStep?.type}
 						/>
 						<p className={style.desc}>Полезность системы</p>
 					</div>

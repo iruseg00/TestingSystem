@@ -6,18 +6,10 @@ import { Link, useParams } from 'react-router-dom';
 
 const Step_3 = (props) => {
 	const dispatch = useDispatch();
-	const match = useParams();
-	useEffect(() => dispatch(props.action({ testingSystem: match.testingSystem })), []);
+	const { id, testingSystem } = useParams();
+	useEffect(() => dispatch(props.action({ testingSystem: testingSystem })), []);
 	const testingSystemResponse = useSelector((state) => state.mdtTest.testingSystemTests);
-	for (let i = 0; i < testingSystemResponse.length; i++) {
-		if (testingSystemResponse[i].ID == match.id) {
-			var resultToStep = {
-				plus: testingSystemResponse[i].results.plus,
-				minus: testingSystemResponse[i].results.minus,
-			};
-			break;
-		}
-	}
+	const resultToStep = testingSystemResponse.find((item) => item.ID == id)?.results;
 
 	return (
 		<div className={style.container}>
@@ -33,7 +25,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={resultToStep.plus}
+							percent={resultToStep?.plus}
 						/>
 						<p className={style.desc}>Количество положиительных прилагательных</p>
 					</div>
@@ -43,7 +35,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={resultToStep.minus}
+							percent={resultToStep?.minus}
 						/>
 						<p className={style.desc}>Количество отрицательных прилагательных</p>
 					</div>
