@@ -1,7 +1,7 @@
 import style from './style.module.scss';
 
 const PassedTestResult = ({ setDate, testingSystem, count, date }) => {
-	const editState = () => setDate(date);
+	const editState = () => setDate({ date: date, testingSystem: testingSystem });
 	return (
 		<div onClick={editState} className={style.container}>
 			<span className={style.testingSystem}>{testingSystem}</span>

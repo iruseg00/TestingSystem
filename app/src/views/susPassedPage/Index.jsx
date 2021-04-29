@@ -11,7 +11,12 @@ const SusPassedPage = ({ setDate }) => {
 	const answers = useSelector((state) => state.susTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (
-			<Link to={`/dashboard/passed_tests/sus/${item.rows[0].testingSystem}`} onClick={()=> dispatch(getTestingSystemResults({ testingSystem: item.rows[0].testingSystem }))} >
+			<Link
+				to={`/dashboard/passed_tests/sus/${item.rows[0].testingSystem}`}
+				onClick={() =>
+					dispatch(getTestingSystemResults({ testingSystem: item.rows[0].testingSystem }))
+				}
+			>
 				<PassedTestResult
 					key={index}
 					testingSystem={item.rows[0].testingSystem}

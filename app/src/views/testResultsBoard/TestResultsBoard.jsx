@@ -10,13 +10,13 @@ import TestingSystemInfo from '../../components/testingSystemInfo/TestingSystemI
 import Page_404 from '../page_404/Page_404';
 
 const TestsResultsBoard = () => {
-	const [date, setDate] = useState();
+	const [date, setDate] = useState({});
 	return (
 		<Switch>
 			<Route path='/dashboard/passed_tests' exact component={PassedTests} />
 			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem'
-				render={() => <TestingSystemInfo statePath='susTest' date={date} />}
+				render={() => <TestingSystemInfo typeOfTest='SUS' statePath='susTest' date={date} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/sus'
