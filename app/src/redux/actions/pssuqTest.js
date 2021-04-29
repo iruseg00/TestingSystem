@@ -2,6 +2,7 @@ import {
 	getPssuqQuestions,
 	postPssuqAnswers,
 	allAnswersRequest,
+	postPssuqTestingSystemResults,
 } from '../../services/pssuqTest';
 import {
 	PSSUQ_TEST_REQUEST,
@@ -9,6 +10,7 @@ import {
 	PSSUQ_TEST_FAILED,
 	PSSUQ_TEST_GET_RESULTS,
 	PSSUQ_TEST_GET_ALL_ANSWERS,
+	PSSUQ_TEST_GET_TESTINGSYSTEM_TESTS,
 } from '../actionsTypes/pssuqTest';
 import { message } from 'antd';
 
@@ -49,6 +51,21 @@ export function getAllPssuqAnswers() {
 		try {
 			answers ?? new Error('Failed request.');
 			dispatch({ type: PSSUQ_TEST_GET_ALL_ANSWERS, payload: answers });
+		} catch (err) {
+			dispatch({ type: PSSUQ_TEST_FAILED, payload: err });
+			message.error(err);
+		}
+	};
+}
+
+export function getTestingSystemResults(data) {
+	return async function (dispatch) {
+		dispatch({ type: PSSUQ_TEST_REQUEST });
+		const response = await postPssuqTestingSystemResults(data);
+		const results = response?.data;
+		try {
+			results ?? new Error('Failed reauest');
+			dispatch({ type: PSSUQ_TEST_GET_TESTINGSYSTEM_TESTS, payload: results });
 		} catch (err) {
 			dispatch({ type: PSSUQ_TEST_FAILED, payload: err });
 			message.error(err);

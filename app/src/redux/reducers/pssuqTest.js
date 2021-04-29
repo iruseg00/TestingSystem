@@ -4,6 +4,7 @@ import {
 	PSSUQ_TEST_FAILED,
 	PSSUQ_TEST_GET_RESULTS,
 	PSSUQ_TEST_GET_ALL_ANSWERS,
+	PSSUQ_TEST_GET_TESTINGSYSTEM_TESTS,
 } from '../actionsTypes/pssuqTest';
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
 	questions: [],
 	results: {},
 	allAnswers: [],
+	testingSystemTests: [],
 	message: '',
 };
 
@@ -35,6 +37,10 @@ export default function usersReducer(state = initialState, action) {
 		case PSSUQ_TEST_GET_ALL_ANSWERS:
 			newState.loading = false;
 			newState.allAnswers = action.payload;
+			return newState;
+		case PSSUQ_TEST_GET_TESTINGSYSTEM_TESTS:
+			newState.loading = false;
+			newState.testingSystemTests = action.payload;
 			return newState;
 		default:
 			return state;

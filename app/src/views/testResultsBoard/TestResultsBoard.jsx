@@ -24,7 +24,9 @@ const TestsResultsBoard = () => {
 			/>
 			<Route
 				path='/dashboard/passed_tests/pssuq/:testingsystem'
-				render={() => <TestingSystemInfo date={date} />}
+				render={() => (
+					<TestingSystemInfo typeOfTest='PSSUQ' statePath='pssuqTest' date={date} />
+				)}
 			/>
 			<Route
 				path='/dashboard/passed_tests/pssuq'
