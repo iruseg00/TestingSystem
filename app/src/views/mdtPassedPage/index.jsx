@@ -15,9 +15,9 @@ const MdtPassedPage = ({ setDate }) => {
 		answers.map((item, index) => (
 			<Link
 				to={`/dashboard/passed_tests/mdt/${item.rows[0].testingSystem}`}
-				onClick={() =>
-					dispatch(getTestingSystemResults({ testingSystem: item.rows[0].testingSystem }))
-				}
+				// onClick={() =>
+				// 	dispatch(getTestingSystemResults({ testingSystem: item.rows[0].testingSystem }))
+				// }
 			>
 				<PassedTestResult
 					key={index}

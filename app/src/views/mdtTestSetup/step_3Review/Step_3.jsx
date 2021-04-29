@@ -1,13 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import style from './style.module.scss';
 import { Button, Progress } from 'antd';
 import { Link, useParams } from 'react-router-dom';
 
 const Step_3 = (props) => {
+	const dispatch = useDispatch();
+	const match = useParams();
+	useEffect(() => dispatch(props.action({ testingSystem: match.testingSystem })), []);
 	const testingSystemResponse = useSelector((state) => state.mdtTest.testingSystemTests);
-	const { id } = useParams();
 	for (let i = 0; i < testingSystemResponse.length; i++) {
-		if (testingSystemResponse[i].ID == id) {
+		if (testingSystemResponse[i].ID == match.id) {
 			var resultToStep = {
 				plus: testingSystemResponse[i].results.plus,
 				minus: testingSystemResponse[i].results.minus,

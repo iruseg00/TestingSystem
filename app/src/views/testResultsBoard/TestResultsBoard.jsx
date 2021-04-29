@@ -27,15 +27,15 @@ const TestsResultsBoard = () => {
 			<Route path='/dashboard/passed_tests' exact component={PassedTests} />
 			<Route
 				path='/dashboard/passed_tests/mdt/:testingSystem/:id'
-				render={() => <Step3Mdt img={imageMdt} />}
+				render={() => <Step3Mdt action={mdtAction} img={imageMdt} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/pssuq/:testingSystem/:id'
-				render={() => <Step3Pssuq img={imagePssuq} />}
+				render={() => <Step3Pssuq action={pssuqAction} img={imagePssuq} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem/:id'
-				render={() => <Step3Sus img={imageSus} />}
+				render={() => <Step3Sus action={susAction} img={imageSus} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem'

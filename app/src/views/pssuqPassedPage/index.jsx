@@ -18,9 +18,9 @@ const PssuqPassedPage = ({ setDate }) => {
 		answers.map((item, index) => (
 			<Link
 				to={`/dashboard/passed_tests/pssuq/${item.rows[0].testingSystem}`}
-				onClick={() =>
-					dispatch(getTestingSystemResults({ testingSystem: item.rows[0].testingSystem }))
-				}
+				// onClick={() =>
+				// 	dispatch(getTestingSystemResults({ testingSystem: item.rows[0].testingSystem }))
+				// }
 			>
 				<PassedTestResult
 					key={index}
