@@ -1,6 +1,6 @@
 import Header from '../../components/header/Header';
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 import TestSelectionLayout from './testSelection/TestSelection';
 
@@ -13,6 +13,17 @@ import PassedTests from '../passedTests';
 import Page_404 from '../page_404/Page_404';
 
 function MainTests() {
+	const location = useLocation();
+	useEffect(()=>
+	{
+		console.log(location.state?.prevState)
+		if(location.state?.prevState)  {
+			location.state = undefined;
+			// TODO
+			console.log(location);
+		}
+	}, []);
+
 	return (
 		<div>
 			<Header />
@@ -21,7 +32,7 @@ function MainTests() {
 				<Route path='/dashboard/sus' component={SUSTestSetupLayout} />
 				<Route path='/dashboard/pssuq' component={PSSUQTestSetupLayout} />
 				<Route path='/dashboard/mdt' component={MDTTestSetupLayout} />
-				<Route path='/dashboard/passed_tests' component={PassedTests}></Route>
+				<Route path='/dashboard/passed_tests' component={PassedTests} />
 				<Route path='*' exact component={Page_404} />
 			</Switch>
 		</div>
