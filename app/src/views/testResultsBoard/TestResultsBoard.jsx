@@ -13,6 +13,8 @@ import Step3Pssuq from '../pssuqTestSetup/step_3Review/Step_3';
 import imagePssuq from '../../assets/images/cubes-solid_2.svg';
 import Step3Mdt from '../mdtTestSetup/step_3Review/Step_3';
 import imageMdt from '../../assets/images/cubes-solid_1.svg';
+import Step3Sus from '../susTestSetup/step_3Review/Step_3';
+import imageSus from '../../assets/images/cubes-solid_1.svg';
 
 const TestsResultsBoard = () => {
 	const [date, setDate] = useState({});
@@ -26,6 +28,10 @@ const TestsResultsBoard = () => {
 			<Route
 				path='/dashboard/passed_tests/pssuq/:testingSystem/:id'
 				render={() => <Step3Pssuq img={imagePssuq} />}
+			/>
+			<Route
+				path='/dashboard/passed_tests/sus/:testingSystem/:id'
+				render={() => <Step3Sus img={imageSus} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem'
