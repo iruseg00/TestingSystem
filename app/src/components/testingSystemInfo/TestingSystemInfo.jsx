@@ -1,3 +1,4 @@
+import { Spin } from 'antd';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -9,6 +10,7 @@ const TestingSystemInfo = ({ statePath, date, typeOfTest, action }) => {
 	const dispatch = useDispatch();
 	useEffect(() => dispatch(action({ testingSystem })), []);
 	const testingSystemResults = useSelector((state) => state[statePath].testingSystemTests);
+	const loading = useSelector((state) => state[statePath].loading);
 	const DATE = date.date && new Date(date.date).toISOString().substring(0, 10);
 	const getTesingSystemComponents = () =>
 		testingSystemResults?.map((element) => (
@@ -24,8 +26,14 @@ const TestingSystemInfo = ({ statePath, date, typeOfTest, action }) => {
 
 	return (
 		<div className={style.main}>
-			<div className={style.testingSystem}>{testingSystem}</div>
-			<div className={style.container}>{getTesingSystemComponents()}</div>
+			{loading ? (
+				<Spin className={style.spin} size='large' />
+			) : (
+				<div>
+					<div className={style.testingSystem}>{testingSystem}</div>
+					<div className={style.container}>{getTesingSystemComponents()}</div>
+				</div>
+			)}
 		</div>
 	);
 };
