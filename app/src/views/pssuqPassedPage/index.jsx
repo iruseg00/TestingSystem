@@ -1,13 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PassedTestOverview from '../../components/passedTestOverview/PassedTestOverview';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
 import image from '../../assets/images/cubes-solid_1.svg';
 import style from './style.module.scss';
-import { getTestingSystemResults } from '../../redux/actions/pssuqTest';
+import {
+	getTestingSystemResults,
+	getAllPssuqAnswers,
+} from '../../redux/actions/pssuqTest';
 
 const PssuqPassedPage = ({ setDate }) => {
 	const dispatch = useDispatch();
+	useEffect(() => dispatch(getAllPssuqAnswers()), []);
 	const answers = useSelector((state) => state.pssuqTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (

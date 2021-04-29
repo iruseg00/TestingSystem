@@ -23,7 +23,7 @@ const TestsResultsBoard = () => {
 				render={() => <SusPassedPage setDate={setDate} />}
 			/>
 			<Route
-				path='/dashboard/passed_tests/pssuq/:testingsystem'
+				path='/dashboard/passed_tests/pssuq/:testingSystem'
 				render={() => (
 					<TestingSystemInfo typeOfTest='PSSUQ' statePath='pssuqTest' date={date} />
 				)}
@@ -33,8 +33,8 @@ const TestsResultsBoard = () => {
 				render={() => <PssuqPassedPage setDate={setDate} />}
 			/>
 			<Route
-				path='/dashboard/passed_tests/mdt/:testingsystem'
-				render={() => <TestingSystemInfo date={date} />}
+				path='/dashboard/passed_tests/mdt/:testingSystem'
+				render={() => <TestingSystemInfo typeOfTest='MDT' statePath='mdtTest' date={date} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/mdt'

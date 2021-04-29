@@ -2,12 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PassedTestOverview from '../../components/passedTestOverview/PassedTestOverview';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
-import { getTestingSystemResults } from '../../redux/actions/susTest';
+import { getTestingSystemResults, getAllSusAnswers } from '../../redux/actions/susTest';
 import image from '../../assets/images/cubes-solid_1.svg';
 import style from './style.module.scss';
+import { useEffect } from 'react';
 
 const SusPassedPage = ({ setDate }) => {
 	const dispatch = useDispatch();
+	useEffect(() => dispatch(getAllSusAnswers()), []);
 	const answers = useSelector((state) => state.susTest.allAnswers);
 	const getContent = () =>
 		answers.map((item, index) => (

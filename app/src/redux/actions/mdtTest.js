@@ -2,6 +2,7 @@ import {
 	getMdtQuestions,
 	postMdtAnswers,
 	allAnswersRequest,
+	postMdtTestingSystemResults,
 } from '../../services/mdtTest';
 import {
 	MDT_TEST_REQUEST,
@@ -49,6 +50,21 @@ export function getAllMdtAnswers() {
 		try {
 			answers ?? new Error('Failed request.');
 			dispatch({ type: MDT_TEST_GET_ALL_ANSWERS, payload: answers });
+		} catch (err) {
+			dispatch({ type: MDT_TEST_FAILED, payload: err });
+			message.error(err);
+		}
+	};
+}
+
+export function getTestingSystemResults(data) {
+	return async function (dispatch) {
+		dispatch({ type: MDT_TEST_REQUEST });
+		const response = await postMdtTestingSystemResults(data);
+		const result = response?.data;
+		try {
+			result ?? new Error('Failed request');
+			dispatch({ type: MDT_TEST_GET_ALL_ANSWERS, payload: result });
 		} catch (err) {
 			dispatch({ type: MDT_TEST_FAILED, payload: err });
 			message.error(err);
