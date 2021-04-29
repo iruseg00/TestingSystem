@@ -10,6 +10,7 @@ const TestingSystemInfo = ({ statePath, date, typeOfTest }) => {
 			<TestingSystemResult
 				typeOfTest={typeOfTest}
 				key={element.ID}
+				ID={element.ID}
 				testingSystem={element.testingSystem}
 				description={element.description}
 				date={DATE}

@@ -10,6 +10,7 @@ import {
 	MDT_TEST_FAILED,
 	MDT_TEST_GET_RESULTS,
 	MDT_TEST_GET_ALL_ANSWERS,
+	MDT_TEST_GET_TESTINGSYSTEM_TESTS,
 } from '../actionsTypes/mdtTest';
 import { message } from 'antd';
 
@@ -64,7 +65,7 @@ export function getTestingSystemResults(data) {
 		const result = response?.data;
 		try {
 			result ?? new Error('Failed request');
-			dispatch({ type: MDT_TEST_GET_ALL_ANSWERS, payload: result });
+			dispatch({ type: MDT_TEST_GET_TESTINGSYSTEM_TESTS, payload: result });
 		} catch (err) {
 			dispatch({ type: MDT_TEST_FAILED, payload: err });
 			message.error(err);

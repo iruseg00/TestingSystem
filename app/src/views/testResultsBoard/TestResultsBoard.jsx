@@ -9,11 +9,24 @@ import MdtPassedPage from '../mdtPassedPage/index';
 import TestingSystemInfo from '../../components/testingSystemInfo/TestingSystemInfo';
 import Page_404 from '../page_404/Page_404';
 
+import Step3Pssuq from '../pssuqTestSetup/step_3Review/Step_3';
+import imagePssuq from '../../assets/images/cubes-solid_2.svg';
+import Step3Mdt from '../mdtTestSetup/step_3Review/Step_3';
+import imageMdt from '../../assets/images/cubes-solid_1.svg';
+
 const TestsResultsBoard = () => {
 	const [date, setDate] = useState({});
 	return (
 		<Switch>
 			<Route path='/dashboard/passed_tests' exact component={PassedTests} />
+			<Route
+				path='/dashboard/passed_tests/mdt/:testingSystem/:id'
+				render={() => <Step3Mdt img={imageMdt} />}
+			/>
+			<Route
+				path='/dashboard/passed_tests/pssuq/:testingSystem/:id'
+				render={() => <Step3Pssuq img={imagePssuq} />}
+			/>
 			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem'
 				render={() => <TestingSystemInfo typeOfTest='SUS' statePath='susTest' date={date} />}
