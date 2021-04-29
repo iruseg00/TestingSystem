@@ -16,11 +16,9 @@ function MainTests() {
 	const location = useLocation();
 	useEffect(()=>
 	{
-		console.log(location.state?.prevState)
 		if(location.state?.prevState)  {
 			location.state = undefined;
 			// TODO
-			console.log(location);
 		}
 	}, []);
 

@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import style from "./style.module.scss";
 import SideBarStatic from "../../components/sideBarStatic/SideBarStatic";
 import LoginForma from "../../components/loginForma/LoginForma";
+import style from "./style.module.scss";
 
 function Login()
 {
