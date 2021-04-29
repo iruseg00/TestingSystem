@@ -1,9 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import TestingSystemResult from '../testingSystemResult/TestingSystemResult';
 import style from './style.module.scss';
 
-const TestingSystemInfo = ({ statePath, date, typeOfTest }) => {
+const TestingSystemInfo = ({ statePath, date, typeOfTest, action }) => {
+	const { testingSystem } = useParams();
+	console.log(testingSystem + ' <------------------');
+	const dispatch = useDispatch();
+	useEffect(() => dispatch(action({ testingSystem })), []);
 	const testingSystemResults = useSelector((state) => state[statePath].testingSystemTests);
+	console.log(testingSystemResults);
 	const DATE = date.date && new Date(date.date).toISOString().substring(0, 10);
 	const getTesingSystemComponents = () =>
 		testingSystemResults.map((element) => (

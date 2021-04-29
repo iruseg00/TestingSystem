@@ -16,6 +16,10 @@ import imageMdt from '../../assets/images/cubes-solid_1.svg';
 import Step3Sus from '../susTestSetup/step_3Review/Step_3';
 import imageSus from '../../assets/images/cubes-solid_1.svg';
 
+import { getTestingSystemResults as susAction } from '../../redux/actions/susTest';
+import { getTestingSystemResults as pssuqAction } from '../../redux/actions/pssuqTest';
+import { getTestingSystemResults as mdtAction } from '../../redux/actions/mdtTest';
+
 const TestsResultsBoard = () => {
 	const [date, setDate] = useState({});
 	return (
@@ -35,7 +39,14 @@ const TestsResultsBoard = () => {
 			/>
 			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem'
-				render={() => <TestingSystemInfo typeOfTest='SUS' statePath='susTest' date={date} />}
+				render={() => (
+					<TestingSystemInfo
+						typeOfTest='SUS'
+						action={susAction}
+						statePath='susTest'
+						date={date}
+					/>
+				)}
 			/>
 			<Route
 				path='/dashboard/passed_tests/sus'
@@ -44,7 +55,12 @@ const TestsResultsBoard = () => {
 			<Route
 				path='/dashboard/passed_tests/pssuq/:testingSystem'
 				render={() => (
-					<TestingSystemInfo typeOfTest='PSSUQ' statePath='pssuqTest' date={date} />
+					<TestingSystemInfo
+						typeOfTest='PSSUQ'
+						action={pssuqAction}
+						statePath='pssuqTest'
+						date={date}
+					/>
 				)}
 			/>
 			<Route
@@ -53,7 +69,14 @@ const TestsResultsBoard = () => {
 			/>
 			<Route
 				path='/dashboard/passed_tests/mdt/:testingSystem'
-				render={() => <TestingSystemInfo typeOfTest='MDT' statePath='mdtTest' date={date} />}
+				render={() => (
+					<TestingSystemInfo
+						typeOfTest='MDT'
+						action={mdtAction}
+						statePath='mdtTest'
+						date={date}
+					/>
+				)}
 			/>
 			<Route
 				path='/dashboard/passed_tests/mdt'
