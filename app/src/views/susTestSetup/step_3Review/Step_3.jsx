@@ -1,24 +1,15 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import style from './style.module.scss';
-import { Button, Progress } from 'antd';
 import { Link, useParams } from 'react-router-dom';
+import { Button, Progress } from 'antd';
+import style from './style.module.scss';
 
 const Step_3 = (props) => {
 	const dispatch = useDispatch();
-	const match = useParams();
-	useEffect(() => dispatch(props.action({ testingSystem: match.testingSystem })), []);
+	const { testingSystem , id } = useParams();
+	useEffect(() => dispatch(props.action({ testingSystem })), []);
 	const testingSystemResponse = useSelector((state) => state.susTest.testingSystemTests);
-	const { id } = useParams();
-	for (let i = 0; i < testingSystemResponse.length; i++) {
-		if (testingSystemResponse[i].ID == id) {
-			var resultToStep = {
-				value: testingSystemResponse[i].results.value,
-				percentile: testingSystemResponse[i].results.percentile,
-				type: testingSystemResponse[i].results.type,
-			};
-		}
-	}
+	const resultToStep = testingSystemResponse.find((item) => item.ID == id)?.results;
 	return (
 		<div className={style.container}>
 			<div className={style.title}>System Usability Scale</div>
@@ -33,7 +24,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={resultToStep.value}
+							percent={resultToStep?.value}
 						/>
 						<p className={style.desc}>Общая оценка</p>
 					</div>
@@ -43,7 +34,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={resultToStep.percentile}
+							percent={resultToStep?.percentile}
 						/>
 						<p className={style.desc}>Процентиль</p>
 					</div>
@@ -53,7 +44,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							trailColor='#559AC8'
-							format={() => resultToStep.type}
+							format={() => resultToStep?.type}
 						/>
 						<p className={style.desc}>Оценка</p>
 					</div>

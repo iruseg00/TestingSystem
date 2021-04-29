@@ -15,6 +15,7 @@ const Step_3 = (props) => {
 				plus: testingSystemResponse[i].results.plus,
 				minus: testingSystemResponse[i].results.minus,
 			};
+			break;
 		}
 	}
 

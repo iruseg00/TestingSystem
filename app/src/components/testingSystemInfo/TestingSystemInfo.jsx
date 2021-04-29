@@ -11,7 +11,7 @@ const TestingSystemInfo = ({ statePath, date, typeOfTest, action }) => {
 	const testingSystemResults = useSelector((state) => state[statePath].testingSystemTests);
 	const DATE = date.date && new Date(date.date).toISOString().substring(0, 10);
 	const getTesingSystemComponents = () =>
-		testingSystemResults.map((element) => (
+		testingSystemResults?.map((element) => (
 			<TestingSystemResult
 				typeOfTest={typeOfTest}
 				key={element.ID}
@@ -24,7 +24,7 @@ const TestingSystemInfo = ({ statePath, date, typeOfTest, action }) => {
 
 	return (
 		<div className={style.main}>
-			<div className={style.testingSystem}>{date.testingSystem}</div>
+			<div className={style.testingSystem}>{testingSystem}</div>
 			<div className={style.container}>{getTesingSystemComponents()}</div>
 		</div>
 	);

@@ -18,6 +18,7 @@ const Step_3 = (props) => {
 				qualityInfoSupport: testingSystemResponse[i].results.qualityInfoSupport,
 				type: testingSystemResponse[i].results.type,
 			};
+			break;
 		}
 	}
 	return (

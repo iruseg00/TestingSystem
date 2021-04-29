@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PassedTestOverview from '../../components/passedTestOverview/PassedTestOverview';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
-import { getTestingSystemResults, getAllSusAnswers } from '../../redux/actions/susTest';
+import { getAllSusAnswers } from '../../redux/actions/susTest';
 import image from '../../assets/images/cubes-solid_1.svg';
 import style from './style.module.scss';
 
@@ -15,9 +15,6 @@ const SusPassedPage = ({ setDate }) => {
 		answers.map((item, index) => (
 			<Link
 				to={`/dashboard/passed_tests/sus/${item.rows[0].testingSystem}`}
-				// onClick={() =>
-				// 	dispatch(getTestingSystemResults({ testingSystem: item.rows[0].testingSystem }))
-				// }
 			>
 				<PassedTestResult
 					key={index}
