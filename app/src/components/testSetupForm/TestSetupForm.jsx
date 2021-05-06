@@ -1,11 +1,11 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button, Input } from 'antd';
-import style from './style.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
 import Form from 'antd/lib/form/Form';
 import FormItem from 'antd/lib/form/FormItem';
 import ModalWindow from '../modal/ModalWindow';
+import style from './style.module.scss';
 
 function TestSetupForm(props) {
 	const USER_ID = useSelector((state) => state.users.profile.userID);
