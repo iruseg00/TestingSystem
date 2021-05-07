@@ -5,6 +5,7 @@ import { register } from '../../redux/actions/registration';
 
 import style from './style.module.scss';
 import DragnDropImage from '../dragnDropImage/DragnDropImage';
+import ModalWindow from '../../components/modal/ModalWindow';
 
 function RegisterForma(props) {
 	const [ValidateStatusSurname, setValidateStatusSurname] = useState('validating');
@@ -14,13 +15,20 @@ function RegisterForma(props) {
 	const [ValidateStatusPass, setValidateStatusPass] = useState('validating');
 	const [RadioValue, setRadioValue] = useState('М');
 
+	const [visible, setVisible] = React.useState(false);
+	const [action, setAction] = React.useState();
+
 	const [form] = Form.useForm();
 	let userPhoto = null;
 	const onFinish = (values) => {
-		values.sex = RadioValue;
-		values.photo = userPhoto;
-		console.log(values);
-		props.register(values);
+		const send = () => () => {
+			values.sex = RadioValue;
+			values.photo = userPhoto;
+			console.log(values);
+			props.register(values);
+		};
+		setAction(send);
+		setVisible(true);
 	};
 	const onFinishFailed = ({ errorFields }) => {
 		const ErrFields = errorFields.map((field) => field.name[0]);
@@ -155,6 +163,9 @@ function RegisterForma(props) {
 			<Form.Item className={style.photo} name='photo'>
 				<DragnDropImage onChange={onChangeAvatar} />
 			</Form.Item>
+			<ModalWindow action={action} visible={visible} setVisible={setVisible}>
+				Вы уверены, что все данные введены верно?
+			</ModalWindow>
 		</Form>
 	);
 }

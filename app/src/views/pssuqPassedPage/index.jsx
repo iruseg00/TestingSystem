@@ -1,21 +1,21 @@
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Spin } from 'antd';
 import PassedTestOverview from '../../components/passedTestOverview/PassedTestOverview';
 import PassedTestResult from '../../components/passedTest/passedTestResult/PassedTestResult';
-import { getAllSusAnswers } from '../../redux/actions/susTest';
 import image from '../../assets/images/cubes-solid_1.svg';
 import style from './style.module.scss';
+import { getAllPssuqAnswers } from '../../redux/actions/pssuqTest';
 
-const SusPassedPage = ({ setDate }) => {
+const PssuqPassedPage = ({ setDate }) => {
 	const dispatch = useDispatch();
-	useEffect(() => dispatch(getAllSusAnswers()), []);
-	const answers = useSelector((state) => state.susTest.allAnswers);
-	const loading = useSelector((state) => state.susTest.loading);
+	useEffect(() => dispatch(getAllPssuqAnswers()), []);
+	const answers = useSelector((state) => state.pssuqTest.allAnswers);
+	const loading = useSelector((state) => state.pssuqTest.loading);
 	const getContent = () =>
 		answers.map((item, index) => (
-			<Link to={`/dashboard/passed_tests/sus/${item.rows[0].testingSystem}`}>
+			<Link to={`/dashboard/passed_tests/pssuq/${item.rows[0].testingSystem}`}>
 				<PassedTestResult
 					key={index}
 					testingSystem={item.rows[0].testingSystem}
@@ -26,18 +26,21 @@ const SusPassedPage = ({ setDate }) => {
 			</Link>
 		));
 	return (
-		<div className={style.container}>
+		<div>
 			{loading ? (
 				<Spin size='large' className={style.spin} />
 			) : (
-				<div>
-					<PassedTestOverview image={image} title='SUS' subTitle='System Usability Scale' />
+				<div className={style.container}>
+					<PassedTestOverview
+						image={image}
+						title='PSSUQ'
+						subTitle='Post-Study System Usability Questionnaire'
+					/>
 					<div className={style.containerToResults}>{getContent()}</div>
 				</div>
 			)}
-
 		</div>
 	);
 };
 
-export default SusPassedPage;
+export default PssuqPassedPage;

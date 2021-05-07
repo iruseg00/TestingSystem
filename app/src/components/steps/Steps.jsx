@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './style.module.scss';
 import { Steps } from 'antd';
+import style from './style.module.scss';
 
 const Stepps = (props) => {
 	const [current, setCurrent] = React.useState(0);

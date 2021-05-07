@@ -1,13 +1,12 @@
 import React from 'react';
-import style from './style.module.scss';
 import { Radio } from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
+import style from './style.module.scss';
 
-const Test_question = (props) => {
+const TestQuestion = (props) => {
 	const [value, setValue] = React.useState(1);
 
 	const onChange = (e) => {
-		console.log('radio checked', e.target.value);
 		setValue(e.target.value);
 	};
 	return (
@@ -47,4 +46,4 @@ const Test_question = (props) => {
 	);
 };
 
-export default Test_question;
+export default TestQuestion;

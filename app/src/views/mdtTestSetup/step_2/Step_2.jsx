@@ -18,7 +18,7 @@ const Step_2 = (props) => {
 		<TestMdtQuestions
 			name={element.adjectiveID}
 			key={element.adjectiveID}
-			question_text={element.adjective}
+			questionText={element.adjective}
 		/>
 	));
 	const error = () => {
