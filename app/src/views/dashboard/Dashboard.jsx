@@ -1,6 +1,9 @@
-import Header from '../../components/header/Header';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux'
+;
+import Header from '../../components/header/Header';
+import ModalWindow from '../../components/modalInfo/ModalWindow';
 
 import TestSelectionLayout from './testSelection/TestSelection';
 import PSSUQTestSetupLayout from '../pssuqTestSetup/PSSUQTestSetup';
@@ -11,12 +14,15 @@ import Page_404 from '../page_404/Page_404';
 import TestsResultsBoard from '../testResultsBoard/TestResultsBoard';
 
 function MainTests() {
+	const [visible, setVisible] = useState(false);
+	const { userID } = useSelector(state => state.users.profile);
+	console.log(userID)
 	const location = useLocation();
 	useEffect(()=>
 	{
 		if(location.state?.prevState)  {
 			location.state = undefined;
-			// TODO
+			setVisible(true);
 		}
 	}, []);
 
@@ -28,11 +34,12 @@ function MainTests() {
 				<Route path='/dashboard/sus' component={SUSTestSetupLayout} />
 				<Route path='/dashboard/pssuq' component={PSSUQTestSetupLayout} />
 				<Route path='/dashboard/mdt' component={MDTTestSetupLayout} />
-
 				<Route path='/dashboard/passed_tests' component={TestsResultsBoard} />
-
 				<Route path='*' exact component={Page_404} />
 			</Switch>
+			<ModalWindow visible={visible} setVisible={setVisible}>
+				Во время прохождения теста мы скроем ваши персональные данные. Теперь вы номер - {userID}!
+			</ModalWindow>
 		</div>
 	);
 }

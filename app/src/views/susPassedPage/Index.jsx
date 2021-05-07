@@ -35,7 +35,6 @@ const SusPassedPage = ({ setDate }) => {
 					<div className={style.containerToResults}>{getContent()}</div>
 				</div>
 			)}
-
 		</div>
 	);
 };
