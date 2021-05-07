@@ -3,7 +3,7 @@ import { Radio } from 'antd';
 import FormItem from 'antd/lib/form/FormItem';
 import style from './style.module.scss';
 
-const Test_question = (props) => {
+const TestQuestion = (props) => {
 	const [value, setValue] = React.useState(1);
 
 	const onChange = (e) => {
@@ -46,4 +46,4 @@ const Test_question = (props) => {
 	);
 };
 
-export default Test_question;
+export default TestQuestion;
