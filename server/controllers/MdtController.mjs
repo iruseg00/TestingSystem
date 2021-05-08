@@ -5,18 +5,24 @@ import MdtTableService from '../services/MdtTableService.mjs';
 import MdtTestService from '../services/MdtTestService.mjs';
 import { MdtTest } from '../services/ComputationService.mjs';
 
-router.get('/all_questions', (req, res) => {
-	MdtTableService.getAll({ attributes: ['adjectiveID', 'adjective'] })
-		.then((data) => res.status(200).json(data))
-		.catch((err) => res.status(500).send());
+router.get('/all_questions', async (req, res) => {
+	try {
+		const data = await MdtTableService.getAll({ attributes: ['adjectiveID', 'adjective'] });
+		res.status(200).json(data);
+	}
+	catch (error) {
+		res.status(500).send(error);
+	}
 });
 
-router.get('/all_answers', (req, res) => {
-	MdtTestService.getAll(req.user.id)
-		.then((data) => {
-			return res.status(200).json(data);
-		})
-		.catch((err) => res.status(500).send(err));
+router.get('/all_answers', async (req, res) => {
+	try {
+		const data = await MdtTestService.getAll(req.user.id);
+		return res.status(200).json(data);
+	}
+	catch (error) {
+		res.status(400).send(error);
+	}
 });
 
 router.post('/testing_system', async (req, res) => {

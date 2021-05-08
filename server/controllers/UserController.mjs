@@ -13,7 +13,7 @@ router.get('/me', async (req, res) => {
 	}
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
 	try {
 		const data = await UserService.get(req.params.id);
 		res.status(200).json(data);
@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
 	}
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
 	try {
 		const data = await UserService.create(req.body);
 		res.status(200).json(data);
@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 	}
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
 	try {
 		const data = await UserService.update(req.body, req.params.id);
 		data[0] === 1 
@@ -45,7 +45,7 @@ router.put('/:id', (req, res) => {
 	}
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
 	try {
 		const deletedRecordCount = await UserService.delete(req.params.id);
 		deletedRecordCount === 1
