@@ -5,22 +5,30 @@ import PssuqTableService from '../services/PssuqTableService.mjs';
 import PssuqTestService from '../services/PssuqTestService.mjs';
 import { PssuqTest } from '../services/ComputationService.mjs';
 
-router.get('/all_questions', (req, res) => {
-	PssuqTableService.getAll()
-		.then((data) => res.status(200).json(data))
-		.catch((err) => res.status(500).send(err));
+router.get('/all_questions', async (req, res) => {
+	try {
+		const data = await PssuqTableService.getAll();
+		res.status(200).json(data);
+	}
+	catch (error) {
+		res.status(400).send(error);
+	}
 });
 
-router.get('/all_answers', (req, res) => {
-	PssuqTestService.getAll(req.user.id)
-		.then((data) => res.status(200).json(data))
-		.catch((err) => res.status(500).send(err));
+router.get('/all_answers', async (req, res) => {
+	try {
+		const data = await PssuqTestService.getAll(req.user.id);
+		res.status(200).json(data);
+	}
+	catch (error) {
+		res.status(500).send(error);
+	}
 });
 
 router.post('/testing_system', async (req, res) => {
 	try {
 		const data = await PssuqTestService.getAllByTestingSystem(req.body.testingSystem);
-		return res.status(200).json(data);
+		res.status(200).json(data.reverse());
 	}
 	catch (error) {
 		res.status(400).send('Invalid data!');

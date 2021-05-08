@@ -96,8 +96,8 @@ router.post('/check', (req, res) => {
 		.catch((err) => res.status(400).json(err));
 });
 
-router.post('/logout', (req, res) => {
-	const user = jwtService.getInfo(req.body.token);
+router.post('/logout', async (req, res) => {
+	const user = await jwtService.getInfo(req.body.token);
 	UserService.get(user.id)
 		.then((data) => {
 			if (!data) throw new Error('User not found');

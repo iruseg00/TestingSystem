@@ -14,6 +14,7 @@ class SusTestService {
 					where: { user: id, testingSystem: system },
 				});
 			})
+			
 			return Promise.all(sortedResults);
 		} catch (error) {
 			return error;
