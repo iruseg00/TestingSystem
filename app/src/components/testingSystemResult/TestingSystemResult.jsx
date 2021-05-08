@@ -12,7 +12,7 @@ const TestingSystemResult = ({ date, description, testingSystem, typeOfTest, ID 
 			<div className={style.container}>
 				<div className={style.typeOfTest}>{typeOfTest}</div>
 				<div className={style.description}>{description}</div>
-				<div className={style.date}>{date}</div>
+				<div className={style.date}>{date || '?'}</div>
 			</div>
 		</Link>
 	);
