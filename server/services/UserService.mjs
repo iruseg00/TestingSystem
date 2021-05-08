@@ -21,6 +21,22 @@ class UserService {
 		});
 	}
 
+	getMe(id) {
+		return Users.findOne({
+			attributes: [
+				'userID',
+				'surname',
+				'name',
+				'middleName',
+				'role',
+				'sex',
+				'email',
+				'photo',
+			],
+			where: { id },
+		});
+	}
+
 	find(user) {
 		return Users.findOne({
 			where: {

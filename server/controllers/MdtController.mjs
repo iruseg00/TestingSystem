@@ -22,7 +22,7 @@ router.get('/all_answers', (req, res) => {
 router.post('/testing_system', async (req, res) => {
 	try {
 		const data = await MdtTestService.getAllByTestingSystem(req.body.testingSystem);
-		return res.status(200).json(data);
+		return res.status(200).json(data.reverse());
 	}
 	catch (error) {
 		res.status(400).send('Invalid data!');
