@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import style from './style.module.scss';
 
 const TestingSystemResult = ({ date, description, testingSystem, typeOfTest, ID }) => {
-	date = date && new Date(date).setMilliseconds(10800000)
+	date = date && new Date(date).setMilliseconds(10800000);
 	date = date &&
 		new Date(date).toISOString().substring(0, 10) + 
 		' ' +
