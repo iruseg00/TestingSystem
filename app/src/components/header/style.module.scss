@@ -50,6 +50,15 @@ $baseColorBlue: #8ca2d3;
 
 .avatar_container {
 	padding-right: 34px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.userID {
+	@include blackStandartText;
+	margin-right: 15px;
+	color: $baseColorBlue;
 }
 
 .title {

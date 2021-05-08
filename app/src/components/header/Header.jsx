@@ -10,7 +10,7 @@ import PC from './../../assets/images/vit.png';
 
 const Header = () => {
 	const [visible, setVisible] = useState(false);
-	const userAvatar = useSelector((state) => state.users.profile.photo);
+	const userData = useSelector((state) => state.users.profile);
 	const dispatch = useDispatch();
 	const showDrawer = () => {
 		setVisible(true);
@@ -38,7 +38,11 @@ const Header = () => {
 						<Link className={style.side_bar_item} to='/dashboard/profile' onClick={onClose}>
 							Личный кабинет
 						</Link>
-						<Link className={style.side_bar_item} to='/dashboard/passed_tests' onClick={onClose}>
+						<Link
+							className={style.side_bar_item}
+							to='/dashboard/passed_tests'
+							onClick={onClose}
+						>
 							Пройденные тесты
 						</Link>
 					</div>
@@ -60,7 +64,8 @@ const Header = () => {
 			</div>
 
 			<div className={style.avatar_container}>
-				<Avatar size={64} src={userAvatar} icon={<UserOutlined />} />
+				<span className={style.userID}>#{userData.userID}</span>
+				<Avatar size={64} src={userData.photo} icon={<UserOutlined />} />
 			</div>
 		</div>
 	);
