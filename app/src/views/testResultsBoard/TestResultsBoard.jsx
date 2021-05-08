@@ -21,7 +21,7 @@ import { getTestingSystemResults as pssuqAction } from '../../redux/actions/pssu
 import { getTestingSystemResults as mdtAction } from '../../redux/actions/mdtTest';
 
 const TestsResultsBoard = () => {
-	const [date, setDate] = useState({});
+	const [date, setDate] = useState();
 	return (
 		<Switch>
 			<Route path='/dashboard/passed_tests' exact component={PassedTests} />

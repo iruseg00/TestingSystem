@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux'
-;
+import { useSelector } from 'react-redux';
 import Header from '../../components/header/Header';
 import ModalWindow from '../../components/modalInfo/ModalWindow';
 
@@ -15,12 +14,10 @@ import TestsResultsBoard from '../testResultsBoard/TestResultsBoard';
 
 function MainTests() {
 	const [visible, setVisible] = useState(false);
-	const { userID } = useSelector(state => state.users.profile);
-	console.log(userID)
+	const { userID } = useSelector((state) => state.users.profile);
 	const location = useLocation();
-	useEffect(()=>
-	{
-		if(location.state?.prevState)  {
+	useEffect(() => {
+		if (location.state?.prevState) {
 			location.state = undefined;
 			setVisible(true);
 		}
@@ -38,7 +35,8 @@ function MainTests() {
 				<Route path='*' exact component={Page_404} />
 			</Switch>
 			<ModalWindow visible={visible} setVisible={setVisible}>
-				Во время прохождения теста мы скроем ваши персональные данные. Теперь вы номер - {userID}!
+				Во время прохождения теста мы скроем ваши персональные данные. Теперь вы номер -{' '}
+				{userID}!
 			</ModalWindow>
 		</div>
 	);
