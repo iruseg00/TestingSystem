@@ -11,7 +11,9 @@ const TestingSystemInfo = ({ statePath, date, typeOfTest, action }) => {
 	useEffect(() => dispatch(action({ testingSystem })), []);
 	const testingSystemResults = useSelector((state) => state[statePath].testingSystemTests);
 	const loading = useSelector((state) => state[statePath].loading);
-	const DATE = date.date && new Date(date.date).toISOString().substring(0, 10);
+	const DATE = date && new Date(date).toISOString().substring(0, 10);
+	const TIME = date && new Date(date).toISOString().substring(11, 16);
+	const newDate = DATE + ' ' + TIME;
 	const getTesingSystemComponents = () =>
 		testingSystemResults?.map((element) => (
 			<TestingSystemResult
@@ -20,7 +22,7 @@ const TestingSystemInfo = ({ statePath, date, typeOfTest, action }) => {
 				ID={element.ID}
 				testingSystem={element.testingSystem}
 				description={element.description}
-				date={DATE}
+				date={newDate}
 			/>
 		));
 
