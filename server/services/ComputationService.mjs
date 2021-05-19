@@ -1,4 +1,4 @@
-import AcKey from "../constants/acKey.json";
+import AcTestResults from "../constants/AcTestResults.json";
 
 // MULTIPLIER_PSSUQ_COMMON = 100 / 180 * 100 / 180;
 const MULTIPLIER_PSSUQ_COMMON = 0.308642;
@@ -69,7 +69,7 @@ export const MdtTest = async (results) => {
   return { plus, minus };
 };
 
-export const AcTest = async (answers) => {
+export const AcTest = async ({ answers, sex }) => {
   let AK_AC = SummaElementsByIndex(
     answers,
     "answer",
@@ -81,8 +81,14 @@ export const AcTest = async (answers) => {
     35,
     37
   );
+  AK_AC = AcTestResults[sex][AK_AC][0];
+  AK_AC = AcTestResults.results[AK_AC];
   let BO = SummaElementsByIndex(answers, "answer", 0, 16, 18, 19, -22, 28, 30);
+  BO = AcTestResults[sex][BO][1];
+  BO = AcTestResults.results[BO];
   let CA = SummaElementsByIndex(answers, "answer", 1, 3, 5, 6, 9, 17, 29);
+  CA = AcTestResults[sex][CA][2];
+  CA = AcTestResults.results[CA];
   let TO_AC = SummaElementsByIndex(
     answers,
     "answer",
@@ -96,6 +102,8 @@ export const AcTest = async (answers) => {
     32,
     36
   );
+  TO_AC = AcTestResults[sex][TO_AC][3];
+  TO_AC = AcTestResults.results[TO_AC];
   let SP_AC = SummaElementsByIndex(
     answers,
     "answer",
@@ -108,5 +116,7 @@ export const AcTest = async (answers) => {
     25,
     33
   );
+  SP_AC = AcTestResults[sex][SP_AC][4];
+  SP_AC = AcTestResults.results[SP_AC];
   return { AK_AC, BO, CA, TO_AC, SP_AC };
 };
