@@ -3,7 +3,7 @@ const router = express.Router();
 
 import AnxietyTableService from "../services/AnxietyTableService.mjs";
 import AnxietyTestService from "../services/AnxietyTestService.mjs";
-import { SusTest } from "../services/ComputationService.mjs"; // TODO
+import { AnxietyTest } from "../services/ComputationService.mjs"; // TODO
 
 router.get("/all_questions", async (req, res) => {
   try {
@@ -36,8 +36,7 @@ router.post("/testing_system", async (req, res) => {
 
 router.post("/create_answer", async (req, res) => {
   try {
-    const { value, type } = await SusTest(req.body.answers);
-    req.body.results = { value, percentile: 94, type };
+    req.body.results = await AnxietyTest(req.body.answers);
     req.body.user = req.user.id;
     const data = await AnxietyTestService.create(req.body);
     res.status(201).json(data.results);
