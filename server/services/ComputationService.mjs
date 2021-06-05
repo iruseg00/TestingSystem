@@ -1,44 +1,14 @@
 import AcTestResults from "../constants/AcTestResults.json";
 import DcTestResults from "../constants/DcTestResults.json";
 import AnxietyTestResults from "../constants/AnxietyTestResults.json";
-
-// MULTIPLIER_PSSUQ_COMMON = 100 / 180 * 100 / 180;
-const MULTIPLIER_PSSUQ_COMMON = 0.308642;
-// MULTIPLIER_PSSUQ_USEFULNESS = 100 / 80;
-const MULTIPLIER_PSSUQ_USEFULNESS = 1.25;
-// MULTIPLIER_PSSUQ_UI_SUPPORT = 100 / 70;
-const MULTIPLIER_PSSUQ_UI_SUPPORT = 1.43;
-// MULTIPLIER_PSSUQ_UI = 100 / 30;
-const MULTIPLIER_PSSUQ_UI = 3.33;
-// max value of answer in sus test is 5, MAX_VALUE = 5 - 1;
-const MAX_VALUE_SUS = 4;
-
-const SummaElements = (items, start = 0, end, key) => {
-  let summa = 0;
-  if (key) {
-    for (let i = start; i < end; i++) summa += items[i][key];
-  } else {
-    for (let i = start; i < end; i++) summa += items[i];
-  }
-  return summa;
-};
-
-const SummaElementsByIndex = (items, defaltValue = 8, key, ...args) => {
-  let summa = 0;
-  if (key) {
-    for (let i = 0, k = args[i]; i < args.length; i++, k = args[i])
-      k >= 0
-        ? (summa += items[k][key])
-        : (summa += defaltValue - items[Math.abs(k)][key]);
-  } else {
-    for (let i = 0, k = args[i]; i < args.length; i++, k = args[i]) {
-      k >= 0 && k[0] != "-"
-        ? (summa += items[k])
-        : (summa += defaltValue - items[Math.abs(k)]);
-    }
-  }
-  return summa;
-};
+import { SummaElements, SummaElementsByIndex } from "../constants/methods.mjs";
+import {
+  MULTIPLIER_PSSUQ_COMMON,
+  MULTIPLIER_PSSUQ_USEFULNESS,
+  MULTIPLIER_PSSUQ_UI_SUPPORT,
+  MULTIPLIER_PSSUQ_UI,
+  MAX_VALUE_SUS,
+} from "../constants/variables.mjs";
 
 export const SusTest = async (answers) => {
   const value = (

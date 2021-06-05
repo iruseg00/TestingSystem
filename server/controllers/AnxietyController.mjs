@@ -3,7 +3,7 @@ const router = express.Router();
 
 import AnxietyTableService from "../services/AnxietyTableService.mjs";
 import AnxietyTestService from "../services/AnxietyTestService.mjs";
-import { AnxietyTest } from "../services/ComputationService.mjs"; // TODO
+import { AnxietyTest } from "../services/ComputationService.mjs";
 
 router.get("/all_questions", async (req, res) => {
   try {
