@@ -26,11 +26,16 @@ const SummaElements = (items, start = 0, end, key) => {
 const SummaElementsByIndex = (items, defaltValue = 8, key, ...args) => {
   let summa = 0;
   if (key) {
-    for (let i = 3, k; i < args.length; i++, k = args[i])
-      k > 0 ? (summa += items[k][key]) : (summa += defaltValue - items[k][key]);
+    for (let i = 0, k = args[i]; i < args.length; i++, k = args[i])
+      k >= 0
+        ? (summa += items[k][key])
+        : (summa += defaltValue - items[Math.abs(k)][key]);
   } else {
-    for (let i = 3, k; i < args.length; i++, k = args[i])
-      k > 0 ? (summa += items[k]) : (summa += defaltValue - items[Math.abs(k)]);
+    for (let i = 0, k = args[i]; i < args.length; i++, k = args[i]) {
+      k >= 0 && k[0] != "-"
+        ? (summa += items[k])
+        : (summa += defaltValue - items[Math.abs(k)]);
+    }
   }
   return summa;
 };
@@ -71,7 +76,7 @@ export const MdtTest = async (results) => {
   return { plus, minus };
 };
 
-export const AcTest = async ({ answers, sex }) => {
+export const AcTest = async (answers, sex) => {
   let AK_AC = SummaElementsByIndex(
     answers,
     8,
@@ -126,7 +131,7 @@ export const AcTest = async ({ answers, sex }) => {
   return { AK_AC, BO, CA, TO_AC, SP_AC };
 };
 
-export const DcTest = async ({ answers, sex }) => {
+export const DcTest = async (answers, sex) => {
   let AK = SummaElementsByIndex(
     answers,
     8,
@@ -143,7 +148,7 @@ export const DcTest = async ({ answers, sex }) => {
   AK = DcTestResults[sex][AK][0];
   AK = DcTestResults.results[AK];
   let BO = SummaElementsByIndex(answers, 8, false, -2, 5, 7, -16, -37, 38, -49);
-  BO = DcTestResults[sex][BO][1];
+  BO = DcTestResults[sex][BO][6];
   BO = DcTestResults.results[BO];
   let TO = SummaElementsByIndex(
     answers,
@@ -158,13 +163,13 @@ export const DcTest = async ({ answers, sex }) => {
     54,
     56
   );
-  TO = DcTestResults[sex][TO][2];
+  TO = DcTestResults[sex][TO][1];
   TO = DcTestResults.results[TO];
   let PA = SummaElementsByIndex(answers, 8, false, 3, 7, 24, 30, 34, 36, 40);
-  PA = DcTestResults[sex][PA][3];
+  PA = DcTestResults[sex][PA][7];
   PA = DcTestResults.results[PA];
   let SP = SummaElementsByIndex(answers, 8, false, 4, 8, 9, 11, 20, 23, 29, 34);
-  SP = DcTestResults[sex][SP][4];
+  SP = DcTestResults[sex][SP][2];
   SP = DcTestResults.results[SP];
   let US = SummaElementsByIndex(
     answers,
@@ -179,7 +184,7 @@ export const DcTest = async ({ answers, sex }) => {
     53,
     55
   );
-  US = DcTestResults[sex][US][5];
+  US = DcTestResults[sex][US][3];
   US = DcTestResults.results[US];
   let UD = SummaElementsByIndex(
     answers,
@@ -195,7 +200,7 @@ export const DcTest = async ({ answers, sex }) => {
     46,
     51
   );
-  UD = DcTestResults[sex][UD][6];
+  UD = DcTestResults[sex][UD][4];
   UD = DcTestResults.results[UD];
   let PO = SummaElementsByIndex(answers, 8, false, 10, 18, 31, 35, 41, 48);
   PO = DcTestResults[sex][PO][7];

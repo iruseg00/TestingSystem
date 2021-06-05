@@ -3,7 +3,7 @@ const router = express.Router();
 
 import DcTableService from "../services/DcTableService.mjs";
 import DcTestService from "../services/DcTestService.mjs";
-import { DcTest } from "../services/ComputationService.mjs"; // TODO
+import { DcTest } from "../services/ComputationService.mjs";
 
 router.get("/all_questions", async (req, res) => {
   try {
@@ -36,7 +36,7 @@ router.post("/testing_system", async (req, res) => {
 
 router.post("/create_answer", async (req, res) => {
   try {
-    req.body.results = await DcTest(req.body.answers);
+    req.body.results = await DcTest(req.body.answers, req.body.sex);
     req.body.user = req.user.id;
     const data = await DcTestService.create(req.body);
     res.status(201).json(data.results);
