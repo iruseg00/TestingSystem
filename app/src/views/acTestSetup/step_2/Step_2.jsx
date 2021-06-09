@@ -14,6 +14,7 @@ const Step_2 = (props) => {
 	const dispatch = useDispatch();
 	const loading = useSelector((state) => state.acTest.loading);
 	const questions = useSelector((state) => state.acTest.questions);
+	const sex = useSelector((store) => store.users.profile.sex);
 	console.log(questions);
 	const arrayOfQuestions = questions?.map((element) => (
 		<TestAcQuestion
@@ -38,6 +39,7 @@ const Step_2 = (props) => {
 				answers: arrayOfAnswersToPost,
 				testingSystem: props.getData.testingSystem,
 				description: props.getData.description,
+				sex: sex,
 			};
 			console.log(answer_to_post);
 			dispatch(getResults(answer_to_post));
