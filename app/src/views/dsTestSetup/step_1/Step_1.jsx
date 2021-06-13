@@ -1,6 +1,6 @@
 import style from './style.module.scss';
 import TestSetupForm from '../../../components/testSetupForm/TestSetupForm';
-// import { getMdtTest } from '../../../redux/actions/mdtTest';
+import { getDsTest } from '../../../redux/actions/dsTest';
 
 const Step_1 = (props) => {
 	return (
@@ -9,7 +9,7 @@ const Step_1 = (props) => {
 			<div className={style.container_to_TestSetup}>
 				<img className={style.img_left} src={props.img} alt='' />
 				<TestSetupForm
-					// getTest={getMdtTest}
+					getTest={getDsTest}
 					func_next={props.func_next}
 					setData={props.setData}
 				/>

@@ -20,7 +20,8 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={results.AK_AC}
+							format={() => `${results.AK_AC}`}
+							percent={0}
 						/>
 						<p className={style.desc}>Общая оценка</p>
 					</div>
@@ -30,7 +31,8 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={results.BO}
+							format={() => `${results.BO}`}
+							percent={0}
 						/>
 						<p className={style.desc}>Процентиль</p>
 					</div>
@@ -39,8 +41,9 @@ const Step_3 = (props) => {
 							className={style.progress_component}
 							type='circle'
 							strokeWidth='12'
-							trailColor='#559AC8'
-							format={() => results.CA}
+							strokeColor='#559AC8'
+							format={() => `${results.CA}`}
+							percent={0}
 						/>
 						<p className={style.desc}>Оценка</p>
 					</div>
@@ -50,7 +53,8 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={results.TO_AC}
+							format={() => `${results.TO_AC}`}
+							percent={0}
 						/>
 						<p className={style.desc}>Общая оценка</p>
 					</div>
@@ -60,7 +64,8 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							percent={results.SP_AC}
+							format={() => `${results.SP_AC}`}
+							percent={0}
 						/>
 						<p className={style.desc}>Общая оценка</p>
 					</div>
