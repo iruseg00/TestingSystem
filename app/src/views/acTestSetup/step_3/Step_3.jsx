@@ -23,7 +23,7 @@ const Step_3 = (props) => {
 							format={() => `${results.AK_AC}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>Ак - Ас</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -34,7 +34,7 @@ const Step_3 = (props) => {
 							format={() => `${results.BO}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Процентиль</p>
+						<p className={style.desc}>Во</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -45,7 +45,7 @@ const Step_3 = (props) => {
 							format={() => `${results.CA}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Оценка</p>
+						<p className={style.desc}>Са</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -56,7 +56,7 @@ const Step_3 = (props) => {
 							format={() => `${results.TO_AC}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>То - Ас</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -67,7 +67,7 @@ const Step_3 = (props) => {
 							format={() => `${results.SP_AC}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>Сп - Ас</p>
 					</div>
 				</div>
 			</div>

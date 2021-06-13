@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Step_3 = (props) => {
 	const results = useSelector((state) => state.dsTest.results);
-	console.log(results);
 	return (
 		<div className={style.container}>
 			<div className={style.title}>System Usability Scale</div>
@@ -23,7 +22,7 @@ const Step_3 = (props) => {
 							format={() => `${results.AK}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>АК</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -34,7 +33,7 @@ const Step_3 = (props) => {
 							format={() => `${results.BO}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Процентиль</p>
+						<p className={style.desc}>Бо</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -45,7 +44,7 @@ const Step_3 = (props) => {
 							format={() => `${results.TO}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Оценка</p>
+						<p className={style.desc}>То</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -56,7 +55,7 @@ const Step_3 = (props) => {
 							format={() => `${results.PA}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>Ра</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -67,7 +66,7 @@ const Step_3 = (props) => {
 							format={() => `${results.SP}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>Сп</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -78,9 +77,9 @@ const Step_3 = (props) => {
 							format={() => `${results.US}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>Ус</p>
 					</div>
-					<div className={style.container_to_progress_component}>
+					<div className={style.container_to_progress_component_1}>
 						<Progress
 							className={style.progress_component}
 							type='circle'
@@ -89,9 +88,9 @@ const Step_3 = (props) => {
 							format={() => `${results.UD}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>Уд</p>
 					</div>
-					<div className={style.container_to_progress_component}>
+					<div className={style.container_to_progress_component_2}>
 						<Progress
 							className={style.progress_component}
 							type='circle'
@@ -100,7 +99,7 @@ const Step_3 = (props) => {
 							format={() => `${results.PO}`}
 							percent={0}
 						/>
-						<p className={style.desc}>Общая оценка</p>
+						<p className={style.desc}>По</p>
 					</div>
 				</div>
 			</div>
