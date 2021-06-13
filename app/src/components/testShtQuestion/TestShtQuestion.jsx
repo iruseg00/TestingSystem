@@ -11,7 +11,7 @@ const TestQuestion = (props) => {
 	};
 	return (
 		<div className={style.container}>
-			<div className={style.question_text}>{props.question_text}</div>
+			<div className={style.question_text}>{props.name + ') ' + props.question_text}</div>
 			<FormItem
 				rules={[
 					{

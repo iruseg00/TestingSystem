@@ -42,6 +42,11 @@ $sizeTextButtonAndLabels: 24px;
 	margin-right: 40px;
 }
 
+.container_to_progress_component > div > div {
+	height: 180px !important;
+	width: 180px !important;
+}
+
 .desc {
 	padding-top: 20px;
 	text-align: center;

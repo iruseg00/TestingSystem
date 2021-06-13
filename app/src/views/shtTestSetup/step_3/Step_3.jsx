@@ -4,7 +4,7 @@ import { Button, Progress } from 'antd';
 import { Link } from 'react-router-dom';
 
 const Step_3 = (props) => {
-	const results = useSelector((state) => state.acTest.results);
+	const results = useSelector((state) => state.shtTest.results);
 	console.log(results);
 	return (
 		<div className={style.container}>
