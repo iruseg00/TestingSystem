@@ -14,3 +14,15 @@ $baseColorBlue: #8ca2d3;
 	color: $baseColorBlue;
 	text-decoration: underline;
 }
+
+@mixin sideBarItemStatic {
+	position: relative;
+	font-size: 24px;
+	color: white;
+	line-height: 140.62%;
+}
+
+@mixin blackStandartText {
+	font-size: 24px;
+	color: black;
+}

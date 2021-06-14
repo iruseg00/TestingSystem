@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
-import style from "./style.module.scss";
+import { Link, useLocation } from "react-router-dom";
 import SideBarStatic from "../../components/sideBarStatic/SideBarStatic";
 import LoginForma from "../../components/loginForma/LoginForma";
+import style from "./style.module.scss";
 
 function Login()
 {
+    const location = useLocation();
+    location.state = { prevState: location.pathname };
     return (
         <div className={style.container}>
             <SideBarStatic/>

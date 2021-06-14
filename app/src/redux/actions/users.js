@@ -4,6 +4,7 @@ import {
     WHO_AM_I_SUCCESS,
     WHO_AM_I_FAILED
 } from "../actionsTypes/users";
+import { logout } from './auth';
 
 export function whoAmI() {
     return async function(dispatch) {
@@ -14,7 +15,8 @@ export function whoAmI() {
                 return Promise.resolve();
             })
             .catch(err => {
-                dispatch({ type: WHO_AM_I_FAILED, payload: err.response.data });
+                dispatch({ type: WHO_AM_I_FAILED });
+                dispatch(logout());
                 return Promise.reject(err.response);
             });
     };
