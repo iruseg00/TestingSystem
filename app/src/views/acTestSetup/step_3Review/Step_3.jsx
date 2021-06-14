@@ -10,11 +10,10 @@ const Step_3 = (props) => {
 	useEffect(() => dispatch(props.action({ testingSystem })), []);
 	const testingSystemTests = useSelector((state) => state.acTest.testingSystemTests);
 	const results = testingSystemTests.find((item) => item.ID == id)?.results;
-	console.log(results);
 
 	return (
 		<div className={style.container}>
-			<div className={style.title}>System Usability Scale</div>
+			<div className={style.title}>Актуальное состояние</div>
 			<div className={style.img_and_progress}>
 				<div className={style.image_container}>
 					<img className={style.image} src={props.img} alt='img' />
@@ -26,7 +25,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results.AK_AC}`}
+							format={() => `${results?.AK_AC}`}
 							percent={0}
 						/>
 						<p className={style.desc}>Ак - Ас</p>
@@ -37,7 +36,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results.BO}`}
+							format={() => `${results?.BO}`}
 							percent={0}
 						/>
 						<p className={style.desc}>Во</p>
@@ -48,7 +47,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results.CA}`}
+							format={() => `${results?.CA}`}
 							percent={0}
 						/>
 						<p className={style.desc}>Са</p>
@@ -59,7 +58,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results.TO_AC}`}
+							format={() => `${results?.TO_AC}`}
 							percent={0}
 						/>
 						<p className={style.desc}>То - Ас</p>
@@ -70,7 +69,7 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results.SP_AC}`}
+							format={() => `${results?.SP_AC}`}
 							percent={0}
 						/>
 						<p className={style.desc}>Сп - Ас</p>

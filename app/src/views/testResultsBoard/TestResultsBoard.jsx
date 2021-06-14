@@ -17,7 +17,7 @@ import imageMdt from '../../assets/images/cubes-solid_1.svg';
 import Step3Sus from '../susTestSetup/step_3Review/Step_3';
 import imageSus from '../../assets/images/cubes-solid_1.svg';
 import Step3Ac from '../acTestSetup/step_3Review/Step_3';
-import imageAC from '../../assets/images/cubes-solid_1.svg';
+import imageAC from '../../assets/images/balance-scale-solid 1.png';
 
 import { getTestingSystemResults as susAction } from '../../redux/actions/susTest';
 import { getTestingSystemResults as pssuqAction } from '../../redux/actions/pssuqTest';
@@ -45,7 +45,7 @@ const TestsResultsBoard = () => {
 			/>
 			<Route
 				path='/dashboard/passed_tests/ac/:testingSystem/:id'
-				render={() => <Step3Ac action={acAction} img={imageSus} />}
+				render={() => <Step3Ac action={acAction} img={imageAC} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem'
