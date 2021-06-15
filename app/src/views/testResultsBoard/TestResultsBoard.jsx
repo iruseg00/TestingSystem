@@ -6,6 +6,7 @@ import SusPassedPage from '../susPassedPage/Index';
 import PssuqPassedPage from '../pssuqPassedPage/index';
 import MdtPassedPage from '../mdtPassedPage/index';
 import AcPassedPage from '../acPassedPage/index';
+import DsPassedPage from '../dsPassedPage/index';
 
 import TestingSystemInfo from '../../components/testingSystemInfo/TestingSystemInfo';
 import Page_404 from '../page_404/Page_404';
@@ -18,6 +19,7 @@ import Step3Sus from '../susTestSetup/step_3Review/Step_3';
 import imageSus from '../../assets/images/cubes-solid_1.svg';
 import Step3Ac from '../acTestSetup/step_3Review/Step_3';
 import imageAC from '../../assets/images/balance-scale-solid 1.png';
+import Step3Ds from '../dsTestSetup/step_3Review/Step_3';
 
 import { getTestingSystemResults as susAction } from '../../redux/actions/susTest';
 import { getTestingSystemResults as pssuqAction } from '../../redux/actions/pssuqTest';
@@ -46,6 +48,10 @@ const TestsResultsBoard = () => {
 			<Route
 				path='/dashboard/passed_tests/ac/:testingSystem/:id'
 				render={() => <Step3Ac action={acAction} img={imageAC} />}
+			/>
+			<Route
+				path='/dashboard/passed_tests/дс/:testingSystem/:id'
+				render={() => <Step3Ds action={dsAction} img={imageAC} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem'
@@ -92,16 +98,16 @@ const TestsResultsBoard = () => {
 				path='/dashboard/passed_tests/дс/:testingSystem'
 				render={() => (
 					<TestingSystemInfo
-						typeOfTest='AC'
-						action={acAction}
-						statePath='acTest'
+						typeOfTest='ДС'
+						action={dsAction}
+						statePath='dsTest'
 						date={date}
 					/>
 				)}
 			/>
 			<Route
 				path='/dashboard/passed_tests/дс'
-				render={() => <AcPassedPage setDate={setDate} />}
+				render={() => <DsPassedPage setDate={setDate} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/pssuq'

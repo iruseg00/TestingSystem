@@ -5,7 +5,7 @@ $bcButtonLogin: #8ca2d3;
 $sizeTextButtonAndLabels: 24px;
 
 .container {
-	height: 85%;
+	height: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -14,7 +14,8 @@ $sizeTextButtonAndLabels: 24px;
 .title {
 	@include titleText;
 	text-align: center;
-	padding-bottom: 40px;
+	padding: 102px 0px 0px;
+	white-space: nowrap;
 }
 
 .img_and_progress {
@@ -29,16 +30,58 @@ $sizeTextButtonAndLabels: 24px;
 }
 
 .progress {
-	display: flex;
-	justify-content: space-around;
+	width: 570px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 	align-items: center;
+	justify-content: center;
+}
+
+.mark {
+	grid-column: 1/2;
+	grid-row: 1/3;
+}
+
+.mark > div > div {
+	width: 180px !important;
+	height: 180px !important;
+}
+
+.qualityUI {
+	grid-column: 3/4;
+	grid-row: 1/3;
+}
+
+.qualityInfoSupport {
+	grid-column: 2/3;
+	grid-row: 1/2;
+}
+
+.type {
+	grid-column: 2/3;
+	grid-row: 2/3;
 }
 
 .container_to_progress_component {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	justify-content: center;
-	margin-right: 40px;
+}
+
+.container_to_progress_component_1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.container_to_progress_component_2 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .desc {
@@ -51,12 +94,15 @@ $sizeTextButtonAndLabels: 24px;
 	width: 170px;
 	margin-left: 40.5%;
 	display: inline-block;
-	padding-top: 40px;
+}
+
+.containerToButton {
+	height: auto;
 }
 
 .submit {
 	left: 40%;
-	margin-top: 50px;
+	margin-top: 15px;
 	background-color: $bcButtonLogin;
 	border-radius: $radiusButtonLogin;
 	width: 200px;
