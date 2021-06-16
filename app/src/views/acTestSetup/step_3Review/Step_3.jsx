@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -10,6 +11,17 @@ const Step_3 = (props) => {
 	useEffect(() => dispatch(props.action({ testingSystem })), []);
 	const testingSystemTests = useSelector((state) => state.acTest.testingSystemTests);
 	const results = testingSystemTests.find((item) => item.ID == id)?.results;
+	const getPercent = (element) => {
+		if (element == 'низкая') {
+			return 10;
+		} else if (element == 'средняя') {
+			return 50;
+		} else if (element == 'высокая') {
+			return 90;
+		} else {
+			return 50;
+		}
+	};
 
 	return (
 		<div className={style.container}>
@@ -26,7 +38,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results?.AK_AC}`}
-							percent={0}
+							percent={getPercent(results?.AK_AC)}
 						/>
 						<p className={style.desc}>Ак - Ас</p>
 					</div>
@@ -37,7 +49,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results?.BO}`}
-							percent={0}
+							percent={getPercent(results?.BO)}
 						/>
 						<p className={style.desc}>Во</p>
 					</div>
@@ -48,7 +60,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results?.CA}`}
-							percent={0}
+							percent={getPercent(results?.CA)}
 						/>
 						<p className={style.desc}>Са</p>
 					</div>
@@ -59,7 +71,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results?.TO_AC}`}
-							percent={0}
+							percent={getPercent(results?.TO_AC)}
 						/>
 						<p className={style.desc}>То - Ас</p>
 					</div>
@@ -70,7 +82,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results?.SP_AC}`}
-							percent={0}
+							percent={getPercent(results?.SP_AC)}
 						/>
 						<p className={style.desc}>Сп - Ас</p>
 					</div>

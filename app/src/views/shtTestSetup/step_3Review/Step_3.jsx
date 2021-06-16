@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -10,6 +11,17 @@ const Step_3 = (props) => {
 	useEffect(() => dispatch(props.action({ testingSystem })), []);
 	const testingSystemTests = useSelector((state) => state.shtTest.testingSystemTests);
 	const results = testingSystemTests.find((item) => item.ID == id)?.results;
+	const getPercent = (element) => {
+		if (element == 'низкая') {
+			return 10;
+		} else if (element == 'средняя') {
+			return 50;
+		} else if (element == 'высокая') {
+			return 90;
+		} else {
+			return 50;
+		}
+	};
 
 	return (
 		<div className={style.container}>
@@ -26,7 +38,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results?.situational}`}
-							percent={0}
+							percent={getPercent(results?.situational)}
 						/>
 						<p className={style.desc}>Ситуативная тревожность</p>
 					</div>
@@ -37,7 +49,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results?.personal}`}
-							percent={0}
+							percent={getPercent(results?.personal)}
 						/>
 						<p className={style.desc}>Личная тревожность</p>
 					</div>
