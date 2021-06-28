@@ -5,7 +5,7 @@ $bcButtonLogin: #8ca2d3;
 $sizeTextButtonAndLabels: 24px;
 
 .container {
-	height: 85%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -38,7 +38,13 @@ $sizeTextButtonAndLabels: 24px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	margin-right: 40px;
+}
+
+.container_to_progress_component > div > div {
+	height: 180px !important;
+	width: 180px !important;
 }
 
 .desc {

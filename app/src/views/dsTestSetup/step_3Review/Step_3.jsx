@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -9,7 +8,7 @@ const Step_3 = (props) => {
 	const dispatch = useDispatch();
 	const { testingSystem, id } = useParams();
 	useEffect(() => dispatch(props.action({ testingSystem })), []);
-	const testingSystemTests = useSelector((state) => state.acTest.testingSystemTests);
+	const testingSystemTests = useSelector((state) => state.dsTest.testingSystemTests);
 	const results = testingSystemTests.find((item) => item.ID == id)?.results;
 	const getPercent = (element) => {
 		if (element == 'низкая') {
@@ -25,7 +24,7 @@ const Step_3 = (props) => {
 
 	return (
 		<div className={style.container}>
-			<div className={style.title}>Актуальное состояние</div>
+			<div className={style.title}>System Usability Scale</div>
 			<div className={style.img_and_progress}>
 				<div className={style.image_container}>
 					<img className={style.image} src={props.img} alt='img' />
@@ -37,10 +36,10 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results?.AK_AC}`}
-							percent={getPercent(results?.AK_AC)}
+							format={() => `${results?.AK}`}
+							percent={getPercent(results?.AK)}
 						/>
-						<p className={style.desc}>Ак - Ас</p>
+						<p className={style.desc}>АК</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -51,7 +50,7 @@ const Step_3 = (props) => {
 							format={() => `${results?.BO}`}
 							percent={getPercent(results?.BO)}
 						/>
-						<p className={style.desc}>Во</p>
+						<p className={style.desc}>Бо</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -59,10 +58,10 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results?.CA}`}
-							percent={getPercent(results?.CA)}
+							format={() => `${results?.TO}`}
+							percent={getPercent(results?.TO)}
 						/>
-						<p className={style.desc}>Са</p>
+						<p className={style.desc}>То</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -70,10 +69,10 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results?.TO_AC}`}
-							percent={getPercent(results?.TO_AC)}
+							format={() => `${results?.PA}`}
+							percent={getPercent(results?.PA)}
 						/>
-						<p className={style.desc}>То - Ас</p>
+						<p className={style.desc}>Ра</p>
 					</div>
 					<div className={style.container_to_progress_component}>
 						<Progress
@@ -81,10 +80,43 @@ const Step_3 = (props) => {
 							type='circle'
 							strokeWidth='12'
 							strokeColor='#559AC8'
-							format={() => `${results?.SP_AC}`}
-							percent={getPercent(results?.SP_AC)}
+							format={() => `${results?.SP}`}
+							percent={getPercent(results?.SP)}
 						/>
-						<p className={style.desc}>Сп - Ас</p>
+						<p className={style.desc}>Сп</p>
+					</div>
+					<div className={style.container_to_progress_component}>
+						<Progress
+							className={style.progress_component}
+							type='circle'
+							strokeWidth='12'
+							strokeColor='#559AC8'
+							format={() => `${results?.US}`}
+							percent={getPercent(results?.US)}
+						/>
+						<p className={style.desc}>Ус</p>
+					</div>
+					<div className={style.container_to_progress_component_1}>
+						<Progress
+							className={style.progress_component}
+							type='circle'
+							strokeWidth='12'
+							strokeColor='#559AC8'
+							format={() => `${results?.UD}`}
+							percent={getPercent(results?.UD)}
+						/>
+						<p className={style.desc}>Уд</p>
+					</div>
+					<div className={style.container_to_progress_component_2}>
+						<Progress
+							className={style.progress_component}
+							type='circle'
+							strokeWidth='12'
+							strokeColor='#559AC8'
+							format={() => `${results?.PO}`}
+							percent={getPercent(results?.PO)}
+						/>
+						<p className={style.desc}>По</p>
 					</div>
 				</div>
 			</div>
