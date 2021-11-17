@@ -24,7 +24,7 @@ function RegisterForma(props) {
   let userPhoto = null;
   const onFinish = (values) => {
     const send = () => () => {
-      values.sex = RadioValue;
+      values.sex = RadioValue === "М" ? "m" : "w";
       values.photo = userPhoto;
       props.register(values);
     };
