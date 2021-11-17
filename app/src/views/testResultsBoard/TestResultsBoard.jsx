@@ -7,6 +7,7 @@ import PssuqPassedPage from '../pssuqPassedPage/index';
 import MdtPassedPage from '../mdtPassedPage/index';
 import AcPassedPage from '../acPassedPage/index';
 import DsPassedPage from '../dsPassedPage/index';
+import ShtPassedPage from '../shtPassedPage/index';
 
 import TestingSystemInfo from '../../components/testingSystemInfo/TestingSystemInfo';
 import Page_404 from '../page_404/Page_404';
@@ -20,6 +21,7 @@ import imageSus from '../../assets/images/cubes-solid_1.svg';
 import Step3Ac from '../acTestSetup/step_3Review/Step_3';
 import imageAC from '../../assets/images/balance-scale-solid 1.png';
 import Step3Ds from '../dsTestSetup/step_3Review/Step_3';
+import Step3Sht from '../shtTestSetup/step_3Review/Step_3';
 
 import { getTestingSystemResults as susAction } from '../../redux/actions/susTest';
 import { getTestingSystemResults as pssuqAction } from '../../redux/actions/pssuqTest';
@@ -54,6 +56,10 @@ const TestsResultsBoard = () => {
 				render={() => <Step3Ds action={dsAction} img={imageAC} />}
 			/>
 			<Route
+				path='/dashboard/passed_tests/шт/:testingSystem/:id'
+				render={() => <Step3Sht action={shtAction} img={imageAC} />}
+			/>
+			<Route
 				path='/dashboard/passed_tests/sus/:testingSystem'
 				render={() => (
 					<TestingSystemInfo
@@ -67,6 +73,21 @@ const TestsResultsBoard = () => {
 			<Route
 				path='/dashboard/passed_tests/sus'
 				render={() => <SusPassedPage setDate={setDate} />}
+			/>
+			<Route
+				path='/dashboard/passed_tests/шт/:testingSystem'
+				render={() => (
+					<TestingSystemInfo
+						typeOfTest='ШТ'
+						action={shtAction}
+						statePath='shtTest'
+						date={date}
+					/>
+				)}
+			/>
+			<Route
+				path='/dashboard/passed_tests/шт'
+				render={() => <ShtPassedPage setDate={setDate} />}
 			/>
 			<Route
 				path='/dashboard/passed_tests/pssuq/:testingSystem'

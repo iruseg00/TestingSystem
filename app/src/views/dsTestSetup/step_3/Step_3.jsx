@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useSelector } from 'react-redux';
 import style from './style.module.scss';
 import { Button, Progress } from 'antd';
@@ -5,6 +6,18 @@ import { Link } from 'react-router-dom';
 
 const Step_3 = (props) => {
 	const results = useSelector((state) => state.dsTest.results);
+	const getPercent = (element) => {
+		if (element == 'низкая') {
+			return 10;
+		} else if (element == 'средняя') {
+			return 50;
+		} else if (element == 'высокая') {
+			return 90;
+		} else {
+			return 50;
+		}
+	};
+
 	return (
 		<div className={style.container}>
 			<div className={style.title}>System Usability Scale</div>
@@ -20,7 +33,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results.AK}`}
-							percent={0}
+							percent={getPercent(results.AK)}
 						/>
 						<p className={style.desc}>АК</p>
 					</div>
@@ -31,7 +44,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results.BO}`}
-							percent={0}
+							percent={getPercent(results.BO)}
 						/>
 						<p className={style.desc}>Бо</p>
 					</div>
@@ -42,7 +55,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results.TO}`}
-							percent={0}
+							percent={getPercent(results.TO)}
 						/>
 						<p className={style.desc}>То</p>
 					</div>
@@ -53,7 +66,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results.PA}`}
-							percent={0}
+							percent={getPercent(results.PA)}
 						/>
 						<p className={style.desc}>Ра</p>
 					</div>
@@ -64,7 +77,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results.SP}`}
-							percent={0}
+							percent={getPercent(results.SP)}
 						/>
 						<p className={style.desc}>Сп</p>
 					</div>
@@ -75,7 +88,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results.US}`}
-							percent={0}
+							percent={getPercent(results.US)}
 						/>
 						<p className={style.desc}>Ус</p>
 					</div>
@@ -86,7 +99,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results.UD}`}
-							percent={0}
+							percent={getPercent(results.UD)}
 						/>
 						<p className={style.desc}>Уд</p>
 					</div>
@@ -97,7 +110,7 @@ const Step_3 = (props) => {
 							strokeWidth='12'
 							strokeColor='#559AC8'
 							format={() => `${results.PO}`}
-							percent={0}
+							percent={getPercent(results.PO)}
 						/>
 						<p className={style.desc}>По</p>
 					</div>

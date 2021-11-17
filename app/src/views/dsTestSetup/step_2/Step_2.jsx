@@ -15,9 +15,9 @@ const Step_2 = (props) => {
   const loading = useSelector((state) => state.dsTest.loading);
   const questions = useSelector((state) => state.dsTest.questions);
   let sex = useSelector((store) => store.users.profile.sex);
-  // if (sex == "M" || sex == "m") {
-  //   sex = "m";
-  // }
+  if (sex == "M" || sex == "М") {
+    sex = "m";
+  }
   console.log(questions);
   const arrayOfQuestions = questions?.map((element) => (
     <TestAcQuestion
@@ -39,7 +39,7 @@ const Step_2 = (props) => {
         answers: arrayOfAnswersToPost,
         testingSystem: props.getData.testingSystem,
         description: props.getData.description,
-        sex: sex.toLowerCase() === 'm' ? 'm' : 'w',
+        sex: sex.toLowerCase(),
       };
       console.log(answer_to_post);
       dispatch(getResults(answer_to_post));
